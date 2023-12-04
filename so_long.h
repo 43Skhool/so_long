@@ -5,11 +5,11 @@
 
 #include <stdio.h>//TODO da levare
 
-# define WALL				'1'
-# define FLOOR 				'0'
-# define COINS  			'C'
-# define PLAYER				'P'
-# define MAP_EXIT 		 	'E'
+# define WALL			'1'
+# define FLOOR			'0'
+# define COLLECTIBLES	'C'
+# define PLAYER			'P'
+# define EXIT			'E'
 
 typedef enum e_bool
 {
@@ -30,6 +30,8 @@ typedef struct s_map_validation_response
 	position	*player_starting_position;//Null if valid == false
 }	map_validation_response;
 
-map_validation_response	*validate_map(char *map[]);
+map_validation_response	*get_map(char *file_name, char **map_matrix);
+
+size_t	ft_strlen(const char	*str);// TO DO da levare e rimpiazzare con la funzione dentro libft
 
 #endif
