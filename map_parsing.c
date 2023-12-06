@@ -20,12 +20,15 @@ map_validation_response *get_map(char *file_name, char **map)
 	// 	result->valid = false;
 	// 	return (result);
 	// }
+
 	result = validate_map(map);
 	//Validation the readen map and returning the result
 	return (result);
+
+	//return (NULL);
 }
 
-//read the map from file and check if it's a rectangle
+//read the map from file and check if it's a rectangle and the file is .ber file
 bool	read_map(char *file_name, char **map)
 {
 	return (true);
