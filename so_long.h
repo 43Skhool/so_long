@@ -35,5 +35,6 @@ map_validation_response	*get_map(char *file_name, char **map_matrix);
 
 size_t	ft_strlen(const char	*str);// TO DO da levare e rimpiazzare con la funzione dentro libft
 size_t	ft_strlcpy(char *dest, const char *src, size_t size); // TO DO da levare e rimpiazzare con la funzione dentro libft
+void	*ft_calloc(size_t nitems, size_t size);// TO DO da levare e rimpiazzare con la funzione dentro libft
 
 #endif

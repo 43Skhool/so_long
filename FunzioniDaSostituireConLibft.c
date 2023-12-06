@@ -42,3 +42,39 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (src_len);
 }
+
+
+
+
+
+void	*ft_memset(void *dest, int c, size_t count)
+{
+	size_t			i;
+	unsigned char	*tmp;
+
+	tmp = dest;
+	i = 0;
+	while (i < count)
+	{
+		tmp[i] = (unsigned char)c;
+		i++;
+	}
+	return (dest);
+}
+
+void	*ft_bzero(void *dest, size_t count)
+{
+	return (ft_memset(dest, '\0', count));
+}
+
+void	*ft_calloc(size_t nitems, size_t size)
+{
+	void	*tmp;
+
+	tmp = malloc(nitems * size);
+	if (!tmp)
+		return (NULL);
+	return (ft_bzero(tmp, nitems * size));
+}
+
+

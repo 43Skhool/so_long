@@ -16,7 +16,19 @@ static bool is_surrended_by_walls(char *map[]);
 
 static bool validate_components(char *map[], map_validation_response *response); // se ritorna x:-1 e y:-1 vuol dire che ci sono troppe starting position, altrimenti la posizione iniziale del giocatore
 
-static bool valid_path_exist(char *map[], position *player_position, position *exit_position);
+static bool is_reachable(char *map[], position *player_position, position *exit_position);
+
+static	void stampa_quella_mmerda(char **map)// TO DO da levare
+{
+    int i = 0;
+
+    while (map[i])
+    {
+        printf("%s\n", map[i]);
+        i++;
+    }
+
+}
 
 //Validate the content of the maps
 map_validation_response *validate_map(char *map[])
@@ -33,12 +45,10 @@ map_validation_response *validate_map(char *map[])
 	// //WE ALREADY KNOW THAT IS surrended by wall, so we don't need to take about about the borsers
 	if (validate_components(map, result) == false)
 		return (result);
-	// printf("%i - %i\n", result->exit_position->x, result->exit_position->y);
-	// printf("%c\n", map[result->exit_position->x][result->exit_position->y]);
-	// printf("%i - %i\n", result->player_starting_position->x, result->player_starting_position->y);
-	// printf("%c\n", map[result->player_starting_position->x][result->player_starting_position->y]);
-	// if (valid_path_exist(map, result->player_starting_position, result->exit_position) == false)
-	// 	return (result->reason = "Map hasn't a valid path", result);
+	if (is_reachable(map, result->player_starting_position, result->exit_position) == false)
+		return (result->reason = "Map hasn't a valid path", result->valid = false, result);
+
+	stampa_quella_mmerda(map);
 
 	result->valid = true;
 	return (result);
@@ -133,41 +143,100 @@ static bool validate_components(char *map[], map_validation_response *response)
 	return (response->valid = true, true);
 }
 
-static bool valid_path_exist(char *map[], position *player_position, position *exit_position)
+//Used to validate the reachability both of colletibles and exit, node visited are 'V'
+static bool is_reachable(char *map[], position *start_position, position *end_position)
 {
 	int			x;
 	int			y;
 	position	*new_possible_position;
+	char		**backup_map;
 
-	x = player_position->x;
-	y = player_position->y;
-	new_possible_position = malloc(sizeof(position));
+	
 
+	x = start_position->x;
+	y = start_position->y;
 
-	if (x == exit_position->x && y == exit_position->y)
-	{
-		map[x][y] = '0';
+	//printf("Current position: %i - %i : %c\n", x, y, map[x][y]);
+	//printf("Current position: %i - %i : %c\n", end_position->x, end_position->y, map[end_position->x][end_position->y]);
+
+	//verifica di essere arrivato alla destinazione
+	if (x == end_position->x && y == end_position->y)
 		return (true);
-	}
 
-	if (map[x][y] == '0')
-	{
-		map[x][y] = '0';
+	if (map[x][y] == '1' || map[x][y] == 'v')
+		return (false);
 
-		//Check rigth
-		new_possible_position->x = player_position->x;
-		new_possible_position->y = player_position->y + 1;
-		if (valid_path_exist(map, new_possible_position, exit_position) == true)
-			return (true);
+	map[x][y] = 'v';
 
-		//Check down
-		new_possible_position->x = player_position->x + 1;
-		new_possible_position->y = player_position->y;
-		if (valid_path_exist(map, new_possible_position, exit_position) == true)
-			return (true);
+	//Down
+	start_position->x = x + 1;
+	start_position->y = y;
+	printf("Current position down: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
+	if (is_reachable(map, start_position, end_position) == true)
+		return (true);
 
-		map[x][y] = '0';
-	}
+	//Right
+	start_position->x = x;
+	start_position->y = y + 1;
+	printf("Current position right: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
+	if (is_reachable(map, start_position, end_position) == true)
+		return (true);
 
+	//UP
+	start_position->x = x - 1;
+	start_position->y = y;
+	printf("Current position up: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
+	if (is_reachable(map, start_position, end_position) == true)
+		return (true);
+
+	//Left
+	start_position->x = x;
+	start_position->y = y -1;
+		printf("Current position left: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
+	if (is_reachable(map, start_position, end_position) == true)
+		return (true);
+
+	//map[x][y] = 'v';
+
+	//TO DO tutti i nodi visitati (V) devono ritornare vuoti (0)
 	return (false);
 }
+
+
+// static bool is_reachable(char *map[], position *start_position, position *end_position)
+// {
+// 	int			x;
+// 	int			y;
+// 	position	*new_possible_position;
+
+// 	x = player_position->x;
+// 	y = player_position->y;
+// 	new_possible_position = malloc(sizeof(position));
+
+// 	if (x == exit_position->x && y == exit_position->y)
+// 	{
+// 		map[x][y] = '0';
+// 		return (true);
+// 	}
+
+// 	if (map[x][y] == '0')
+// 	{
+// 		map[x][y] = '0';
+
+// 		//Check rigth
+// 		new_possible_position->x = player_position->x;
+// 		new_possible_position->y = player_position->y + 1;
+// 		if (valid_path_exist(map, new_possible_position, exit_position) == true)
+// 			return (true);
+
+// 		//Check down
+// 		new_possible_position->x = player_position->x + 1;
+// 		new_possible_position->y = player_position->y;
+// 		if (valid_path_exist(map, new_possible_position, exit_position) == true)
+// 			return (true);
+
+// 		map[x][y] = '1';
+// 	}
+
+// 	return (false);
+// }
