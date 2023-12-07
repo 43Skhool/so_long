@@ -26,7 +26,27 @@ map_validation_response *get_map(char *file_name, char **map)
 }
 
 //read the map from file and check if it's a rectangle
+//abbastanza sicuro che in caso di una lettura non completa del file (del buffer statico),
+//la parte rimanente della riga valga come memory leak alla fine del programma.
+
 bool	read_map(char *file_name, char **map)
 {
+	char	*line;
+	int		fd;
+	int		i;
+	int		line_lenght;
+
+	fd = open(file_name);
+	line = gnl(fd);
+	if (!line)
+		return (false);
+	line_lenght = ft_strlen(line);
+	while (line)
+	{
+		*map = line;
+		line = gnl(fd);
+		if (line_lenght != ft_strlen(line))
+			return (false);
+	}
 	return (true);
 }
