@@ -20,15 +20,22 @@ map_validation_response *get_map(char *file_name, char **map)
 	// 	result->valid = false;
 	// 	return (result);
 	// }
+
 	result = validate_map(map);
 	//Validation the readen map and returning the result
 	return (result);
+
+	//return (NULL);
 }
 
+<<<<<<< HEAD
 //read the map from file and check if it's a rectangle
 //abbastanza sicuro che in caso di una lettura non completa del file (del buffer statico),
 //la parte rimanente della riga valga come memory leak alla fine del programma.
 
+=======
+//read the map from file and check if it's a rectangle and the file is .ber file
+>>>>>>> 4d3d1cceec6380da69230642e6954d77e174c1ed
 bool	read_map(char *file_name, char **map)
 {
 	char	*line;
