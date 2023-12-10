@@ -12,28 +12,23 @@
 
 #include "so_long.h"
 
+typedef struct s_reachable_elements//Used to validate the reachability of the exit and the collectibles
+{
+	int	is_exit_reachable;//0: no, 1 Si
+	int	reachable_collectibles_count;
+}	reachable_elements;
+
 static bool is_surrended_by_walls(char *map[]);
 
-static bool validate_components(char *map[], map_validation_response *response); // se ritorna x:-1 e y:-1 vuol dire che ci sono troppe starting position, altrimenti la posizione iniziale del giocatore
+static bool validate_components(char *map[], map_validation_response *response);
 
-static bool is_reachable(char *map[], position *player_position, position *exit_position);
-
-static	void stampa_quella_mmerda(char **map)// TO DO da levare
-{
-    int i = 0;
-
-    while (map[i])
-    {
-        printf("%s\n", map[i]);
-        i++;
-    }
-
-}
+static void check_reachability(char *map[], position *player_position, reachable_elements *elements);
 
 //Validate the content of the maps
 map_validation_response *validate_map(char *map[])
 {
-	map_validation_response *result;
+	map_validation_response	*result;
+	reachable_elements		*elements;
 
 	result = malloc(sizeof(map_validation_response));
 	//result->reason = "ciai";
@@ -45,10 +40,27 @@ map_validation_response *validate_map(char *map[])
 	// //WE ALREADY KNOW THAT IS surrended by wall, so we don't need to take about about the borsers
 	if (validate_components(map, result) == false)
 		return (result);
-	if (is_reachable(map, result->player_starting_position, result->exit_position) == false)
-		return (result->reason = "Map hasn't a valid path", result->valid = false, result);
 
-	stampa_quella_mmerda(map);
+	elements = malloc(sizeof(reachable_elements));
+	//Initialization for memory leak
+	elements->is_exit_reachable = 0;
+	elements->reachable_collectibles_count = 0;
+
+	check_reachability(map, result->player_starting_position, elements);
+
+	//Check that all collectibles are reachable
+	if (elements->reachable_collectibles_count != result->collectibles_count)
+	{
+		free(elements);
+		return (result->reason = "Not all collectibles are reachable", result->valid = false, result);
+	}
+	if (elements->is_exit_reachable == 0)
+	{
+		free(elements);
+		return (result->reason = "Exit isn't reachable", result->valid = false, result);
+	}
+
+	free(elements);
 
 	result->valid = true;
 	return (result);
@@ -137,106 +149,58 @@ static bool validate_components(char *map[], map_validation_response *response)
 		return (response->reason = "Wrong number of player position, it should be 1", false);
 	else if (collectibles_count < 1)
 		return (response->reason = "Wrong number of collectibles, it should be 1 on more", false);
-	else if (exit_count != 1)
-		return (response->reason = "Wrong number of exit, it should be 1", false);
+	else
+	{
+		response->collectibles_count = collectibles_count;
+
+		if (exit_count != 1)
+			return (response->reason = "Wrong number of exit, it should be 1", false);
+	}
 
 	return (response->valid = true, true);
 }
 
-//Used to validate the reachability both of colletibles and exit, node visited are 'V'
-static bool is_reachable(char *map[], position *start_position, position *end_position)
+static void check_reachability(char *map[], position *start_position, reachable_elements *elements)
 {
 	int			x;
 	int			y;
-	position	*new_possible_position;
-	char		**backup_map;
-
-	
 
 	x = start_position->x;
 	y = start_position->y;
 
-	//printf("Current position: %i - %i : %c\n", x, y, map[x][y]);
-	//printf("Current position: %i - %i : %c\n", end_position->x, end_position->y, map[end_position->x][end_position->y]);
+	if(map[x][y] == EXIT)
+		elements->is_exit_reachable = 1;
 
-	//verifica di essere arrivato alla destinazione
-	if (x == end_position->x && y == end_position->y)
-		return (true);
+	if(map[x][y] == COLLECTIBLES)
+		elements->reachable_collectibles_count++;
 
 	if (map[x][y] == '1' || map[x][y] == 'v')
-		return (false);
+		return;
 
 	map[x][y] = 'v';
 
 	//Down
 	start_position->x = x + 1;
 	start_position->y = y;
-	printf("Current position down: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
-	if (is_reachable(map, start_position, end_position) == true)
-		return (true);
+	check_reachability(map, start_position, elements);
 
 	//Right
 	start_position->x = x;
 	start_position->y = y + 1;
-	printf("Current position right: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
-	if (is_reachable(map, start_position, end_position) == true)
-		return (true);
+	check_reachability(map, start_position, elements);
 
 	//UP
 	start_position->x = x - 1;
 	start_position->y = y;
-	printf("Current position up: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
-	if (is_reachable(map, start_position, end_position) == true)
-		return (true);
+	check_reachability(map, start_position, elements);
 
 	//Left
 	start_position->x = x;
 	start_position->y = y -1;
-		printf("Current position left: %i - %i : %c\n", start_position->x, start_position->y, map[start_position->x][start_position->y]);
-	if (is_reachable(map, start_position, end_position) == true)
-		return (true);
+	check_reachability(map, start_position, elements);
 
 	//map[x][y] = 'v';
 
 	//TO DO tutti i nodi visitati (V) devono ritornare vuoti (0)
-	return (false);
+	return;
 }
-
-
-// static bool is_reachable(char *map[], position *start_position, position *end_position)
-// {
-// 	int			x;
-// 	int			y;
-// 	position	*new_possible_position;
-
-// 	x = player_position->x;
-// 	y = player_position->y;
-// 	new_possible_position = malloc(sizeof(position));
-
-// 	if (x == exit_position->x && y == exit_position->y)
-// 	{
-// 		map[x][y] = '0';
-// 		return (true);
-// 	}
-
-// 	if (map[x][y] == '0')
-// 	{
-// 		map[x][y] = '0';
-
-// 		//Check rigth
-// 		new_possible_position->x = player_position->x;
-// 		new_possible_position->y = player_position->y + 1;
-// 		if (valid_path_exist(map, new_possible_position, exit_position) == true)
-// 			return (true);
-
-// 		//Check down
-// 		new_possible_position->x = player_position->x + 1;
-// 		new_possible_position->y = player_position->y;
-// 		if (valid_path_exist(map, new_possible_position, exit_position) == true)
-// 			return (true);
-
-// 		map[x][y] = '1';
-// 	}
-
-// 	return (false);
-// }

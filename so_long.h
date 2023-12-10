@@ -29,6 +29,7 @@ typedef struct s_map_validation_response
 	char		*reason;//Null if valid == true
 	position	*player_starting_position;//Null if valid == false
 	position	*exit_position;
+	int			collectibles_count;
 }	map_validation_response;
 
 map_validation_response	*get_map(char *file_name, char **map_matrix);
