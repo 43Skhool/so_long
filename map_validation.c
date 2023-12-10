@@ -66,7 +66,6 @@ map_validation_response *validate_map(char *map[])
 	return (result);
 }
 
-
 static bool is_surrended_by_walls(char *map[])
 {
 	//'i' is used to pass through the rows of matrix

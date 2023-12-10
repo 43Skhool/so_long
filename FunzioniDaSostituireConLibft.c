@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   FunzioniDaSostituireConLibft.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lebartol <lebartol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:44:58 by maceccar          #+#    #+#             */
-/*   Updated: 2023/10/11 16:49:31 by lebartol         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:10:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (src_len);
 }
-
-
-
-
 
 void	*ft_memset(void *dest, int c, size_t count)
 {

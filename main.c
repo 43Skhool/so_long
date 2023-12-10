@@ -15,7 +15,7 @@ char ** inizializza_quella_mmerda()
     map = malloc(sizeof(char *) * N);
 
     for (size_t i = 0; i < N; i++)
-        map[i] = malloc(sizeof(char) * 6);
+        map[i] = malloc(sizeof(char) * 7);
 
     ft_strlcpy(map[0], "11111", 6);
     ft_strlcpy(map[1], "1C0C1", 6);
@@ -66,17 +66,18 @@ int main(/*int argc, char *argv[]*/)
 
 	char *file_path = "maps/not_surrended_by_walls.ber";
 
-	map_validation_response *a = get_map(file_path, map);
+	// map_validation_response *a = get_map(file_path, map);
 
-	if (a->valid == false)
-		printf("%s\n", a->reason);
-	else
-		printf("ok, map is valid\n");
+	// if (a->valid == false)
+	// 	printf("%s\n", a->reason);
+	// else
+	// 	printf("ok, map is valid\n");
 
-    free(a->exit_position);
-    free(a->player_starting_position);
-    free(a->reason);
-    free(a);//Necessario per non avere memory leak con il valgrind nei test
+    // free(a->exit_position);
+    // free(a->player_starting_position);
+    // free(a->reason);
+    // free(a);//Necessario per non avere memory leak con il valgrind nei test
     //dealloc_matrix(dup);
+
     libera_quella_mmerda(map);
 }
