@@ -2,12 +2,18 @@
 #include "so_long.h"
 
 map_validation_response *validate_map(char **map);
-
+bool validate_file_name(char *file_name);
 bool	read_map(char *file_name, char **map);
 
 map_validation_response *get_map(char *file_name, char **map)
 {
 	map_validation_response	*result;
+
+	if (validate_file_name(file_name) == false)
+	{
+		result->reason = "Error, wrong file extension";
+		result->valid = false;
+	}
 
 	//Try to store the file content in the matrix
 	// if (read_map(file_name, map) == false)//Lettura del file fallita
@@ -26,6 +32,19 @@ map_validation_response *get_map(char *file_name, char **map)
 	return (result);
 
 	//return (NULL);
+}
+
+bool validate_file_name(char *file_name)
+{
+	char	**file_name_splitted;
+	size_t		row_count;
+
+	file_name_splitted = ft_split(file_name, '.');
+	row_count = count_matrix_row(file_name_splitted);
+	if(ft_strcmp(file_name_splitted[row_count - 1], "ber") == 0)
+		return (true);
+
+	return (false);
 }
 //read the map from file and check if it's a rectangle
 //abbastanza sicuro che in caso di una lettura non completa del file (del buffer statico),

@@ -65,7 +65,7 @@ int main(/*int argc, char *argv[]*/)
 
     // printf("|%li|\n", count_matrix_row(map));
 
-	char *file_path = "maps/not_surrended_by_walls.ber";
+	char *file_path = "maps/not_surrended_by_walls";
 
 	// map_validation_response *a = get_map(file_path, map);
 

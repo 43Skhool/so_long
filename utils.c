@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-static size_t	count_matrix_row(char    **matrix)
+size_t	count_matrix_row(char    **matrix)
 {
 	size_t	i;
 
@@ -45,4 +45,33 @@ void	dealloc_matrix(char **matrix)
         i++;
     }
     free(matrix);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	diff;
+	int	c;
+
+	c = 0;
+	while (s1[c] != '\0' || s2[c] != '\0')
+	{
+		if (s1[c] == '\0')
+		{
+			return (-s2[c]);
+		}
+		if (s2[c] == '\0')
+		{
+			return (s1[c]);
+		}
+		diff = s1[c] - s2[c];
+		if (diff == 0)
+		{
+			c++;
+		}
+		else
+		{
+			return (diff);
+		}
+	}
+	return (0);
 }
