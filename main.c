@@ -40,17 +40,6 @@ static void stampa_quella_mmerda(char **map)
 
 }
 
-static void libera_quella_mmerda(char **map)
-{
-    int i = 0;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
-}
-
 int main(/*int argc, char *argv[]*/)
 {
 	char **map = inizializza_quella_mmerda();
