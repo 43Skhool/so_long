@@ -10,20 +10,20 @@ void	dealloc_matrix(char **matrix);
 
 char ** inizializza_quella_mmerda()
 {
-    int N = 6;
+    int N = 5;
     char **map;
     map = malloc(sizeof(char *) * N);
 
-    for (size_t i = 0; i < N; i++)
-        map[i] = malloc(sizeof(char) * 7);
+    for (size_t i = 0; i < N - 1; i++)
+        map[i] = malloc(sizeof(char) * 6);
 
     ft_strlcpy(map[0], "11111", 6);
     ft_strlcpy(map[1], "1C0C1", 6);
     ft_strlcpy(map[2], "1P101", 6);
-    ft_strlcpy(map[3], "101E1", 6);
-    ft_strlcpy(map[4], "11111", 6);
+    ft_strlcpy(map[3], "11111", 6);
 
-    map[5] = NULL; // TO DO MAP MUST BE NULL TERMINATED
+    map[N - 1] = malloc(sizeof(char) * 1);
+    map[N - 1] = '\0'; // TO DO MAP MUST BE NULL TERMINATED
 
     return (map);
 }
@@ -54,8 +54,9 @@ static void libera_quella_mmerda(char **map)
 int main(/*int argc, char *argv[]*/)
 {
 	char **map = inizializza_quella_mmerda();
-    //stampa_quella_mmerda(map);
-
+    printf("mappa iniziale\n");
+    stampa_quella_mmerda(map);
+    printf("\n\n");
     //printf("\n");
 
     // char **dup = duplicate_char_matrix(map);
@@ -77,7 +78,10 @@ int main(/*int argc, char *argv[]*/)
     // free(a->player_starting_position);
     // free(a->reason);
     // free(a);//Necessario per non avere memory leak con il valgrind nei test
-    //dealloc_matrix(dup);
 
-    libera_quella_mmerda(map);
+    printf("\n\nmappa finale\n");
+    stampa_quella_mmerda(map);
+    printf("\n\n");
+
+    dealloc_matrix(map);
 }

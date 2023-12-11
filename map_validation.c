@@ -24,45 +24,48 @@ static bool validate_components(char *map[], map_validation_response *response);
 
 static void check_reachability(char *map[], position *player_position, reachable_elements *elements);
 
+static void stampa_quella_mmerda(char **map)
+{
+    int i = 0;
+
+    while (map[i])
+    {
+        printf("%s\n", map[i]);
+        i++;
+    }
+
+}
+
 //Validate the content of the maps
 map_validation_response *validate_map(char *map[])
 {
 	map_validation_response	*result;
 	reachable_elements		*elements;
+	char					**tmp_matrix;
 
 	result = malloc(sizeof(map_validation_response));
-	//result->reason = "ciai";
 	if (!result)
 		return (result->valid = false, result->reason = "Memory allocation failed", result);
-	//WE ALREADY KNOW THAT IS A RECTANGULAR
 	if (is_surrended_by_walls(map) == false)
 		return (result->reason = "Map isn't surrended by walls", result);
-	// //WE ALREADY KNOW THAT IS surrended by wall, so we don't need to take about about the borsers
 	if (validate_components(map, result) == false)
 		return (result);
-
 	elements = malloc(sizeof(reachable_elements));
-	//Initialization for memory leak
 	elements->is_exit_reachable = 0;
 	elements->reachable_collectibles_count = 0;
-
-	check_reachability(map, result->player_starting_position, elements);
-
-	//Check that all collectibles are reachable
+	tmp_matrix = duplicate_char_matrix(map);
+	check_reachability(tmp_matrix, result->player_starting_position, elements);
+	result->valid = false;
 	if (elements->reachable_collectibles_count != result->collectibles_count)
-	{
-		free(elements);
-		return (result->reason = "Not all collectibles are reachable", result->valid = false, result);
-	}
+		result->reason = "Not all collectibles are reachable";
 	if (elements->is_exit_reachable == 0)
-	{
-		free(elements);
-		return (result->reason = "Exit isn't reachable", result->valid = false, result);
-	}
-
+		result->reason = "Exit isn't reachable";
+	else
+		result->valid = true;
 	free(elements);
+	if(tmp_matrix)
+		dealloc_matrix(tmp_matrix);
 
-	result->valid = true;
 	return (result);
 }
 
@@ -74,18 +77,15 @@ static bool is_surrended_by_walls(char *map[])
 	int	j;
 
 	size_t	column_number;
-
 	i = 1;//Start from the second one beacause the first is checked in the last step
 	j = 0;
 	column_number = ft_strlen(map[0]);
-
 	while (map[i + 1])
 	{
 		if (map[i][0] != WALL || map[i][column_number - 1] != WALL)
 			return (false);
 		i++;
 	}
-
 	//Now 'i' has become the number of the last row
 	while (j < column_number)
 	{
@@ -93,7 +93,6 @@ static bool is_surrended_by_walls(char *map[])
 			return (false);
 		j++;
 	}
-
 	return (true);
 }
 
@@ -197,9 +196,5 @@ static void check_reachability(char *map[], position *start_position, reachable_
 	start_position->x = x;
 	start_position->y = y -1;
 	check_reachability(map, start_position, elements);
-
-	//map[x][y] = 'v';
-
-	//TO DO tutti i nodi visitati (V) devono ritornare vuoti (0)
 	return;
 }

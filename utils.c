@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-size_t	count_matrix_row(char    **matrix)
+static size_t	count_matrix_row(char    **matrix)
 {
 	size_t	i;
 

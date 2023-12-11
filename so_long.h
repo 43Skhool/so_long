@@ -2,6 +2,7 @@
 # define SO_LONG_H
 
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <stdio.h>//TODO da levare
 
@@ -33,6 +34,8 @@ typedef struct s_map_validation_response
 }	map_validation_response;
 
 map_validation_response	*get_map(char *file_name, char **map_matrix);
+void	dealloc_matrix(char **matrix);
+char **duplicate_char_matrix(char	**matrix);
 
 size_t	ft_strlen(const char	*str);// TO DO da levare e rimpiazzare con la funzione dentro libft
 size_t	ft_strlcpy(char *dest, const char *src, size_t size); // TO DO da levare e rimpiazzare con la funzione dentro libft
