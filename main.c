@@ -10,7 +10,7 @@ void	dealloc_matrix(char **matrix);
 
 char ** inizializza_quella_mmerda()
 {
-    int N = 5;
+    size_t N = 5;
     char **map;
     map = malloc(sizeof(char *) * N);
 
@@ -45,8 +45,6 @@ int main(/*int argc, char *argv[]*/)
 	char **map = inizializza_quella_mmerda();
     printf("mappa iniziale\n");
     stampa_quella_mmerda(map);
-    t_list *lst = malloc(sizeof(t_list));
-    ft_lstadd_back(&lst, lst);
     printf("\n\n");
     //printf("\n");
 
@@ -58,17 +56,20 @@ int main(/*int argc, char *argv[]*/)
 
 	char *file_path = "maps/not_surrended_by_walls";
 
-	// map_validation_response *a = get_map(file_path, map);
+	map_validation_response *a = get_map(file_path, map);
 
-	// if (a->valid == false)
-	// 	printf("%s\n", a->reason);
-	// else
-	// 	printf("ok, map is valid\n");
+	if (a->valid == false)
+		printf("%s\n", a->reason);
+	else
+		printf("ok, map is valid\n");
 
-    // free(a->exit_position);
-    // free(a->player_starting_position);
-    // free(a->reason);
-    // free(a);//Necessario per non avere memory leak con il valgrind nei test
+    if (a->exit_position)
+        free(a->exit_position);
+
+    if (a->player_starting_position)
+        free(a->player_starting_position);
+
+    free(a);
 
     printf("\n\nmappa finale\n");
     stampa_quella_mmerda(map);

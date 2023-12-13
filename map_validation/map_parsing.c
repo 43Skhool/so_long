@@ -1,5 +1,5 @@
 
-#include "so_long.h"
+#include "../so_long.h"
 
 map_validation_response *validate_map(char **map);
 bool validate_file_name(char *file_name);
@@ -11,8 +11,12 @@ map_validation_response *get_map(char *file_name, char **map)
 
 	if (validate_file_name(file_name) == false)
 	{
-		result->reason = "Error, wrong file extension";
+		result = malloc(sizeof(map_validation_response));
 		result->valid = false;
+		if (!result)
+			return (result->reason = "Memory allocation failed", result);
+		result->reason = "Error, wrong file extension";
+		return (result);
 	}
 
 	//Try to store the file content in the matrix

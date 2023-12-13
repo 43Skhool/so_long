@@ -10,7 +10,7 @@
 
 // There must be a valid path
 
-#include "so_long.h"
+#include "../so_long.h"
 
 typedef struct s_reachable_elements//Used to validate the reachability of the exit and the collectibles
 {
@@ -23,18 +23,6 @@ static bool is_surrended_by_walls(char *map[]);
 static bool validate_components(char *map[], map_validation_response *response);
 
 static void check_reachability(char *map[], position *player_position, reachable_elements *elements);
-
-static void stampa_quella_mmerda(char **map)
-{
-    int i = 0;
-
-    while (map[i])
-    {
-        printf("%s\n", map[i]);
-        i++;
-    }
-
-}
 
 //Validate the content of the maps
 map_validation_response *validate_map(char *map[])
@@ -74,7 +62,7 @@ static bool is_surrended_by_walls(char *map[])
 	//'i' is used to pass through the rows of matrix
 	int	i;
 	//'j' is used to pass through the the line
-	int	j;
+	size_t	j;
 
 	size_t	column_number;
 	i = 1;//Start from the second one beacause the first is checked in the last step
