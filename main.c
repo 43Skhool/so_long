@@ -45,6 +45,8 @@ int main(/*int argc, char *argv[]*/)
 	char **map = inizializza_quella_mmerda();
     printf("mappa iniziale\n");
     stampa_quella_mmerda(map);
+    t_list *lst = malloc(sizeof(t_list));
+    ft_lstadd_back(&lst, lst);
     printf("\n\n");
     //printf("\n");
 
