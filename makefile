@@ -8,8 +8,9 @@ SRC = map_validation/map_validation.c \
 FLAGS		= -Wall -Werror -Wextra
 
 $(NAME):
-	${MAKE} -C libft bonus && mv libft/libft.a $(NAME)
-	cc $(FLAGS) $(SRC) *.h -I./libft $(NAME) -o so_long.out
+	${MAKE} -C libft bonus
+	${MAKE} -C mlx
+	cc $(FLAGS) $(SRC) -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx  -lXext -lX11 -o so_long.out
 
 all: $(NAME)
 

@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+#include "mlx.h"
 #include "libft.h"
 
 #include <stdio.h>//TODO da levare
@@ -24,6 +26,15 @@ typedef struct s_position
 	int	x;
 	int	y;
 }	position;
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
 
 typedef struct s_map_validation_response
 {
