@@ -10,7 +10,7 @@ FLAGS		= -Wall -Werror -Wextra
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(FLAGS) $(SRC) -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx  -lXext -lX11 -o so_long.out
+	cc $(FLAGS) $(SRC) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11 -o so_long.out
 
 all: $(NAME)
 

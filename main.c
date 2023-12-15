@@ -9,43 +9,44 @@ void	dealloc_matrix(char **matrix);
 
 
 
-// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-// {
-// 	char	*dst;
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
 
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int*)dst = color;
-// }
-// void	draw_line(t_data img)
-// {
-// 	position a = {10, 10};
-// 	position b = {100, 100};
-// 	int m = (a.y - b.y) / (a.x - b.x);
-// 	int intercept = a.y - (m * a.x);
-// 	int x = a.x;
-// 	int y = 0;
-// 	printf("m is %d and intercept is %d", m, intercept);
-// 	while (x < b.x)
-// 	{
-// 		y = (m * x) - intercept;
-// 		my_mlx_pixel_put(&img, x, y, 0xFFFF0000);
-// 		x++;
-// 	}
-// }
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
+void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color)
+{
+    double deltaX = endX - beginX;
+    double deltaY = endY - beginY;
+    int pixels = sqrt((deltaX * deltaX) + (deltaY * deltaY));
+    deltaX /= pixels;
+    deltaY /= pixels;
+    double pixelX = beginX;
+    double pixelY = beginY;
+    while (pixels)
+    {
+        my_mlx_pixel_put(&img, pixelX, pixelY, color);
+        pixelX += deltaX;
+        pixelY += deltaY;
+        --pixels;
+    }
+}
 
 void	window_test()
 {
-	// void	*mlx;
-	// void	*mlx_win;
-	// t_data	img;
+	void	*mlx;
+	void	*mlx_win;
+	t_data	img;
 
-	// mlx = mlx_init();
-	// mlx_win = mlx_new_window(mlx, 1920, 1080, "NOME DELLA FINESTRA");
-	// img.img = mlx_new_image(mlx, 1920, 1080);
-	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	// draw_line(img);
-	// mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	// mlx_loop(mlx);
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "NOME DELLA FINESTRA");
+	img.img = mlx_new_image(mlx, 1920, 1080);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	mlx_loop(mlx);
 }
 
 char ** inizializza_quella_mmerda()
