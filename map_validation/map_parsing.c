@@ -46,8 +46,11 @@ bool validate_file_name(char *file_name)
 	file_name_splitted = ft_split(file_name, '.');
 	row_count = count_matrix_row(file_name_splitted);
 	if(ft_strcmp(file_name_splitted[row_count - 1], "ber") == 0)
+	{
+		dealloc_matrix(file_name_splitted);
 		return (true);
-
+	}
+	dealloc_matrix(file_name_splitted);
 	return (false);
 }
 //read the map from file and check if it's a rectangle

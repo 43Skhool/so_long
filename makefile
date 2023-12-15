@@ -28,3 +28,6 @@ re: fclean all
 
 test: re
 	 ./so_long.out
+
+val: re
+	 valgrind ./so_long.out

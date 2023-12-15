@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-#include "mlx.h"
+// #include "mlx.h"
 #include "libft.h"
 
 #include <stdio.h>//TODO da levare
