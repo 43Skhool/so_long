@@ -16,6 +16,11 @@
 # define PLAYER			'P'
 # define EXIT			'E'
 
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
 typedef enum e_bool
 {
 	false,

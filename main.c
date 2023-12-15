@@ -7,7 +7,25 @@ size_t	count_matrix_row(char    **matrix);
 char **duplicate_char_matrix(char	**matrix);
 void	dealloc_matrix(char **matrix);
 
+int gcd(int a, int b)
+{
+	while (b != 0)
+	{
+		a %= b;
+		a ^= b;
+		b ^= a;
+		a ^= b;
+	}
 
+	return a;
+}
+
+int	window_close(int keycode, t_vars *vars)
+{
+	printf("%d: closing window", keycode);
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -37,16 +55,17 @@ void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color
 
 void	window_test()
 {
-	void	*mlx;
-	void	*mlx_win;
+	int width = 1920, height = 1080;
+	t_vars	vars;
 	t_data	img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "NOME DELLA FINESTRA");
-	img.img = mlx_new_image(mlx, 1920, 1080);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, width, height, "Hello world!");
+	img.img = mlx_new_image(vars.mlx, width, height);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_hook(vars.win, 2, 1L<<0, window_close, &vars);
+	mlx_loop(vars.mlx);
 }
 
 char ** inizializza_quella_mmerda()
