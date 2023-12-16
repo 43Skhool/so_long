@@ -1,85 +1,115 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lebartol <lebartol@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 16:33:46 by lebartol          #+#    #+#             */
-/*   Updated: 2023/11/19 23:41:35 by lebartol         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "so_long.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
 
-static int	newline_check(char *str)
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1
+# endif
+
+char	*ft_strjoin_free_s1(char *s1, char const *s2)
 {
-	int	i;
+	char	*s3;
+	char	*p3;
+	char	*p1;
 
-	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i] != '\n' && str[i])
-		i++;
-	if (str[i] == '\n')
-		return (i);
-	return (-1);
-}
-
-static char	*addtostash(char *stash, char *content)
-{
-	if (!content)
-		return (stash);
-	if (!stash)
-		return (content);
-	stash = ft_strjoin(stash, content);
-	return (stash);
-}
-
-static char	*get_line(char *stash, int fd)
-{
-	static char	*remainder;
-	char		*res;
-	int			cursor;
-	char		*buffer;
-
-	if (remainder)
+	s3 = malloc (sizeof (*s3) * (ft_strlen (s1) + ft_strlen (s2) + 1));
+	if (!s3)
 	{
-		stash = ft_substr(remainder, 0, ft_strlen(remainder));
-	}
-	free(remainder);
-	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (!buffer)
+		free (s1);
 		return (NULL);
-	cursor = read(fd, buffer, BUFFER_SIZE);
-	if (cursor > 0)
-	{
-		stash = addtostash(stash, buffer);
-		return (get_line(stash, fd));
 	}
-	free(buffer);
-	cursor = newline_check(stash);
-	if (cursor != -1)
-	{
-		remainder = ft_substr(stash, cursor + 1, ft_strlen(stash));
-		res = ft_substr(stash, 0, cursor + 1);
-		free(stash);
-		return (res);
-	}
-	free(stash);
-	return (NULL);
+	p3 = s3;
+	p1 = s1;
+	while (*p1)
+		*p3++ = *p1++;
+	while (*s2)
+		*p3++ = *s2++;
+	*p3 = 0;
+	free (s1);
+	return (s3);
 }
 
-char	*get_next_line(int fd)
+static char	*ft_next(char **temp)
 {
-	char	*stash;
+	char	*line;
+	char	*ptr;
 
-	stash = malloc(sizeof(char));
-	if (fd < 0 || BUFFER_SIZE < 1 || !stash)
+	ptr = *temp;
+	while (*ptr && *ptr != '\n')
+		++ptr;
+	ptr += (*ptr == '\n');
+	line = ft_substr (*temp, 0, (size_t)(ptr - *temp));
+	if (!line)
+	{
+		free (*temp);
 		return (NULL);
-	return (get_line(stash, fd));
+	}
+	ptr = ft_substr (ptr, 0, ft_strlen (ptr));
+	free (*temp);
+	*temp = ptr;
+	return (line);
+}
+
+static char	*ft_read(char *temp, int fd, char *buf)
+{
+	ssize_t		r;
+
+	r = 1;
+	while (r && !ft_strchr (temp, '\n'))
+	{
+		r = read (fd, buf, BUFFER_SIZE);
+		if (r == -1)
+		{
+			free (buf);
+			free (temp);
+			return (NULL);
+		}
+		buf[r] = 0;
+		temp = ft_strjoin_free_s1 (temp, buf);
+		if (!temp)
+		{
+			free (buf);
+			return (NULL);
+		}
+	}
+	free (buf);
+	return (temp);
+}
+
+char	*get_next_line(int fd, bool last_call)
+{
+	static char	*temp[OPEN_MAX];
+	char		*buf;
+
+	if (last_call == true)
+	{
+		free(buf);
+		dealloc_matrix(temp);
+		return (NULL);
+	}
+
+	if (fd == -1 || BUFFER_SIZE < 1)
+		return (NULL);
+	if (!temp[fd])
+		temp[fd] = ft_strdup("");
+	if (!temp[fd])
+		return (NULL);
+	buf = malloc (sizeof (*buf) * (BUFFER_SIZE + 1));
+	if (!buf)
+	{
+		free (temp[fd]);
+		return (NULL);
+	}
+	temp[fd] = ft_read (temp[fd], fd, buf);
+	if (!temp[fd])
+		return (NULL);
+	if (!*temp[fd])
+	{
+		free (temp[fd]);
+		temp[fd] = NULL;
+		return (NULL);
+	}
+	return (ft_next(&temp[fd]));
 }

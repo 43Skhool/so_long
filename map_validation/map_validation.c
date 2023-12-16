@@ -24,19 +24,21 @@ static bool validate_components(char *map[], map_validation_response *response);
 
 static void check_reachability(char *map[], position *player_position, reachable_elements *elements);
 
-map_validation_response *validate_map(char *map[], map_validation_response *result)
+map_validation_response *validate_map(map_validation_response *result)
 {
 	reachable_elements		*elements;
 	char					**tmp_matrix;
 
-	if (is_surrended_by_walls(map) == false)
+	if (is_surrended_by_walls(result->map) == false)
 		return (result->reason = "Map isn't surrended by walls", result);
-	if (validate_components(map, result) == false)
+	if (validate_components(result->map, result) == false)
 		return (result);
 	elements = malloc(sizeof(reachable_elements));
+	if (!elements)
+		return (NULL);
 	elements->is_exit_reachable = 0;
 	elements->reachable_collectibles_count = 0;
-	tmp_matrix = duplicate_char_matrix(map);
+	tmp_matrix = duplicate_char_matrix(result->map);
 	check_reachability(tmp_matrix, result->player_starting_position, elements);
 	result->valid = false;
 	if (elements->reachable_collectibles_count != result->collectibles_count)

@@ -62,3 +62,17 @@ void free_map_validation_response(map_validation_response *map_validation_respon
 
 	free(map_validation_response);
 }
+
+
+//TO DO levare il printf
+void print_char_matrix(char **matrix)
+{
+	int i = 0;
+
+	while (matrix[i])
+	{
+		printf("%s\n", matrix[i]);
+		i++;
+	}
+
+}

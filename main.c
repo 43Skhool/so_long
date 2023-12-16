@@ -125,23 +125,29 @@ int main(/*int argc, char *argv[]*/)
 	// char **map;
 	// char **map = inizializza_quella_mmerda();
 
-	// char *file_path = "maps/not_surrended_by_walls.ber";
+	char *file_path = "maps/not_surrended_by_walls.ber";
 	// // int fd = open(file_path, O_RDONLY);
 	// // printf("%s", get_next_line(fd));
 	// // int fd = open(file_path, O_RDONLY);
 	// // char *buffer = malloc(sizeof(char));
 
-	// map_validation_response *map_validation_response = get_map(file_path, map);
+	map_validation_response *result = get_map(file_path);
 
-	// if (!map_validation_response)
-	// 	printf("error, memory allocation fail");
-	// else if (map_validation_response->valid == false)
-	// 	printf("%s\n", map_validation_response->reason);
-	// else
-	// 	printf("ok, map is valid\n");
+	// printf("3|%p|\n", result->map);
 
-	// free_map_validation_response(map_validation_response);
+	//print_char_matrix(result->map);
 
-	// dealloc_matrix(map);
-	window_test();
+	if (!result)
+		printf("error, memory allocation fail");
+	else if (result->valid == false)
+		printf("%s\n", result->reason);
+	else
+	{
+		printf("ok, map is valid\n");
+		print_char_matrix(result->map);
+	}
+
+	dealloc_matrix(result->map);
+	free_map_validation_response(result);
+	//window_test();
 }

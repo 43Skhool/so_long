@@ -49,9 +49,10 @@ typedef struct s_map_validation_response
 	position	*player_starting_position;//Null if valid == false
 	position	*exit_position;
 	int			collectibles_count;
+	char		**map;
 }	map_validation_response;
 
-map_validation_response	*get_map(char *file_name, char **map_matrix);
+map_validation_response	*get_map(char *file_name);
 
 void	dealloc_matrix(char **matrix);
 
@@ -61,6 +62,8 @@ size_t	count_matrix_row(char    **matrix);
 
 void free_map_validation_response(map_validation_response *map_validation_response);
 
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, bool last_call);
+
+void print_char_matrix(char **matrix);
 
 #endif
