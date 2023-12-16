@@ -2,7 +2,6 @@ NAME		= so_long
 
 SRC = map_validation/map_validation.c \
 	map_validation/map_parsing.c \
-	get_next_line.c \
 	utils.c \
 	main.c
 
