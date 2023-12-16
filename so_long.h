@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <math.h>
 #include "mlx.h"
 #include "libft.h"
 
@@ -15,6 +16,11 @@
 # define COLLECTIBLES	'C'
 # define PLAYER			'P'
 # define EXIT			'E'
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
 
 typedef enum e_bool
 {
