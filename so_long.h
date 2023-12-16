@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-// #include "mlx.h"
+#include <fcntl.h>
+#include "mlx.h"
 #include "libft.h"
 
 #include <stdio.h>//TODO da levare
@@ -35,7 +36,6 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-
 typedef struct s_map_validation_response
 {
 	bool		valid;
@@ -53,6 +53,8 @@ char **duplicate_char_matrix(char	**matrix);
 
 size_t	count_matrix_row(char    **matrix);
 
-int	ft_strcmp(char *s1, char *s2);
+void free_map_validation_response(map_validation_response *map_validation_response);
+
+char	*get_next_line(int fd);
 
 #endif

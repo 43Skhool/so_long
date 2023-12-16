@@ -14,16 +14,16 @@ char **duplicate_char_matrix(char	**matrix)
 {
 	int count_rows;
 	int	str_len;
-    char **result;
+	char **result;
 	int	i;
 
 	count_rows = count_matrix_row(matrix);
-    result = malloc(sizeof(char *) * (count_rows + 1));// last NULL element => +1
+	result = malloc(sizeof(char *) * (count_rows + 1));// last NULL element => +1
 	if (!result)
 		return (NULL);
 	i = 0;
 
-    while (matrix[i])
+	while (matrix[i])
 	{
 		str_len = ft_strlen(matrix[i]);
 		result[i] = ft_calloc(str_len + 1, sizeof(char));// +1 x '/0'
@@ -38,40 +38,27 @@ char **duplicate_char_matrix(char	**matrix)
 
 void	dealloc_matrix(char **matrix)
 {
+	if (!matrix)
+		return ;
 	int i = 0;
-    while (matrix[i])
-    {
-        free(matrix[i]);
-        i++;
-    }
-    free(matrix);
+	while (matrix[i])
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+void free_map_validation_response(map_validation_response *map_validation_response)
 {
-	int	diff;
-	int	c;
+	if (map_validation_response->exit_position)
+		free(map_validation_response->exit_position);
 
-	c = 0;
-	while (s1[c] != '\0' || s2[c] != '\0')
-	{
-		if (s1[c] == '\0')
-		{
-			return (-s2[c]);
-		}
-		if (s2[c] == '\0')
-		{
-			return (s1[c]);
-		}
-		diff = s1[c] - s2[c];
-		if (diff == 0)
-		{
-			c++;
-		}
-		else
-		{
-			return (diff);
-		}
-	}
-	return (0);
+	if (map_validation_response->player_starting_position)
+		free(map_validation_response->player_starting_position);
+
+	// if (map_validation_response->reason)
+	// 	free(map_validation_response->reason);
+
+	free(map_validation_response);
 }

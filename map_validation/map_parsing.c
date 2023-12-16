@@ -1,51 +1,51 @@
 
 #include "../so_long.h"
 
-map_validation_response *validate_map(char **map);
-bool validate_file_name(char *file_name);
-bool	read_map(char *file_name, char **map);
+map_validation_response *validate_map(char **map, map_validation_response *result);
+static bool validate_file_name(char *file_name);
+static bool read_map(char *file_name, char **map);
 
 map_validation_response *get_map(char *file_name, char **map)
 {
-	map_validation_response	*result;
+	map_validation_response *result;
+	result = malloc(sizeof(map_validation_response));
+	if (!result)
+		return (NULL);
+	result->valid = false;
+	result->exit_position = NULL;
+	result->player_starting_position = NULL;
 
 	if (validate_file_name(file_name) == false)
-	{
-		result = malloc(sizeof(map_validation_response));
-		result->valid = false;
-		if (!result)
-			return (result->reason = "Memory allocation failed", result);
-		result->reason = "Error, wrong file extension";
-		return (result);
-	}
+		return (result->reason = "Error, wrong file extension", result);
 
-	//Try to store the file content in the matrix
-	// if (read_map(file_name, map) == false)//Lettura del file fallita
-	// {
-	// 	result = malloc(sizeof(map_validation_response));
-	// 	if (!result)
-	// 		return (NULL);
+	// Try to store the file content in the matrix
+	//  if (read_map(file_name, map) == false)//Lettura del file fallita
+	//  {
+	//  	result = malloc(sizeof(map_validation_response));
+	//  	result->valid = false;
+	//  	if (!result)
+	//  		return (NULL);
+	//  	result->reason = "Error during file lecture, wrong format";
+	//  	return (result);
+	//  }
 
-	// 	result->reason = "Error during file lecture, wrong format";
-	// 	result->valid = false;
-	// 	return (result);
-	// }
-
-	result = validate_map(map);
-	//Validation the readen map and returning the result
+	result = validate_map(map, result);
+	// Validation the readen map and returning the result
 	return (result);
 
-	//return (NULL);
+	// return (NULL);
 }
 
-bool validate_file_name(char *file_name)
+static bool validate_file_name(char *file_name)
 {
-	char	**file_name_splitted;
-	size_t		row_count;
+	char **file_name_splitted;
+	size_t row_count;
+	int lenght;
 
 	file_name_splitted = ft_split(file_name, '.');
 	row_count = count_matrix_row(file_name_splitted);
-	if(ft_strcmp(file_name_splitted[row_count - 1], "ber") == 0)
+	lenght = ft_strlen(file_name_splitted[row_count - 1]);
+	if (ft_strncmp(file_name_splitted[row_count - 1], "ber", lenght) == 0)
 	{
 		dealloc_matrix(file_name_splitted);
 		return (true);
@@ -53,29 +53,31 @@ bool validate_file_name(char *file_name)
 	dealloc_matrix(file_name_splitted);
 	return (false);
 }
-//read the map from file and check if it's a rectangle
-//abbastanza sicuro che in caso di una lettura non completa del file (del buffer statico),
-//la parte rimanente della riga valga come memory leak alla fine del programma.
+// read the map from file and check if it's a rectangle
+// abbastanza sicuro che in caso di una lettura non completa del file (del buffer statico),
+// la parte rimanente della riga valga come memory leak alla fine del programma.
 
-//read the map from file and check if it's a rectangle and the file is .ber file
-// bool	read_map(char *file_name, char **map)
-// {
-// 	char	*line;
-// 	int		fd;
-// 	int		i;
-// 	int		line_lenght;
+// read the map from file and check if it's a rectangle and the file is .ber file
+static bool read_map(char *file_name, char **map)
+{
+	char *line;
+	int fd;
+	// int		i;
+	size_t line_lenght;
 
-// 	fd = open(file_name);
-// 	line = gnl(fd);
-// 	if (!line)
-// 		return (false);
-// 	line_lenght = ft_strlen(line);
-// 	while (line)
-// 	{
-// 		*map = line;
-// 		line = gnl(fd);
-// 		if (line_lenght != ft_strlen(line))
-// 			return (false);
-// 	}
-// 	return (true);
-// }
+	fd = open(file_name, O_RDONLY);
+	line = get_next_line(fd);
+	printf("|%s|aaa\n", line);
+	if (!line)
+		return (false);
+	line_lenght = ft_strlen(line);
+	while (line)
+	{
+		*map = line;
+		line = get_next_line(fd);
+		if (line_lenght != ft_strlen(line))
+			return (false);
+		printf("c");
+	}
+	return (true);
+}

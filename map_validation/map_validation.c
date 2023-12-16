@@ -24,16 +24,11 @@ static bool validate_components(char *map[], map_validation_response *response);
 
 static void check_reachability(char *map[], position *player_position, reachable_elements *elements);
 
-//Validate the content of the maps
-map_validation_response *validate_map(char *map[])
+map_validation_response *validate_map(char *map[], map_validation_response *result)
 {
-	map_validation_response	*result;
 	reachable_elements		*elements;
 	char					**tmp_matrix;
 
-	result = malloc(sizeof(map_validation_response));
-	if (!result)
-		return (result->valid = false, result->reason = "Memory allocation failed", result);
 	if (is_surrended_by_walls(map) == false)
 		return (result->reason = "Map isn't surrended by walls", result);
 	if (validate_components(map, result) == false)

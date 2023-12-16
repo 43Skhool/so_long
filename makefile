@@ -2,6 +2,7 @@ NAME		= so_long
 
 SRC = map_validation/map_validation.c \
 	map_validation/map_parsing.c \
+	get_next_line.c \
 	utils.c \
 	main.c
 
@@ -10,7 +11,8 @@ FLAGS		= -Wall -Werror -Wextra
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(FLAGS) $(SRC) -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx  -lXext -lX11 -o so_long.out
+	cc $(SRC) -Ilibft -Iget_next_line *.h -Llibft -lft -Imlx -Lmlx -lmlx  -lXext -lX11 -o so_long.out
+#TO DO da rimettere le flag
 
 all: $(NAME)
 
