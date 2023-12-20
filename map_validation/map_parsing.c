@@ -26,12 +26,9 @@ map_validation_response *get_map(char *file_name)
 		return (result->reason = "Error, wrong file extension", result);
 
 	map_size *size = malloc(sizeof(map_size));
-	
+
 	if (get_map_size(file_name, size) == false)
 		return (result->reason = "Error, map isn't a rectangle or it is too small", free(size), result);
-
-	printf("colonne: %i\nlinee: %i\n", size->columns_number, size->lines_number);
-
 
 	result->map = read_map(file_name, size);
 

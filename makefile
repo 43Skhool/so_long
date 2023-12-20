@@ -10,7 +10,7 @@ FLAGS		= -Wall -Werror -Wextra
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(SRC) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
+	cc $(SRC) $(FLAGS) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
 #TO DO rimettere le flag
 
 all: $(NAME)
