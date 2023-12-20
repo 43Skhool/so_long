@@ -28,7 +28,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	 ./a.out
+	 ./a.out maps/map.ber
 
 val: re
-	 valgrind ./a.out
+	 valgrind ./a.out maps/map.ber
