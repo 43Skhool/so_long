@@ -26,8 +26,12 @@ map_validation_response *get_map(char *file_name)
 		return (result->reason = "Error, wrong file extension", result);
 
 	map_size *size = malloc(sizeof(map_size));
+	
 	if (get_map_size(file_name, size) == false)
-		return (result->reason = "Error, map isn't a rectangle", free(size), result);
+		return (result->reason = "Error, map isn't a rectangle or it is too small", free(size), result);
+
+	printf("colonne: %i\nlinee: %i\n", size->columns_number, size->lines_number);
+
 
 	result->map = read_map(file_name, size);
 
@@ -40,7 +44,6 @@ map_validation_response *get_map(char *file_name)
 	if (!result)
 		return (result->reason = "Error during map validation", result);
 
-	//result->valid= true;
 	return (result);
 }
 
@@ -115,14 +118,14 @@ static bool get_map_size(char *file_name, map_size *size)
 	column_number = 0;
 	line_length = 0;
 	fd = open(file_name, O_RDONLY);
-	size->lines_number = 0;
-	size->columns_number = -1;
-	while (read(fd, buffer, sizeof(buffer)))
+	size->lines_number = 1;
+	size->columns_number = 0;
+	while (read(fd, buffer, sizeof(buffer)) > 0)
 	{
 		if (*buffer == '\n')
 		{
 			size->lines_number++;
-			if (size->columns_number != column_number && size->columns_number != -1)
+			if (size->columns_number != column_number && size->columns_number != 0)//1° line
 				return (false);
 			else
 				size->columns_number = column_number;
@@ -132,5 +135,7 @@ static bool get_map_size(char *file_name, map_size *size)
 			column_number++;
 	}
 	close(fd);
+	if (*buffer == '\n' || *buffer == '\r' || size->columns_number <= 1)
+		return (false);
 	return (true);
 }

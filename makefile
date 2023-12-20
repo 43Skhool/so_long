@@ -10,9 +10,8 @@ FLAGS		= -Wall -Werror -Wextra
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(SRC) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11 -o so_long.out
-#TO DO da rimettere le flag
-
+	cc $(SRC) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
+#TO DO rimettere le flag
 
 all: $(NAME)
 
@@ -29,7 +28,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	 ./so_long.out
+	 ./a.out
 
 val: re
-	 valgrind ./so_long.out
+	 valgrind ./a.out
