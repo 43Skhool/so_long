@@ -16,6 +16,9 @@
 # define COLLECTIBLES	'C'
 # define PLAYER			'P'
 # define EXIT			'E'
+# define SPRITE_HEIGHT	32
+# define DESTROY_NOTIFY 17
+
 
 typedef struct	s_vars {
 	void	*mlx;
