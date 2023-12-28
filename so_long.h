@@ -18,12 +18,15 @@
 # define EXIT			'E'
 # define SPRITE_HEIGHT	32
 # define DESTROY_NOTIFY 17
-
-
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}				t_vars;
+# define KEY_ESC		65307
+# define W_KEY			119
+# define A_KEY			97
+# define S_KEY			115
+# define D_KEY			100
+# define UP_ARROW		65362
+# define LEFT_ARROW		65361
+# define DOWN_ARROW		65364
+# define RIGHT_ARROW	65363
 
 typedef enum e_bool
 {
@@ -55,18 +58,33 @@ typedef struct s_map_validation_response
 	char		**map;
 }	map_validation_response;
 
+typedef struct	s_vars {
+	void					*mlx;
+	void					*win;
+	t_data					img;
+	map_validation_response	map;
+}				t_vars;
+
 map_validation_response	*get_map(char *file_name);
 
 void	dealloc_matrix(char **matrix);
 
-char **duplicate_char_matrix(char	**matrix);
+char	**duplicate_char_matrix(char	**matrix);
 
-size_t	count_matrix_row(char    **matrix);
+size_t	count_matrix_row(char **matrix);
 
-void free_map_validation_response(map_validation_response *map_validation_response);
+void	free_map_validation_response(map_validation_response *map_validation_response);
 
 char	*get_next_line(int fd, bool last_call);
 
-void print_char_matrix(char **matrix);
+void	print_char_matrix(char **matrix);
+
+void	window_init(map_validation_response *map);
+
+int		window_close(t_vars *vars);
+
+int		render_next_frame(t_vars *vars);
+
+void	hook(t_vars *vars);
 
 #endif

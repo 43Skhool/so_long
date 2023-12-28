@@ -6,35 +6,57 @@
 /*   By: lebartol <lebartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:53:28 by lebartol          #+#    #+#             */
-/*   Updated: 2023/12/20 18:21:00 by lebartol         ###   ########.fr       */
+/*   Updated: 2023/12/28 18:11:36 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	hook(t_vars vars, t_data img)
+void	move_up(t_vars *vars)
 {
-	mlx_key_hook(vars.win, keyboard_handler, &vars);
-	mlx_mouse_hook(vars.win, mouse_hook, &vars);
-	mlx_hook(vars.win, DESTROY_NOTIFY, 0, window_close, &vars);
-	mlx_loop_hook(mlx, render_next_frame, img, &vars);
+		//validate_move( player_position + 1y );
+		vars->map.player_starting_position->y -= 10;
 }
 
-int	key_hook(int keycode, t_vars *vars)
+void	move_down(t_vars *vars)
+{
+		//validate_move( player_position - 1y );
+		vars->map.player_starting_position->y += 10;
+}
+
+void	move_left(t_vars *vars)
+{
+		//validate_move( player_position - 1x );
+		vars->map.player_starting_position->x -= 10;
+}
+
+void	move_right(t_vars *vars)
+{
+		//validate_move( player_position + 1x );
+		vars->map.player_starting_position->x += 10;
+}
+
+int	keyboard_handler(int keycode, t_vars *vars)
 {
 	printf("keyboard input: %d\n", keycode);
+	printf("p: [%d, %d]\n", vars->map.player_starting_position->x, vars->map.player_starting_position->y);
 	if (keycode == KEY_ESC)
-		window_close(keycode, vars);
+		window_close(vars);
+	else if (keycode == W_KEY || keycode == UP_ARROW)
+			move_up(vars);
+	else if (keycode == S_KEY || keycode == DOWN_ARROW)
+			move_down(vars);
+	else if (keycode == A_KEY || keycode == LEFT_ARROW)
+			move_left(vars);
+	else if (keycode == D_KEY || keycode == RIGHT_ARROW)
+			move_right(vars);
 	return (0);
 }
 
-int mouse_hook(int mouse, t_vars *vars)
+void	hook(t_vars *vars)
 {
-	printf(" %d mouse event %d\n", mouse);
-	return(0);
-}
-
-int keyboard_handler(t_data *vars)
-{
-
+	mlx_key_hook(vars->win, keyboard_handler, vars);
+	mlx_hook(vars->win, DESTROY_NOTIFY, 0, window_close, vars);
+	mlx_loop_hook(vars->mlx, render_next_frame, vars);
+	mlx_loop(vars->mlx);
 }

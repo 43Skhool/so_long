@@ -23,7 +23,8 @@ int main(int argc, char *argv[])
 		print_char_matrix(result->map);
 	}
 
+	printf("player at %d, %d\n", result->player_starting_position->x,result->player_starting_position->y);
+	window_init(result);
 	dealloc_matrix(result->map);
 	free_map_validation_response(result);
-	//window_test();
 }

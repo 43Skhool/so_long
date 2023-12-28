@@ -35,7 +35,7 @@ map_validation_response *get_map(char *file_name)
 	free(size);
 
 	if (!result->map)
-		return (result->reason = "Error during file lecture", result);
+		return (result->reason = "Error during file read", result);
 
 	result = validate_map(result);
 	if (!result)

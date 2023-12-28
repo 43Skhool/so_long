@@ -3,9 +3,11 @@ NAME		= so_long
 SRC = map_validation/map_validation.c \
 	map_validation/map_parsing.c \
 	utils.c \
+	input_handling.c \
+	window_handling.c \
 	main.c
 
-FLAGS		= -Wall -Werror -Wextra
+FLAGS		= -Wall -Werror -Wextra -g -s
 
 $(NAME):
 	${MAKE} -C libft bonus
