@@ -49,18 +49,18 @@ void	dealloc_matrix(char **matrix)
 	free(matrix);
 }
 
-void free_map_validation_response(map_validation_response *map_validation_response)
+void free_game(game *game)
 {
-	if (map_validation_response->exit_position)
-		free(map_validation_response->exit_position);
+	if (game->exit_position)
+		free(game->exit_position);
 
-	if (map_validation_response->player_starting_position)
-		free(map_validation_response->player_starting_position);
+	if (game->player_starting_position)
+		free(game->player_starting_position);
 
 	// if (map_validation_response->reason)
 	// 	free(map_validation_response->reason);
 
-	free(map_validation_response);
+	free(game);
 }
 
 

@@ -11,11 +11,11 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	map_validation_response *result = get_map(argv[1]);
+	game *result = get_map(argv[1]);
 
 	if (!result)
 		printf("error, memory allocation fail");
-	else if (result->valid == false)
+	else if (result->is_map_valid == false)
 		printf("%s\n", result->reason);
 	else
 	{
@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
 	}
 
 	printf("player at %d, %d\n", result->player_starting_position->x,result->player_starting_position->y);
-	window_init(result);
+	printf("\n|%c|\n", result->map[result->player_starting_position->x][result->player_starting_position->y]);
+	//window_init(result);
 	dealloc_matrix(result->map);
-	free_map_validation_response(result);
+	free_game(result);
 }

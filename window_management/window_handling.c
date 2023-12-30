@@ -6,7 +6,7 @@
 /*   By: lebartol <lebartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:37:10 by lebartol          #+#    #+#             */
-/*   Updated: 2023/12/28 18:10:55 by lebartol         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:18:00 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,32 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
+
+void	window_init()
+{
+	int width = 1920, height = 1080;
+	t_vars	vars;
+	t_data	img;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, width, height, "Hello world!");
+	img.img = mlx_new_image(vars.mlx, width, height);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	hook(vars, img);
+	mlx_loop(vars.mlx);
+}
+
+int	window_close(int keycode, t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
+void render_next_frame(t_vars vars, t_data img);
+{
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+}
+
 void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color)
 {
 	double deltaX = endX - beginX;
@@ -35,39 +61,4 @@ void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color
 		pixelY += deltaY;
 		--pixels;
 	}
-}
-
-void	window_init(game *map)
-{
-	int width = 1920;
-	int height = 1080;
-	t_vars	vars;
-	t_data *img = &vars.img;
-	vars.map = *map;
-
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, width, height, "Hello world!");
-	img->img = mlx_new_image(vars.mlx, width, height);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
-	mlx_put_image_to_window(vars.mlx, vars.win, img->img, 0, 0);
-	printf("p: [%d, %d]\n", vars.map.player_starting_position->x, vars.map.player_starting_position->y);
-	hook(&vars);
-}
-
-// void	draw_map(char **map)
-// {
-// }
-
-int	render_next_frame(t_vars *vars)
-{
-	//draw_map(vars->map);
-	draw_line(vars->img, 0, 0, vars->map.player_starting_position->x, vars->map.player_starting_position->y, 0XFF0000FF);
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
-	return (0);
-}
-
-int	window_close(t_vars *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	return (0);
 }

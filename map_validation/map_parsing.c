@@ -6,18 +6,18 @@ typedef struct	s_map_size {
 	int	columns_number; //-1 => non è un quadrato
 }	map_size;
 
-map_validation_response *validate_map(map_validation_response *result);
+game *validate_map(game *result);
 static bool validate_file_name(char *file_name);
 static char **read_map(char *file_name, map_size *size);
 static bool get_map_size(char *file_name, map_size *size);
 
-map_validation_response *get_map(char *file_name)
+game *get_map(char *file_name)
 {
-	map_validation_response *result;
-	result = malloc(sizeof(map_validation_response));
+	game *result;
+	result = malloc(sizeof(game));
 	if (!result)
 		return (NULL);
-	result->valid = false;
+	result->is_map_valid = false;
 	result->exit_position = NULL;
 	result->player_starting_position = NULL;
 	result->map = NULL;
@@ -109,11 +109,11 @@ static bool get_map_size(char *file_name, map_size *size)
 {
 	int			fd;
 	char		buffer[1];
-	int			line_length;
+	//int			line_length;
 	int			column_number;
 
 	column_number = 0;
-	line_length = 0;
+	//line_length = 0;
 	fd = open(file_name, O_RDONLY);
 	size->lines_number = 1;
 	size->columns_number = 0;

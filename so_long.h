@@ -48,24 +48,24 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-typedef struct s_map_validation_response
+typedef struct s_game
 {
-	bool		valid;
+	bool		is_map_valid;
 	char		*reason;//Null if valid == true
 	position	*player_starting_position;//Null if valid == false
 	position	*exit_position;
 	int			collectibles_count;
 	char		**map;
-}	map_validation_response;
+}	game;
 
 typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
 	t_data					img;
-	map_validation_response	map;
+	game	map;
 }				t_vars;
 
-map_validation_response	*get_map(char *file_name);
+game	*get_map(char *file_name);
 
 void	dealloc_matrix(char **matrix);
 
@@ -73,13 +73,13 @@ char	**duplicate_char_matrix(char	**matrix);
 
 size_t	count_matrix_row(char **matrix);
 
-void	free_map_validation_response(map_validation_response *map_validation_response);
+void	free_game(game *map_validation_response);
 
 char	*get_next_line(int fd, bool last_call);
 
 void	print_char_matrix(char **matrix);
 
-void	window_init(map_validation_response *map);
+void	window_init(game *map);
 
 int		window_close(t_vars *vars);
 

@@ -20,11 +20,11 @@ typedef struct s_reachable_elements//Used to validate the reachability of the ex
 
 static bool is_surrended_by_walls(char *map[]);
 
-static bool validate_components(char *map[], map_validation_response *response);
+static bool validate_components(char *map[],game *response);
 
-static void check_reachability(char *map[], position *player_position, reachable_elements *elements);
+static void check_reachability(char *map[], position player_position, reachable_elements *elements);
 
-map_validation_response *validate_map(map_validation_response *result)
+game *validate_map(game *result)
 {
 	reachable_elements		*elements;
 	char					**tmp_matrix;
@@ -39,18 +39,17 @@ map_validation_response *validate_map(map_validation_response *result)
 	elements->is_exit_reachable = 0;
 	elements->reachable_collectibles_count = 0;
 	tmp_matrix = duplicate_char_matrix(result->map);
-	check_reachability(tmp_matrix, result->player_starting_position, elements);
-	result->valid = false;
+	check_reachability(tmp_matrix, *result->player_starting_position, elements);
+	result->is_map_valid = false;
 	if (elements->reachable_collectibles_count != result->collectibles_count)
 		result->reason = "Not all collectibles are reachable";
 	if (elements->is_exit_reachable == 0)
 		result->reason = "Exit isn't reachable";
 	else
-		result->valid = true;
+		result->is_map_valid = true;
 	free(elements);
 	if(tmp_matrix)
 		dealloc_matrix(tmp_matrix);
-
 	return (result);
 }
 
@@ -81,7 +80,7 @@ static bool is_surrended_by_walls(char *map[])
 	return (true);
 }
 
-static bool validate_components(char *map[], map_validation_response *response)
+static bool validate_components(char *map[], game *response)
 {
 	//'i' is used to pass through the rows of matrix
 	int	i;
@@ -110,7 +109,6 @@ static bool validate_components(char *map[], map_validation_response *response)
 			{
 				response->player_starting_position->x = i;
 				response->player_starting_position->y = j;
-
 				player_position_count++;
 			}
 			else if (map[i][j] == COLLECTIBLES)
@@ -139,17 +137,16 @@ static bool validate_components(char *map[], map_validation_response *response)
 		if (exit_count != 1)
 			return (response->reason = "Wrong number of exit, it should be 1", false);
 	}
-
-	return (response->valid = true, true);
+	return (response->is_map_valid = true, true);
 }
 
-static void check_reachability(char *map[], position *start_position, reachable_elements *elements)
+static void check_reachability(char *map[], position start_position, reachable_elements *elements)
 {
 	int			x;
 	int			y;
 
-	x = start_position->x;
-	y = start_position->y;
+	x = start_position.x;
+	y = start_position.y;
 
 	if(map[x][y] == EXIT)
 		elements->is_exit_reachable = 1;
@@ -163,23 +160,23 @@ static void check_reachability(char *map[], position *start_position, reachable_
 	map[x][y] = 'v';
 
 	//Down
-	start_position->x = x + 1;
-	start_position->y = y;
+	start_position.x = x + 1;
+	start_position.y = y;
 	check_reachability(map, start_position, elements);
 
 	//Right
-	start_position->x = x;
-	start_position->y = y + 1;
+	start_position.x = x;
+	start_position.y = y + 1;
 	check_reachability(map, start_position, elements);
 
 	//UP
-	start_position->x = x - 1;
-	start_position->y = y;
+	start_position.x = x - 1;
+	start_position.y = y;
 	check_reachability(map, start_position, elements);
 
 	//Left
-	start_position->x = x;
-	start_position->y = y -1;
+	start_position.x = x;
+	start_position.y = y -1;
 	check_reachability(map, start_position, elements);
 	return;
 }
