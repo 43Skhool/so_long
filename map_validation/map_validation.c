@@ -39,7 +39,7 @@ game *validate_map(game *result)
 	elements->is_exit_reachable = 0;
 	elements->reachable_collectibles_count = 0;
 	tmp_matrix = duplicate_char_matrix(result->map);
-	check_reachability(tmp_matrix, *result->player_starting_position, elements);
+	check_reachability(tmp_matrix, *result->player_position, elements);
 	result->is_map_valid = false;
 	if (elements->reachable_collectibles_count != result->collectibles_count)
 		result->reason = "Not all collectibles are reachable";
@@ -97,7 +97,7 @@ static bool validate_components(char *map[], game *response)
 	player_position_count = 0;
 	collectibles_count = 0;
 	exit_count = 0;
-	response->player_starting_position = malloc(sizeof(position));
+	response->player_position = malloc(sizeof(position));
 	response->exit_position = malloc(sizeof(position));
 
 	while (map[i])
@@ -107,8 +107,8 @@ static bool validate_components(char *map[], game *response)
 		{
 			if (map[i][j] == PLAYER)
 			{
-				response->player_starting_position->x = i;
-				response->player_starting_position->y = j;
+				response->player_position->x = i;
+				response->player_position->y = j;
 				player_position_count++;
 			}
 			else if (map[i][j] == COLLECTIBLES)

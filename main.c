@@ -11,21 +11,54 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	game *result = get_map(argv[1]);
+	game *game = get_map(argv[1]);
 
-	if (!result)
+	if (!game)
 		printf("error, memory allocation fail");
-	else if (result->is_map_valid == false)
-		printf("%s\n", result->reason);
+	else if (game->is_map_valid == false)
+		printf("%s\n", game->reason);
 	else
 	{
 		printf("ok, map is valid\n");
-		print_char_matrix(result->map);
+		print_char_matrix(game->map);
+
+		move(game, RIGHT_ARROW);
+		printf("\n");
+		print_char_matrix(game->map);
+		printf("\n");
+
+		move(game, UP_ARROW);
+		printf("\n");
+		print_char_matrix(game->map);
+		printf("\n");
+
+		move(game, UP_ARROW);
+		printf("\n");
+		print_char_matrix(game->map);
+		printf("\n");
+
+		move(game, RIGHT_ARROW);
+		printf("\n");
+		print_char_matrix(game->map);
+		printf("\n");
+
+		printf("|collectibles: %i|", game->collectibles_count);
+
+		move(game, RIGHT_ARROW);
+		printf("\n");
+		print_char_matrix(game->map);
+		printf("\n");
+
+		printf("| collectibles: %i|\n", game->collectibles_count);
 	}
 
-	printf("player at %d, %d\n", result->player_starting_position->x,result->player_starting_position->y);
-	printf("\n|%c|\n", result->map[result->player_starting_position->x][result->player_starting_position->y]);
-	//window_init(result);
-	dealloc_matrix(result->map);
-	free_game(result);
+	// printf("player at %d, %d\n", game->player_position->x,game->player_position->y);
+	// printf("\n|%c|\n", game->map[game->player_position->x][game->player_position->y]);
+	//window_init(game);
+
+	// position p = *game->player_starting_position;
+	// printf("%i", p.x);
+
+	dealloc_matrix(game->map);
+	free_game(game);
 }

@@ -5,6 +5,7 @@ SRC = map_validation/map_validation.c \
 	utils.c \
 	input_handling.c \
 	window_handling.c \
+	movement.c \
 	main.c
 
 FLAGS		= -Wall -Werror -Wextra -g -s

@@ -50,7 +50,7 @@ void	window_init(game *map)
 	img->img = mlx_new_image(vars.mlx, width, height);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
 	mlx_put_image_to_window(vars.mlx, vars.win, img->img, 0, 0);
-	printf("p: [%d, %d]\n", vars.map.player_starting_position->x, vars.map.player_starting_position->y);
+	printf("p: [%d, %d]\n", vars.map.player_position->x, vars.map.player_position->y);
 	hook(&vars);
 }
 
@@ -61,7 +61,7 @@ void	window_init(game *map)
 int	render_next_frame(t_vars *vars)
 {
 	//draw_map(vars->map);
-	draw_line(vars->img, 0, 0, vars->map.player_starting_position->x, vars->map.player_starting_position->y, 0XFF0000FF);
+	draw_line(vars->img, 0, 0, vars->map.player_position->x, vars->map.player_position->y, 0XFF0000FF);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
 	return (0);
 }

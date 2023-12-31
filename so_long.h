@@ -52,7 +52,7 @@ typedef struct s_game
 {
 	bool		is_map_valid;
 	char		*reason;//Null if valid == true
-	position	*player_starting_position;//Null if valid == false
+	position	*player_position;//Null if valid == false
 	position	*exit_position;
 	int			collectibles_count;
 	char		**map;
@@ -86,5 +86,7 @@ int		window_close(t_vars *vars);
 int		render_next_frame(t_vars *vars);
 
 void	hook(t_vars *vars);
+
+bool	move(game *game, int direction);
 
 #endif

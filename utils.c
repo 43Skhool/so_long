@@ -54,8 +54,8 @@ void free_game(game *game)
 	if (game->exit_position)
 		free(game->exit_position);
 
-	if (game->player_starting_position)
-		free(game->player_starting_position);
+	if (game->player_position)
+		free(game->player_position);
 
 	// if (map_validation_response->reason)
 	// 	free(map_validation_response->reason);

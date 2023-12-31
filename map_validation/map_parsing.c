@@ -19,7 +19,7 @@ game *get_map(char *file_name)
 		return (NULL);
 	result->is_map_valid = false;
 	result->exit_position = NULL;
-	result->player_starting_position = NULL;
+	result->player_position = NULL;
 	result->map = NULL;
 
 	if (validate_file_name(file_name) == false)

@@ -15,31 +15,31 @@
 void	move_up(t_vars *vars)
 {
 		//validate_move( player_position + 1y );
-		vars->map.player_starting_position->y -= 10;
+		vars->map.player_position->y -= 10;
 }
 
 void	move_down(t_vars *vars)
 {
 		//validate_move( player_position - 1y );
-		vars->map.player_starting_position->y += 10;
+		vars->map.player_position->y += 10;
 }
 
 void	move_left(t_vars *vars)
 {
 		//validate_move( player_position - 1x );
-		vars->map.player_starting_position->x -= 10;
+		vars->map.player_position->x -= 10;
 }
 
 void	move_right(t_vars *vars)
 {
 		//validate_move( player_position + 1x );
-		vars->map.player_starting_position->x += 10;
+		vars->map.player_position->x += 10;
 }
 
 int	keyboard_handler(int keycode, t_vars *vars)
 {
 	printf("keyboard input: %d\n", keycode);
-	printf("p: [%d, %d]\n", vars->map.player_starting_position->x, vars->map.player_starting_position->y);
+	printf("p: [%d, %d]\n", vars->map.player_position->x, vars->map.player_position->y);
 	if (keycode == KEY_ESC)
 		window_close(vars);
 	else if (keycode == W_KEY || keycode == UP_ARROW)
