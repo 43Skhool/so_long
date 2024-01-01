@@ -51,8 +51,8 @@ typedef struct	s_data {
 typedef struct s_game
 {
 	bool		is_map_valid;
-	char		*reason;//Null if valid == true
-	position	*player_position;//Null if valid == false
+	char		*reason;//Non va mai deallocata
+	position	*player_position;
 	position	*exit_position;
 	int			collectibles_count;
 	char		**map;
@@ -77,7 +77,7 @@ void	free_game(game *map_validation_response);
 
 char	*get_next_line(int fd, bool last_call);
 
-void	print_char_matrix(char **matrix);
+void	print_char_matrix(char **matrix);//TO DO da levare
 
 void	window_init(game *map);
 

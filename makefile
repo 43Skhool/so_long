@@ -31,7 +31,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	 ./a.out maps/map.ber
+	 ./a.out maps/movement_try.ber
 
 val: re
-	 valgrind ./a.out maps/map.ber
+	 valgrind ./a.out maps/movement_try.ber

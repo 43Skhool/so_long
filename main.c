@@ -3,6 +3,30 @@
 // gcc *.c *.h -Lminilibx-linux -lmlx_Linux -lX11 -lXext
 // gcc *.c *.h
 
+void try_move(game *game)
+{
+	for (size_t i = 0; i < 4; i++)
+	{
+		printf("\n");
+		print_char_matrix(game->map);
+		if (move(game, RIGHT_ARROW) == true)
+		{
+			printf("\n|END|\n");
+			return;
+		}
+	}
+
+	printf("\narrivato a destra\n");
+	print_char_matrix(game->map);
+
+	if (move(game, LEFT_ARROW) == true)
+	{
+		printf("\nEND\n");
+	}
+
+	print_char_matrix(game->map);
+}
+
 int main(int argc, char *argv[])
 {
 	if (argc != 2)
@@ -18,43 +42,11 @@ int main(int argc, char *argv[])
 	else if (game->is_map_valid == false)
 		printf("%s\n", game->reason);
 	else
-	{
-		printf("ok, map is valid\n");
-		print_char_matrix(game->map);
-
-		move(game, RIGHT_ARROW);
-		printf("\n");
-		print_char_matrix(game->map);
-		printf("\n");
-
-		move(game, UP_ARROW);
-		printf("\n");
-		print_char_matrix(game->map);
-		printf("\n");
-
-		move(game, UP_ARROW);
-		printf("\n");
-		print_char_matrix(game->map);
-		printf("\n");
-
-		move(game, RIGHT_ARROW);
-		printf("\n");
-		print_char_matrix(game->map);
-		printf("\n");
-
-		printf("|collectibles: %i|", game->collectibles_count);
-
-		move(game, RIGHT_ARROW);
-		printf("\n");
-		print_char_matrix(game->map);
-		printf("\n");
-
-		printf("| collectibles: %i|\n", game->collectibles_count);
-	}
+		try_move(game);
 
 	// printf("player at %d, %d\n", game->player_position->x,game->player_position->y);
 	// printf("\n|%c|\n", game->map[game->player_position->x][game->player_position->y]);
-	//window_init(game);
+	// window_init(game);
 
 	// position p = *game->player_starting_position;
 	// printf("%i", p.x);
