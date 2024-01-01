@@ -75,8 +75,6 @@ size_t	count_matrix_row(char **matrix);
 
 void	free_game(game *map_validation_response);
 
-char	*get_next_line(int fd, bool last_call);
-
 void	print_char_matrix(char **matrix);//TO DO da levare
 
 void	window_init(game *map);
