@@ -13,8 +13,7 @@ void try_move(t_game *game)
 		status = move(game, RIGHT_ARROW);
 		if (status == playing)
 		{
-			printf("\n|END|\n");
-			return;
+			printf("\n|PLAYING|\n");
 		}
 		if (status == lose)
 		{
@@ -51,11 +50,11 @@ int main(int argc, char *argv[])
 	else
 	{
 		//try_move(game);
+		window_init(game);
 	}
 
 	// printf("player at %d, %d\n", game->player_position->x,game->player_position->y);
 	// printf("\n|%c|\n", game->map[game->player_position->x][game->player_position->y]);
-	window_init(game);
 
 	// position p = *game->player_starting_position;
 	// printf("%i", p.x);

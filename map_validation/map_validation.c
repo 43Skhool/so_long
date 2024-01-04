@@ -120,7 +120,7 @@ static bool validate_components(char *map[], t_game *response)
 
 				exit_count++;
 			}
-			else if (map[i][j] != WALL && map[i][j] != FLOOR)//Altro
+			else if (map[i][j] != WALL && map[i][j] != FLOOR && map[i][j] != ENEMY)//Altro
 				return (response->reason = "Found unknown element", false);
 			j++;
 		}
@@ -154,7 +154,7 @@ static void check_reachability(char *map[], t_position start_position, reachable
 	if(map[x][y] == COLLECTIBLES)
 		elements->reachable_collectibles_count++;
 
-	if (map[x][y] == '1' || map[x][y] == 'v')
+	if (map[x][y] == WALL || map[x][y] == 'v' || map[x][y] == ENEMY)
 		return;
 
 	map[x][y] = 'v';
