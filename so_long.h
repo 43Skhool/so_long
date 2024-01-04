@@ -16,6 +16,7 @@
 # define COLLECTIBLES	'C'
 # define PLAYER			'P'
 # define EXIT			'E'
+# define ENEMY			'M'//mina
 # define SPRITE_HEIGHT	32
 # define DESTROY_NOTIFY 17
 # define KEY_ESC		65307
@@ -33,6 +34,13 @@ typedef enum e_bool
 	false,
 	true
 }	bool;
+
+typedef enum e_game_status
+{
+	win,
+	lose,
+	playing
+} game_status;
 
 typedef struct s_position
 {
@@ -65,26 +73,26 @@ typedef struct	s_vars {
 	game	map;
 }				t_vars;
 
-game	*get_map(char *file_name);
+game		*get_map(char *file_name);
 
-void	dealloc_matrix(char **matrix);
+void		dealloc_matrix(char **matrix);
 
-char	**duplicate_char_matrix(char	**matrix);
+char		**duplicate_char_matrix(char	**matrix);
 
-size_t	count_matrix_row(char **matrix);
+size_t		count_matrix_row(char **matrix);
 
-void	free_game(game *map_validation_response);
+void		free_game(game *map_validation_response);
 
-void	print_char_matrix(char **matrix);//TO DO da levare
+void		print_char_matrix(char **matrix);//TO DO da levare
 
-void	window_init(game *map);
+void		window_init(game *map);
 
-int		window_close(t_vars *vars);
+int			window_close(t_vars *vars);
 
-int		render_next_frame(t_vars *vars);
+int			render_next_frame(t_vars *vars);
 
-void	hook(t_vars *vars);
+void		hook(t_vars *vars);
 
-bool	move(game *game, int direction);
+game_status	move(game *game, int direction);
 
 #endif

@@ -2,11 +2,11 @@
 // sarebbe da fare tipo una maschera per gestire tutti i tipi di input con un solo tipo
 // dato che ci sono sia i wasd che le freccie, per ora sono gestiti entrambi
 
-static bool try_move(game *game, position newposition);
-static bool switch_position(game *game, position newposition);
+static game_status try_move(game *game, position newposition);
+static game_status switch_position(game *game, position newposition);
 
 // return false if the game can keep go on, returno true if the game is ended
-bool move(game *game, int direction)
+game_status move(game *game, int direction)
 {
 	position newposition;
 	newposition = *game->player_position;
@@ -30,7 +30,7 @@ bool move(game *game, int direction)
 	return (false);
 }
 
-static bool try_move(game *game, position newposition)
+static game_status try_move(game *game, position newposition)
 {
 	// WALL
 	if (game->map[newposition.x][newposition.y] == WALL)
@@ -44,7 +44,7 @@ static bool try_move(game *game, position newposition)
 }
 
 // se arriva alla fine e tutto i collectibles sono stati presi -> return true
-static bool switch_position(game *game, position newposition)
+static game_status switch_position(game *game, position newposition)
 {
 	bool is_game_end;
 
