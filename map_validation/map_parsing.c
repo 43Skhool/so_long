@@ -6,15 +6,15 @@ typedef struct	s_map_size {
 	int	columns_number; //-1 => non è un quadrato
 }	map_size;
 
-game *validate_map(game *result);
+t_game *validate_map(t_game *result);
 static bool validate_file_name(char *file_name);
 static char **read_map(char *file_name, map_size *size);
 static bool get_map_size(char *file_name, map_size *size);
 
-game *get_map(char *file_name)
+t_game *get_map(char *file_name)
 {
-	game *result;
-	result = malloc(sizeof(game));
+	t_game *result;
+	result = malloc(sizeof(t_game));
 	if (!result)
 		return (NULL);
 	result->is_map_valid = false;

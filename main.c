@@ -3,23 +3,30 @@
 // gcc *.c *.h -Lminilibx-linux -lmlx_Linux -lX11 -lXext
 // gcc *.c *.h
 
-void try_move(game *game)
+void try_move(t_game *game)
 {
+	game_status status;
 	for (size_t i = 0; i < 4; i++)
 	{
 		printf("\n");
 		print_char_matrix(game->map);
-		if (move(game, RIGHT_ARROW) == true)
+		status = move(game, RIGHT_ARROW);
+		if (status == playing)
 		{
 			printf("\n|END|\n");
+			return;
+		}
+		if (status == lose)
+		{
+			printf("\n|LOSE|\n");
 			return;
 		}
 	}
 
 	printf("\narrivato a destra\n");
 	print_char_matrix(game->map);
-
-	if (move(game, LEFT_ARROW) == true)
+	status = move(game, RIGHT_ARROW);
+	if (status == win)
 	{
 		printf("\nEND\n");
 	}
@@ -35,7 +42,7 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	game *game = get_map(argv[1]);
+	t_game *game = get_map(argv[1]);
 
 	if (!game)
 		printf("error, memory allocation fail");

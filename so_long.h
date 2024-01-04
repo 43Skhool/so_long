@@ -46,7 +46,7 @@ typedef struct s_position
 {
 	int	x;
 	int	y;
-}	position;
+}	t_position;
 
 typedef struct	s_data {
 	void	*img;
@@ -60,20 +60,20 @@ typedef struct s_game
 {
 	bool		is_map_valid;
 	char		*reason;//Non va mai deallocata
-	position	*player_position;
-	position	*exit_position;
+	t_position	*player_position;
+	t_position	*exit_position;
 	int			collectibles_count;
 	char		**map;
-}	game;
+}	t_game;
 
 typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
 	t_data					img;
-	game	map;
+	t_game	map;
 }				t_vars;
 
-game		*get_map(char *file_name);
+t_game		*get_map(char *file_name);
 
 void		dealloc_matrix(char **matrix);
 
@@ -81,11 +81,11 @@ char		**duplicate_char_matrix(char	**matrix);
 
 size_t		count_matrix_row(char **matrix);
 
-void		free_game(game *map_validation_response);
+void		free_game(t_game *map_validation_response);
 
 void		print_char_matrix(char **matrix);//TO DO da levare
 
-void		window_init(game *map);
+void		window_init(t_game *map);
 
 int			window_close(t_vars *vars);
 
@@ -93,6 +93,6 @@ int			render_next_frame(t_vars *vars);
 
 void		hook(t_vars *vars);
 
-game_status	move(game *game, int direction);
+game_status	move(t_game *game, int direction);
 
 #endif

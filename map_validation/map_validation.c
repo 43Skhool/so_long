@@ -20,11 +20,11 @@ typedef struct s_reachable_elements//Used to validate the reachability of the ex
 
 static bool is_surrended_by_walls(char *map[]);
 
-static bool validate_components(char *map[],game *response);
+static bool validate_components(char *map[],t_game *response);
 
-static void check_reachability(char *map[], position player_position, reachable_elements *elements);
+static void check_reachability(char *map[], t_position player_position, reachable_elements *elements);
 
-game *validate_map(game *result)
+t_game *validate_map(t_game *result)
 {
 	reachable_elements		*elements;
 	char					**tmp_matrix;
@@ -80,7 +80,7 @@ static bool is_surrended_by_walls(char *map[])
 	return (true);
 }
 
-static bool validate_components(char *map[], game *response)
+static bool validate_components(char *map[], t_game *response)
 {
 	//'i' is used to pass through the rows of matrix
 	int	i;
@@ -97,8 +97,8 @@ static bool validate_components(char *map[], game *response)
 	player_position_count = 0;
 	collectibles_count = 0;
 	exit_count = 0;
-	response->player_position = malloc(sizeof(position));
-	response->exit_position = malloc(sizeof(position));
+	response->player_position = malloc(sizeof(t_position));
+	response->exit_position = malloc(sizeof(t_position));
 
 	while (map[i])
 	{
@@ -140,7 +140,7 @@ static bool validate_components(char *map[], game *response)
 	return (response->is_map_valid = true, true);
 }
 
-static void check_reachability(char *map[], position start_position, reachable_elements *elements)
+static void check_reachability(char *map[], t_position start_position, reachable_elements *elements)
 {
 	int			x;
 	int			y;

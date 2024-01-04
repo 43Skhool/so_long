@@ -49,7 +49,7 @@ void	dealloc_matrix(char **matrix)
 	free(matrix);
 }
 
-void free_game(game *game)
+void free_game(t_game *game)
 {
 	if (game->exit_position)
 		free(game->exit_position);
