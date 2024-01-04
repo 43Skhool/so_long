@@ -3,8 +3,8 @@ NAME		= so_long
 SRC = map_validation/map_validation.c \
 	map_validation/map_parsing.c \
 	utils.c \
-	input_handling.c \
-	window_handling.c \
+	window_management/input_handling.c \
+	window_management/window_handling.c \
 	movement.c \
 	main.c
 
