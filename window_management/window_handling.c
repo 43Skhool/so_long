@@ -20,12 +20,12 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	window_init(t_game *map)
+void	window_init(t_game *game)
 {
 	int width = 1920, height = 1080;
 	t_vars	vars;
 	t_data	img;
-	vars.map = map;
+	vars.game = game;
 	vars.img = &img;
 
 

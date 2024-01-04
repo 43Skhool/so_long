@@ -33,7 +33,7 @@ int keyboard_handler(int key_code, t_vars *vars)
 	if (key_code == KEY_ESC)
 		return (window_close(key_code, vars));
 
-	move(vars->map, key_code);
+	move(vars->game, key_code);
 
 
 	return (false);
