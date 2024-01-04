@@ -20,7 +20,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	window_init(game *map)
+void	window_init(t_game *map)
 {
 	int width = 1920, height = 1080;
 	t_vars	vars;
@@ -44,7 +44,7 @@ int	window_close(int keycode, t_vars *vars)
 	return (keycode);
 }
 
-int render_next_frame(t_vars vars)
+int	render_next_frame(t_vars vars)
 {
 	return (mlx_put_image_to_window(vars.mlx, vars.win, vars.img->img, 0, 0));
 }

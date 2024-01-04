@@ -70,7 +70,7 @@ typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
 	t_data					*img;
-	game					*map;
+	t_game					*map;
 }				t_vars;
 
 t_game		*get_map(char *file_name);
