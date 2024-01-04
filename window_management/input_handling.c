@@ -17,7 +17,7 @@ static int handle_input(int keysym, t_vars *vars);
 int	hook(t_vars *vars)
 {
 	mlx_key_hook(vars->win, handle_input, vars);
-	mlx_hook(vars->win, 17, 1L << 0, handle_input, vars);
+	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, window_close, vars);
 	//mlx_hook(vars->win, 2, 1L<<0, window_close, vars);
 	//mlx_loop_hook(vars->mlx, render_next_frame, &vars);
 	return (0);

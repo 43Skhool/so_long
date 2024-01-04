@@ -35,11 +35,11 @@ void window_init(t_game *game)
 	mlx_loop(data.mlx);
 }
 
-void window_close(t_vars *vars)
+int	window_close(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_loop_end(vars->mlx);
-	// return (keycode);
+	return (0);
 }
 
 int render_next_frame(t_vars vars)

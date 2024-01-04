@@ -87,7 +87,7 @@ void		print_char_matrix(char **matrix);//TO DO da levare
 
 void		window_init(t_game *map);
 
-void		window_close(t_vars *vars);
+int			window_close(t_vars *vars);
 
 int		render_next_frame(t_vars vars);
 
