@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 
 	// printf("player at %d, %d\n", game->player_position->x,game->player_position->y);
 	// printf("\n|%c|\n", game->map[game->player_position->x][game->player_position->y]);
-	//window_init(game);
+	window_init(game);
 
 	// position p = *game->player_starting_position;
 	// printf("%i", p.x);
