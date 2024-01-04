@@ -12,29 +12,29 @@
 
 #include "../so_long.h"
 
-void	hook(t_vars *vars)
+int handle_input(int keysym, t_game *game, t_vars *vars)
 {
-	mlx_key_hook(vars->win, keyboard_handler, &vars);
-	mlx_hook(vars->win, DESTROY_NOTIFY, 0, window_close, &vars);
-	mlx_loop_hook(vars->mlx, render_next_frame, &vars);
-}
+	if (keysym == KEY_ESC)
+	{
+        printf("\nThe %d key (ESC) has been pressed\n\n", keysym);
+        mlx_destroy_window(vars->mlx, vars->win);
+        mlx_destroy_display(vars->mlx);
+        free(vars->mlx);
 
-int	key_hook(int keycode, t_vars *vars)
-{
-	printf("keyboard input: %d\n", keycode);
-	if (keycode == KEY_ESC)
-		window_close(keycode, vars);
+		return (0);
+	}
+
+	game_status status = move(game, keysym);
+	print_char_matrix(game->map);
+	printf("\n");
+
+	if (status == win)
+		printf("|win|\n");
+
+	if (status == lose)
+		printf("|lost|\n");
+
+	if (status == win || status == lose)
+		return (1);
 	return (0);
-}
-
-int keyboard_handler(int key_code, t_vars *vars)
-{
-//dovremmo mettere un offset di TILE_SIZE a posizione o inserirlo nella casella corrispondente nel momento della scrittura dell'immagine?
-	if (key_code == KEY_ESC)
-		return (window_close(key_code, vars));
-
-	move(vars->game, key_code);
-
-
-	return (false);
 }

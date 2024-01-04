@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		printf("%s\n", game->reason);
 	else
 	{
-		//try_move(game);
+		// try_move(game);
 		window_init(game);
 	}
 
@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
 
 	// position p = *game->player_starting_position;
 	// printf("%i", p.x);
+
+	printf("arrivato qui");
 
 	dealloc_matrix(game->map);
 	free_game(game);

@@ -95,7 +95,7 @@ void		hook(t_vars *vars);
 
 game_status	move(t_game *game, int direction);
 
-int		keyboard_handler(int direction, t_vars *vars);
+//int		keyboard_handler(int direction, t_vars *vars);
 
 
 #endif

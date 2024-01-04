@@ -12,39 +12,35 @@
 
 #include "../so_long.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int handle_input(int keysym, t_game *game);
+
+void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	char	*dst;
+	char *dst;
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
-void	window_init(t_game *game)
+void window_init(t_game *game)
 {
-	int width = 1920, height = 1080;
-	t_vars	vars;
-	t_data	img;
-	vars.game = game;
-	vars.img = &img;
+	t_vars data;
 
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, 400, 400, "So long");
 
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, width, height, "Hello world!");
-	img.img = mlx_new_image(vars.mlx, width, height);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
-	hook(&vars);
-	mlx_loop(vars.mlx);
+	mlx_key_hook(data.win, handle_input, game);
+
+	mlx_loop(data.mlx);
 }
 
-int	window_close(int keycode, t_vars *vars)
+int window_close(int keycode, t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
 	return (keycode);
 }
 
-int	render_next_frame(t_vars vars)
+int render_next_frame(t_vars vars)
 {
 	return (mlx_put_image_to_window(vars.mlx, vars.win, vars.img->img, 0, 0));
 }
