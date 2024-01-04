@@ -59,8 +59,8 @@ int main(int argc, char *argv[])
 	// position p = *game->player_starting_position;
 	// printf("%i", p.x);
 
-	printf("arrivato qui");
+	// printf("arrivato qui");
 
-	dealloc_matrix(game->map);
-	free_game(game);
+	// dealloc_matrix(game->map);
+	// free_game(game);
 }

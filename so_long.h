@@ -91,8 +91,6 @@ int		window_close(int keycode, t_vars *vars);
 
 int		render_next_frame(t_vars vars);
 
-void		hook(t_vars *vars);
-
 game_status	move(t_game *game, int direction);
 
 //int		keyboard_handler(int direction, t_vars *vars);

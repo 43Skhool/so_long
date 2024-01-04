@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-int handle_input(int keysym, t_game *game);
+int	hook(t_vars *vars);
 
 void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -25,11 +25,12 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 void window_init(t_game *game)
 {
 	t_vars data;
+	data.game = game;
 
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, 400, 400, "So long");
 
-	mlx_key_hook(data.win, handle_input, game);
+	mlx_key_hook(data.win, hook, &data);
 
 	mlx_loop(data.mlx);
 }

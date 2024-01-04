@@ -12,7 +12,17 @@
 
 #include "../so_long.h"
 
-int handle_input(int keysym, t_game *game, t_vars *vars)
+static int handle_input(int keysym, t_vars *vars);
+
+int	hook(t_vars *vars)
+{
+	mlx_key_hook(vars->win, handle_input, vars);
+	mlx_hook(vars->win, DESTROY_NOTIFY, 0, window_close, &vars);
+	//mlx_loop_hook(vars->mlx, render_next_frame, &vars);
+	return (1);
+}
+
+static int handle_input(int keysym, t_vars *vars)
 {
 	if (keysym == KEY_ESC)
 	{
@@ -21,11 +31,11 @@ int handle_input(int keysym, t_game *game, t_vars *vars)
         mlx_destroy_display(vars->mlx);
         free(vars->mlx);
 
-		return (0);
+		exit(0);
 	}
 
-	game_status status = move(game, keysym);
-	print_char_matrix(game->map);
+	game_status status = move(vars->game, keysym);
+	print_char_matrix(vars->game->map);
 	printf("\n");
 
 	if (status == win)
