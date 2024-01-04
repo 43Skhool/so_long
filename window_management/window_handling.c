@@ -30,15 +30,16 @@ void window_init(t_game *game)
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, 400, 400, "So long");
 
-	mlx_key_hook(data.win, hook, &data);
-
+	//mlx_key_hook(data.win, hook, &data);
+	hook(&data);
 	mlx_loop(data.mlx);
 }
 
-int window_close(int keycode, t_vars *vars)
+void window_close(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
-	return (keycode);
+	mlx_loop_end(vars->mlx);
+	// return (keycode);
 }
 
 int render_next_frame(t_vars vars)
