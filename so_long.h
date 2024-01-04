@@ -69,8 +69,8 @@ typedef struct s_game
 typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
-	t_data					img;
-	t_game	map;
+	t_data					*img;
+	game					*map;
 }				t_vars;
 
 t_game		*get_map(char *file_name);
@@ -87,12 +87,15 @@ void		print_char_matrix(char **matrix);//TO DO da levare
 
 void		window_init(t_game *map);
 
-int			window_close(t_vars *vars);
+int		window_close(int keycode, t_vars *vars);
 
-int			render_next_frame(t_vars *vars);
+int		render_next_frame(t_vars vars);
 
 void		hook(t_vars *vars);
 
 game_status	move(t_game *game, int direction);
+
+int		keyboard_handler(int direction, t_vars *vars);
+
 
 #endif

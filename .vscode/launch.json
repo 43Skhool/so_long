@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/nfs/homes/lebartol/Desktop/so_long",
-      "program": "/nfs/homes/lebartol/Desktop/so_long/build/Debug/outDebug",
+      "cwd": "/home/lebartol/desktop/so_long",
+      "program": "/home/lebartol/desktop/so_long/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
