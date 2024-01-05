@@ -69,7 +69,7 @@ typedef struct s_game
 typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
-	t_data					*img;
+	//t_data					*img;
 	t_game					*game;
 }				t_vars;
 

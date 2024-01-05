@@ -12,26 +12,21 @@
 
 #include "../so_long.h"
 
-static int handle_input(int keysym, t_vars *vars);
+static int handle_keyboard_input(int keysym, t_vars *vars);
+static int end_game(t_vars *vars);
 
 int	hook(t_vars *vars)
 {
-	mlx_key_hook(vars->win, handle_input, vars);
-	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, window_close, vars);
-	//mlx_hook(vars->win, 2, 1L<<0, window_close, vars);
+	mlx_key_hook(vars->win, handle_keyboard_input, vars);
+	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, end_game, vars);
 	//mlx_loop_hook(vars->mlx, render_next_frame, &vars);
 	return (0);
 }
 
-static int handle_input(int keysym, t_vars *vars)
+static int handle_keyboard_input(int keysym, t_vars *vars)
 {
 	if (keysym == KEY_ESC)
-	{
-        printf("\nThe %d key (ESC) has been pressed\n\n", keysym);
-		window_close(vars);
-
-		exit(0);
-	}
+		end_game(vars);
 
 	game_status status = move(vars->game, keysym);
 	print_char_matrix(vars->game->map);
@@ -46,4 +41,14 @@ static int handle_input(int keysym, t_vars *vars)
 	if (status == win || status == lose)
 		return (1);
 	return (0);
+}
+
+static int end_game(t_vars *vars)
+{
+	free_game(vars->game);
+	window_close(vars);
+	free(vars->mlx);
+	//free(vars->win);
+	free(vars);
+	exit(0);
 }

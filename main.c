@@ -51,16 +51,6 @@ int main(int argc, char *argv[])
 	{
 		// try_move(game);
 		window_init(game);
+		//free_game(game);
 	}
-
-	// printf("player at %d, %d\n", game->player_position->x,game->player_position->y);
-	// printf("\n|%c|\n", game->map[game->player_position->x][game->player_position->y]);
-
-	// position p = *game->player_starting_position;
-	// printf("%i", p.x);
-
-	// printf("arrivato qui");
-
-	// dealloc_matrix(game->map);
-	// free_game(game);
 }

@@ -57,8 +57,7 @@ void free_game(t_game *game)
 	if (game->player_position)
 		free(game->player_position);
 
-	// if (map_validation_response->reason)
-	// 	free(map_validation_response->reason);
+	dealloc_matrix(game->map);
 
 	free(game);
 }

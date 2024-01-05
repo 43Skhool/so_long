@@ -34,4 +34,4 @@ test: re
 	 ./a.out maps/movement_try.ber
 
 val: re
-	 valgrind ./a.out maps/movement_try.ber
+	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/movement_try.ber
