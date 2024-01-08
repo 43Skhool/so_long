@@ -89,7 +89,7 @@ int			end(t_vars *vars);
 
 void		free_game(t_game *game);
 
-//int		render_next_frame(t_vars vars);
+int		render_next_frame(t_vars vars);
 
 game_status	move(t_game *game, int direction);
 
