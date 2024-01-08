@@ -6,6 +6,7 @@ SRC = map_validation/map_validation.c \
 	window_management/input_handling.c \
 	window_management/window_handling.c \
 	movement.c \
+	end_game.c \
 	main.c
 
 FLAGS		= -Wall -Werror -Wextra -g -s
@@ -15,6 +16,7 @@ $(NAME):
 	${MAKE} -C mlx
 	cc $(SRC) $(FLAGS) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
 #TO DO rimettere le flag
+#TO DO risolvere il relink
 
 all: $(NAME)
 

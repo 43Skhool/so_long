@@ -69,7 +69,7 @@ typedef struct s_game
 typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
-	//t_data					*img;
+	t_data					*data;
 	t_game					*game;
 }				t_vars;
 
@@ -81,17 +81,19 @@ char		**duplicate_char_matrix(char	**matrix);
 
 size_t		count_matrix_row(char **matrix);
 
-void		free_game(t_game *map_validation_response);
-
 void		print_char_matrix(char **matrix);//TO DO da levare
 
-void		window_init(t_game *map);
+void		start_game(t_game *map);
 
-int			window_close(t_vars *vars);
+int			end(t_vars *vars);
 
-int		render_next_frame(t_vars vars);
+void		free_game(t_game *game);
+
+//int		render_next_frame(t_vars vars);
 
 game_status	move(t_game *game, int direction);
+
+int end_game(t_vars *vars);
 
 //int		keyboard_handler(int direction, t_vars *vars);
 

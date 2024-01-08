@@ -36,32 +36,6 @@ char **duplicate_char_matrix(char	**matrix)
 	return (result);
 }
 
-void	dealloc_matrix(char **matrix)
-{
-	if (!matrix)
-		return ;
-	int i = 0;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-}
-
-void free_game(t_game *game)
-{
-	if (game->exit_position)
-		free(game->exit_position);
-
-	if (game->player_position)
-		free(game->player_position);
-
-	dealloc_matrix(game->map);
-
-	free(game);
-}
-
 
 //TO DO levare il printf
 void print_char_matrix(char **matrix)

@@ -50,7 +50,9 @@ int main(int argc, char *argv[])
 	else
 	{
 		// try_move(game);
-		window_init(game);
+		start_game(game);
 		//free_game(game);
 	}
+
+	free_game(game);
 }
