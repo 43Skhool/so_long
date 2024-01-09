@@ -38,7 +38,7 @@ int end(t_vars *vars)
 {
 	free_game(vars->game);
 	destroy_window(vars);
-	free(vars->mlx);
-	free(vars);
+	if (vars->mlx)
+		free(vars->mlx);
 	exit(0);
 }

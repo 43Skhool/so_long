@@ -64,6 +64,8 @@ typedef struct s_game
 	t_position	*exit_position;
 	int			collectibles_count;
 	char		**map;
+	int			number_of_columns;
+	int			number_of_rows;
 }	t_game;
 
 typedef struct	s_vars {

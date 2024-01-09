@@ -24,21 +24,23 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 void start_game(t_game *game)
 {
-	//bro ma che cazzo hai fatto
+	//bro ma che cazzo hai fatto -- Perchè?? m.
 	t_vars vars;
 	vars.game = game;
 	vars.mlx = mlx_init();
 	if (!vars.mlx)
 		end(&vars);
 	vars.win = mlx_new_window(vars.mlx, 400, 400, "So long");
-	vars.data->img = mlx_new_image(vars.mlx, 400, 400);
-	vars.data->addr = mlx_get_data_addr(vars.data->img, &vars.data->bits_per_pixel, &vars.data->line_length, &vars.data->endian);
 	if (!vars.win)
 		end(&vars);
 
-	//mlx_key_hook(vars.win, hook, &vars);
-	my_mlx_pixel_put(vars.data, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(vars.mlx, vars.win, vars.data->addr, 0, 0);
+	// vars.data->img = mlx_new_image(vars.mlx, 400, 400);
+	// vars.data->addr = mlx_get_data_addr(vars.data->img, &vars.data->bits_per_pixel, &vars.data->line_length, &vars.data->endian);
+
+	// //mlx_key_hook(vars.win, hook, &vars);
+	// my_mlx_pixel_put(vars.data, 5, 5, 0x00FF0000);
+	// mlx_put_image_to_window(vars.mlx, vars.win, vars.data->addr, 0, 0);
+
 	hook(&vars);
 	mlx_loop(vars.mlx);
 }
