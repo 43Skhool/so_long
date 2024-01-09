@@ -75,6 +75,12 @@ typedef struct	s_vars {
 	t_game					*game;
 }				t_vars;
 
+typedef struct s_reachable_elements
+{
+	int	is_exit_reachable;
+	int	reachable_collectibles_count;
+}	t_reachable_elements;
+
 t_game		*get_map(char *file_name);
 
 void		dealloc_matrix(char **matrix);

@@ -39,7 +39,7 @@ t_game	*get_map(char *file_name)
 	read_map(file_name, game);
 	if (!game->map)
 		return (game->reason = "Error during file read", game);
-	game = validate_map(game);
+	validate_map(game);
 	if (!game)
 		return (game->reason = "Error during map validation", game);
 	return (game);

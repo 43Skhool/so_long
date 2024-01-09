@@ -34,8 +34,8 @@ void start_game(t_game *game)
 	if (!vars.win)
 		end(&vars);
 
-	// vars.data->img = mlx_new_image(vars.mlx, 400, 400);
-	// vars.data->addr = mlx_get_data_addr(vars.data->img, &vars.data->bits_per_pixel, &vars.data->line_length, &vars.data->endian);
+	vars.data->img = mlx_new_image(vars.mlx, 400, 400);
+	vars.data->addr = mlx_get_data_addr(vars.data->img, &vars.data->bits_per_pixel, &vars.data->line_length, &vars.data->endian);
 
 	// //mlx_key_hook(vars.win, hook, &vars);
 	// my_mlx_pixel_put(vars.data, 5, 5, 0x00FF0000);
