@@ -21,33 +21,37 @@ void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
+void init_window(t_vars *vars)
+{
+	t_data	img;
+	int height = TILE_SIZE * vars->game->number_of_rows;
+	int width = TILE_SIZE * vars->game->number_of_columns;
+	vars->mlx = mlx_init();
+	if (!vars->mlx)
+		end(vars);
+	vars->win = mlx_new_window(vars->mlx, width, height, "So long");
+	if (!vars->win)
+		end(vars);
 
+	img.img = mlx_new_image(vars->mlx, width, height);
+	img.addr =mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
+	vars->data = &img;
+	mlx_put_image_to_window(vars->mlx, vars->win, img.img, 0, 0);
+}
 void start_game(t_game *game)
 {
-	//bro ma che cazzo hai fatto -- Perchè?? m.
 	t_vars vars;
 	vars.game = game;
-	vars.mlx = mlx_init();
-	if (!vars.mlx)
-		end(&vars);
-	vars.win = mlx_new_window(vars.mlx, 400, 400, "So long");
-	if (!vars.win)
-		end(&vars);
 
-	vars.data->img = mlx_new_image(vars.mlx, 400, 400);
-	vars.data->addr = mlx_get_data_addr(vars.data->img, &vars.data->bits_per_pixel, &vars.data->line_length, &vars.data->endian);
-
-	// //mlx_key_hook(vars.win, hook, &vars);
-	// my_mlx_pixel_put(vars.data, 5, 5, 0x00FF0000);
-	// mlx_put_image_to_window(vars.mlx, vars.win, vars.data->addr, 0, 0);
-
+	init_window(&vars);
 	hook(&vars);
 	mlx_loop(vars.mlx);
 }
 
-int render_next_frame(t_vars vars)
+int render_next_frame(t_vars *vars)
 {
-	mlx_put_image_to_window(vars.mlx, vars.win, vars.data->img, 0, 0);
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->data->img, 0, 0);
 	return (0);
 }
 

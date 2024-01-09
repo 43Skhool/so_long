@@ -17,7 +17,7 @@
 # define PLAYER			'P'
 # define EXIT			'E'
 # define ENEMY			'M'//mina
-# define SPRITE_HEIGHT	32
+# define TILE_SIZE		64
 # define DESTROY_NOTIFY 17
 # define KEY_ESC		65307
 # define W_KEY			119
@@ -97,7 +97,7 @@ int			end(t_vars *vars);
 
 void		free_game(t_game *game);
 
-int		render_next_frame(t_vars vars);
+int		render_next_frame(t_vars *vars);
 
 game_status	move(t_game *game, int direction);
 
