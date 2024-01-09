@@ -37,7 +37,7 @@ void init_window(t_vars *vars)
 	img.addr =mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	vars->data = &img;
-	mlx_put_image_to_window(vars->mlx, vars->win, img.img, 0, 0);
+	render_next_frame(vars);
 }
 void start_game(t_game *game)
 {
@@ -47,12 +47,6 @@ void start_game(t_game *game)
 	init_window(&vars);
 	hook(&vars);
 	mlx_loop(vars.mlx);
-}
-
-int render_next_frame(t_vars *vars)
-{
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->data->img, 0, 0);
-	return (0);
 }
 
 void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color)

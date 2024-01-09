@@ -6,6 +6,7 @@ SRC = map_validation/map_validation.c \
 	utils.c \
 	window_management/input_handling.c \
 	window_management/window_handling.c \
+	window_management/tile_render.c \
 	movement.c \
 	end_game.c \
 	main.c
