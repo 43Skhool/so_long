@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 		printf("rows: %i\n", game->number_of_rows);
 		printf("cls: %i\n", game->number_of_columns);
 		print_char_matrix(game->map);
-		start_game(game);
+		//start_game(game);
 		//free_game(game);
 	}
 
