@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 		printf("cls: %i\n", game->number_of_columns);
 		print_char_matrix(game->map);
 		start_game(game);
-		//free_game(game);
+		// free_game(game);
 	}
 
 	free_game(game);

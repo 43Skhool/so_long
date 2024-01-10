@@ -48,6 +48,7 @@ typedef struct s_position
 	int	y;
 }	t_position;
 
+//Useless
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -63,17 +64,29 @@ typedef struct s_game
 	t_position	*player_position;
 	t_position	*exit_position;
 	int			collectibles_count;
+	int			move_count;
 	char		**map;
 	int			number_of_columns;
 	int			number_of_rows;
 }	t_game;
 
+typedef struct s_assets
+{
+	void	*wall;
+	void	*floor;
+	void	*player;
+	void	*collectible;
+	void	*exit;
+	void	*enemy;
+}	t_assets;
+
 typedef struct	s_vars {
 	void					*mlx;
 	void					*win;
-	t_data					*data;
+	t_assets				*assets;
 	t_game					*game;
-}				t_vars;
+
+}	t_vars;
 
 t_game		*get_map(char *file_name);
 

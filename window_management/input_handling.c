@@ -18,7 +18,7 @@ int	hook(t_vars *vars)
 {
 	mlx_key_hook(vars->win, handle_keyboard_input, vars);
 	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, end, vars);
-	mlx_loop_hook(vars->win, render_next_frame, vars);
+	//mlx_loop_hook(vars->win, render_next_frame, vars);
 	return (0);
 }
 
