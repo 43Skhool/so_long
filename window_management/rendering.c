@@ -19,6 +19,7 @@ int	render_tile(t_vars *vars, char type, t_position position);
 
 void initialize_window(t_vars *vars)
 {
+	// t_data	img;
 	int win_height = TILE_SIZE * vars->game->number_of_rows;
 	int win_width = TILE_SIZE * vars->game->number_of_columns;
 
@@ -27,6 +28,10 @@ void initialize_window(t_vars *vars)
 		end(vars);
 
 	vars->win = mlx_new_window(vars->mlx, win_width, win_height, "So long");
+	// img.img = mlx_new_image(vars->mlx, 1920, 1080);
+	// img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	// vars->img = &img;
+
 	if (!vars->win)
 		end(vars);
 
@@ -34,7 +39,7 @@ void initialize_window(t_vars *vars)
 	load_assets(vars);
 
 	//first render
-	render_next_frame(vars);
+	//render_next_frame(vars);
 }
 
 int	render_next_frame(t_vars *vars)
@@ -108,7 +113,7 @@ void	load_assets(t_vars *vars)
 	vars->assets = malloc(sizeof(t_assets));
 
 	vars->assets->player= mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	vars->assets->exit= mlx_xpm_file_to_image(vars->mlx, "assets/mine.xpm", &img_width, &img_heigth);// TO DO da cambiare con un'altro file
+	vars->assets->exit= mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth);// TO DO da cambiare con un'altro file
 	vars->assets->enemy= mlx_xpm_file_to_image(vars->mlx, "assets/mine.xpm", &img_width, &img_heigth);
 	vars->assets->wall= mlx_xpm_file_to_image(vars->mlx, "assets/wall_1.xpm", &img_width, &img_heigth);
 	vars->assets->floor= mlx_xpm_file_to_image(vars->mlx, "assets/ground.xpm", &img_width, &img_heigth);

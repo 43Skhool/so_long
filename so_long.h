@@ -28,6 +28,9 @@
 # define LEFT_ARROW		65361
 # define DOWN_ARROW		65364
 # define RIGHT_ARROW	65363
+# define MLX_SYNC_IMAGE_WRITABLE	1
+# define MLX_SYNC_WIN_FLUSH_CMD		2
+# define MLX_SYNC_WIN_CMD_COMPLETED	3
 
 typedef enum e_bool
 {
@@ -48,7 +51,7 @@ typedef struct s_position
 	int	y;
 }	t_position;
 
-//Useless
+//Useless E' LO SCHERMO
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -85,6 +88,7 @@ typedef struct	s_vars {
 	void					*win;
 	t_assets				*assets;
 	t_game					*game;
+	t_data					*img;
 
 }	t_vars;
 
