@@ -16,7 +16,7 @@ FLAGS		= -Wall -Werror -Wextra -g -s
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(SRC) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
+	cc $(SRC) $(FLAGS) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
 #TO DO rimettere le flag
 #TO DO risolvere il relink
 
@@ -38,4 +38,4 @@ test: re
 	 ./a.out maps/map.ber
 
 val: re
-	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/movement_try.ber
+	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/map.ber

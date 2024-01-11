@@ -28,8 +28,7 @@ static int handle_keyboard_input(int keysym, t_vars *vars)
 		end(vars);
 
 	game_status status = move(vars->game, keysym);
-	print_char_matrix(vars->game->map);
-	printf("\n");
+	 
 
 	if (status == win)
 		printf("|win|\n");

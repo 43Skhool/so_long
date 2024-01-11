@@ -62,7 +62,6 @@ int	render_next_frame(t_vars *vars)
 		}
 		i++;
 	}
-
 	return (0);
 }
 

@@ -25,12 +25,9 @@ void free_game(t_game *game)
 {
 	if (game->exit_position)
 		free(game->exit_position);
-
 	if (game->player_position)
 		free(game->player_position);
-
 	dealloc_matrix(game->map);
-
 	free(game);
 }
 
