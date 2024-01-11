@@ -21,6 +21,7 @@
 # define DESTROY_NOTIFY 17
 # define KEY_ESC		65307
 # define W_KEY			119
+# define R_KEY			114
 # define A_KEY			97
 # define S_KEY			115
 # define D_KEY			100
@@ -28,9 +29,7 @@
 # define LEFT_ARROW		65361
 # define DOWN_ARROW		65364
 # define RIGHT_ARROW	65363
-# define MLX_SYNC_IMAGE_WRITABLE	1
-# define MLX_SYNC_WIN_FLUSH_CMD		2
-# define MLX_SYNC_WIN_CMD_COMPLETED	3
+
 
 typedef enum e_bool
 {
@@ -81,6 +80,9 @@ typedef struct s_assets
 	void	*collectible;
 	void	*exit;
 	void	*enemy;
+	// questa cosa e' orribile e non andrebbe fatta sotto nessuna circostanza.
+	void	*death_1;
+	void	*death_2;
 }	t_assets;
 
 typedef struct	s_vars {
@@ -88,7 +90,7 @@ typedef struct	s_vars {
 	void					*win;
 	t_assets				*assets;
 	t_game					*game;
-	t_data					*img;
+	//t_data					*img;
 
 }	t_vars;
 
