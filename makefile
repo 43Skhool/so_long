@@ -35,7 +35,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	 ./a.out maps/movement_try.ber
+	 ./a.out maps/map.ber
 
 val: re
 	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/movement_try.ber

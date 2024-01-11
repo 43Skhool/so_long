@@ -34,9 +34,21 @@ void free_game(t_game *game)
 	free(game);
 }
 
+void free_assets(t_vars *vars)
+{
+	mlx_destroy_image(vars->mlx, vars->assets->collectible);
+	mlx_destroy_image(vars->mlx, vars->assets->exit);
+	mlx_destroy_image(vars->mlx, vars->assets->enemy);
+	mlx_destroy_image(vars->mlx, vars->assets->player);
+	mlx_destroy_image(vars->mlx, vars->assets->wall);
+	mlx_destroy_image(vars->mlx, vars->assets->floor);
+	free(vars->assets);
+}
+
 int end(t_vars *vars)
 {
 	free_game(vars->game);
+	free_assets(vars);
 	destroy_window(vars);
 	if (vars->mlx)
 		free(vars->mlx);
