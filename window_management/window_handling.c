@@ -63,11 +63,11 @@ int	death_animation(t_vars *vars)
 int	death_screen(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
-	vars->mlx = mlx_init();
+	//vars->mlx = mlx_init(); INUTILE DATO CHE MLX È già stata inizializzata
 	vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU DIED");
 	mlx_key_hook(vars->win, respawn, vars);
 	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, end, vars);
-	mlx_loop_hook(vars->mlx, death_animation, vars);
+	mlx_loop_hook(vars->mlx, death_animation, vars);//FA LEAKKARE
 	mlx_loop(vars->mlx);
 	return (0);
 }
