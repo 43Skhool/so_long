@@ -76,7 +76,7 @@ typedef struct s_assets
 {
 	void	*wall;
 	void	*floor;
-	void	*player;
+	void	*player[2];
 	void	*collectible;
 	void	*exit;
 	void	*enemy;

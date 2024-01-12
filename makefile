@@ -8,7 +8,7 @@ SRC = map_validation/map_validation.c \
 	window_management/window_handling.c \
 	window_management/rendering.c \
 	movement.c \
-	end_game.c \
+	cleaning.c \
 	main.c
 
 FLAGS		= -Wall -Werror -Wextra -g -s

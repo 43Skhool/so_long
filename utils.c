@@ -33,8 +33,6 @@ char **duplicate_char_matrix(char	**matrix)
 	return (result);
 }
 
-
-//TO DO levare il printf
 void print_char_matrix(char **matrix)
 {
 	int i = 0;

@@ -36,9 +36,15 @@ void free_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->assets->collectible);
 	mlx_destroy_image(vars->mlx, vars->assets->exit);
 	mlx_destroy_image(vars->mlx, vars->assets->enemy);
-	mlx_destroy_image(vars->mlx, vars->assets->player);
 	mlx_destroy_image(vars->mlx, vars->assets->wall);
 	mlx_destroy_image(vars->mlx, vars->assets->floor);
+
+	mlx_destroy_image(vars->mlx, vars->assets->player[0]);
+	mlx_destroy_image(vars->mlx, vars->assets->player[1]);
+
+	mlx_destroy_image(vars->mlx, vars->assets->death_1);
+	mlx_destroy_image(vars->mlx, vars->assets->death_2);
+
 	free(vars->assets);
 }
 

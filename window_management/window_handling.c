@@ -71,6 +71,7 @@ int	death_screen(t_vars *vars)
 	mlx_loop(vars->mlx);
 	return (0);
 }
+
 // void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color)
 // {
 // 	double deltaX = endX - beginX;
