@@ -9,14 +9,17 @@ int		hook(t_vars *vars);
 
 int	respawn( int keycode, t_vars *vars)
 {
+	t_game *game;
+
 	if (keycode == KEY_ESC)
 		end(vars, false);
 
 	if (keycode == R_KEY)
 	{
-		//mlx_destroy_window(vars->mlx, vars->win);
+		char *file_tmp = vars->game->file;
 		end(vars, true);
-		t_game *game = get_map("./maps/map.ber");
+		t_game *game = get_map(file_tmp);
+		game->file = file_tmp;
 		start_game(game);
 	}
 	return (0);

@@ -49,13 +49,12 @@ int main(int argc, char *argv[])
 		printf("%s\n", game->reason);
 	else
 	{
-		// try_move(game);
+		game->file = argv[1];
 		printf("\nrows: %i\n", game->number_of_rows);
 		printf("cls: %i\n\n", game->number_of_columns);
 		print_char_matrix(game->map);
 		printf("\n");
 		start_game(game);
-		// free_game(game);
 	}
 
 	free_game(game);

@@ -70,6 +70,7 @@ typedef struct s_game
 	char		**map;
 	int			number_of_columns;
 	int			number_of_rows;
+	char		*file;
 }	t_game;
 
 typedef struct s_assets
