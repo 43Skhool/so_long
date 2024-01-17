@@ -38,4 +38,4 @@ test: re
 	 ./a.out maps/map.ber
 
 val: re
-	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/map.ber
+	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/map

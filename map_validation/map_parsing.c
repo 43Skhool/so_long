@@ -13,7 +13,7 @@
 #include "../so_long.h"
 
 t_game		*validate_map(t_game *game);
-static bool	validate_file_name(char *file_name);
+static bool	validate_file_name(char *file_name, t_game *game);
 static void	read_map(char *file_name, t_game *game);
 static bool	get_map_size(char *file_name, t_game *game);
 static void	allocate_map(t_game *game);
@@ -26,11 +26,8 @@ t_game	*get_map(char *file_name)
 	if (!game)
 		return (NULL);
 	game->is_map_valid = false;
-	if (validate_file_name(file_name) == false)
-	{
-		game->reason = "Error, wrong file extension";
+	if (validate_file_name(file_name, game) == false)
 		return (game);
-	}
 	if (get_map_size(file_name, game) == false)
 	{
 		game->reason = "Error, map isn't a rectangle or it is too small";
@@ -46,11 +43,12 @@ t_game	*get_map(char *file_name)
 }
 
 // check if file is a '.ber'
-static bool	validate_file_name(char *file_name)
+static bool	validate_file_name(char *file_name, t_game *game)
 {
 	char	**file_name_splitted;
 	size_t	row_count;
 	int		lenght;
+	int		fd;
 
 	file_name_splitted = ft_split(file_name, '.');
 	row_count = count_matrix_row(file_name_splitted);
@@ -58,10 +56,15 @@ static bool	validate_file_name(char *file_name)
 	if (ft_strncmp(file_name_splitted[row_count - 1], "ber", lenght) == 0)
 	{
 		dealloc_matrix(file_name_splitted);
+		fd = open(file_name, O_RDONLY);
+		if (fd == -1)
+			return (game->reason = "Error, file not found", false);
+		close (fd);
 		return (true);
 	}
 	dealloc_matrix(file_name_splitted);
-	return (false);
+
+	return (game->reason = "Error, wring file extension", false);
 }
 
 //map reading from file and check if is a rectangle
