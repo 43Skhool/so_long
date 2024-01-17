@@ -1,9 +1,5 @@
 #include "../so_long.h"
 
-//questo metodo non dovrebbe esistere.
-//se puoi gestisci i controlli in keyboard handle in base allo stato del gioco,
-//questo e' per fare i test e non viene liberato.
-
 void	initialize_window(t_vars *vars);
 int		hook(t_vars *vars);
 
@@ -18,7 +14,7 @@ int	respawn( int keycode, t_vars *vars)
 	{
 		char *file_tmp = vars->game->file;
 		end(vars, true);
-		t_game *game = get_map(file_tmp);
+		game = get_map(file_tmp);
 		game->file = file_tmp;
 		start_game(game);
 	}
