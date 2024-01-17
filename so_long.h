@@ -106,7 +106,7 @@ void		print_char_matrix(char **matrix);//TO DO da levare
 
 void		start_game(t_game *map);
 
-int			end(t_vars *vars);
+int end(t_vars *vars, bool restart);
 
 void		free_game(t_game *game);
 

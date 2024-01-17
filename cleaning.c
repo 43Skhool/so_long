@@ -48,12 +48,14 @@ void free_assets(t_vars *vars)
 	free(vars->assets);
 }
 
-int end(t_vars *vars)
+int end(t_vars *vars, bool restart)
 {
 	free_game(vars->game);
 	free_assets(vars);
 	destroy_window(vars);
 	if (vars->mlx)
 		free(vars->mlx);
-	exit(0);
+	if (restart == false)
+		exit(1);
+	return (1);
 }

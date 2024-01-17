@@ -13,6 +13,7 @@
 #include "../so_long.h"
 
 int		hook(t_vars *vars);
+void	load_assets(t_vars *vars);
 void	initialize_window(t_vars *vars);
 
 // void my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -28,49 +29,54 @@ void start_game(t_game *game)
 	t_vars vars;
 	vars.game = game;
 
+	vars.mlx = mlx_init();
+	if (!vars.mlx)
+		end(&vars, false);
+
 	initialize_window(&vars);
 	hook(&vars);
 	mlx_loop(vars.mlx);
 }
-//questo metodo non dovrebbe esistere.
-//se puoi gestisci i controlli in keyboard handle in base allo stato del gioco,
-//questo e' per fare i test e non viene liberato.
-int	respawn( int keycode, t_vars *vars)
-{
-	if (keycode == KEY_ESC)
-		end(vars);
 
-	if (keycode == R_KEY)
-		printf("the game should restart\n");
-	return (0);
+void initialize_window(t_vars *vars)
+{
+	int win_height = TILE_SIZE * vars->game->number_of_rows;
+	int win_width = TILE_SIZE * vars->game->number_of_columns;
+
+	vars->win = mlx_new_window(vars->mlx, win_width, win_height, "So long");
+
+	if (!vars->win)
+		end(vars, false);
+
+	load_assets(vars);
 }
 
-int	death_animation(t_vars *vars)
+void load_assets(t_vars *vars)
 {
-	static int celframe;
+	int img_width;	// dove viene inserita l'altezza che riesce a disegnare
+	int img_heigth; // dove viene inserita la larghezza che riesce a disegnare
 
-	if (celframe > 1000)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->death_2, 0, 0);
-	else
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->death_1, 0, 0);
+	vars->assets = malloc(sizeof(t_assets));
 
-	if (celframe == 2000)
-		celframe = 0;
-	celframe++;
-	return (0);
+	vars->assets->player[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
+	vars->assets->player[1] = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth);
+
+	vars->assets->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
+	vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "assets/mine.xpm", &img_width, &img_heigth);
+	vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "assets/wall_1.xpm", &img_width, &img_heigth);
+	vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "assets/ground.xpm", &img_width, &img_heigth);
+	vars->assets->collectible = mlx_xpm_file_to_image(vars->mlx, "assets/collectible.xpm", &img_width, &img_heigth);
+	// DA ELIMINARE
+	vars->assets->death_1 = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead.xpm", &img_width, &img_heigth);
+	vars->assets->death_2 = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead_1.xpm", &img_width, &img_heigth);
+
+	// vars->assets->exit = mlx_xpm_file_to_image(vars->mlx, "../assets/exit.xmp", tmp, tmp);
+	// vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "../assets/mine.xmp", tmp, tmp);
+	// vars->assets->collectible = mlx_xpm_file_to_image(vars->mlx, "../assets/collectible.xmp", tmp, tmp);
+	// vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "../assets/wall_1.xmp", tmp, tmp);
+	// vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "../assets/ground.xmp", tmp, tmp);
 }
 
-int	death_screen(t_vars *vars)
-{
-	mlx_destroy_window(vars->mlx, vars->win);
-	//vars->mlx = mlx_init(); INUTILE DATO CHE MLX È già stata inizializzata
-	vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU DIED");
-	mlx_key_hook(vars->win, respawn, vars);
-	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, end, vars);
-	mlx_loop_hook(vars->mlx, death_animation, vars);//FA LEAKKARE
-	mlx_loop(vars->mlx);
-	return (0);
-}
 
 // void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color)
 // {

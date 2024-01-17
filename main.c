@@ -50,8 +50,8 @@ int main(int argc, char *argv[])
 	else
 	{
 		// try_move(game);
-		printf("rows: %i\n", game->number_of_rows);
-		printf("cls: %i\n", game->number_of_columns);
+		printf("\nrows: %i\n", game->number_of_rows);
+		printf("cls: %i\n\n", game->number_of_columns);
 		print_char_matrix(game->map);
 		printf("\n");
 		start_game(game);

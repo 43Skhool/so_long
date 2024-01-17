@@ -12,8 +12,8 @@
 
 #include "../so_long.h"
 
-int		death_screen(t_vars *vars);
 static int handle_keyboard_input(int keysym, t_vars *vars);
+int	death(t_vars *vars);
 
 int	hook(t_vars *vars)
 {
@@ -28,20 +28,20 @@ static int handle_keyboard_input(int keysym, t_vars *vars)
 {
 	game_status status;
 	if (keysym == KEY_ESC)
-		end(vars);
+		end(vars, false);
 
 	status = move(vars->game, keysym);
 
 	if (status == win)
 	{
 		printf("\n|win|\n");
-		end(vars);
+		end(vars, false);
 	}
 
 	if (status == lose)
 	{
-		printf("\n|lose|\n");
-		death_screen(vars);
+		//printf("\n|lose|\n");
+		death(vars);
 	}
 
 	if (status == win || status == lose)
