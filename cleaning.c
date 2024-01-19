@@ -45,6 +45,9 @@ void free_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->assets->death_1);
 	mlx_destroy_image(vars->mlx, vars->assets->death_2);
 
+	mlx_destroy_image(vars->mlx, vars->assets->win_1);
+	mlx_destroy_image(vars->mlx, vars->assets->win_2);
+
 	free(vars->assets);
 }
 

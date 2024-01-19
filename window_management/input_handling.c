@@ -13,7 +13,7 @@
 #include "../so_long.h"
 
 static int handle_keyboard_input(int keysym, t_vars *vars);
-int	death(t_vars *vars);
+int	finish_game(t_vars *vars, game_status status);
 
 int	hook(t_vars *vars)
 {
@@ -32,19 +32,8 @@ static int handle_keyboard_input(int keysym, t_vars *vars)
 
 	status = move(vars->game, keysym);
 
-	if (status == win)
-	{
-		printf("\n|win|\n");
-		end(vars, false);
-	}
-
-	if (status == lose)
-	{
-		//printf("\n|lose|\n");
-		death(vars);
-	}
-
 	if (status == win || status == lose)
-		return (1);
+		finish_game(vars, status);
+
 	return (0);
 }

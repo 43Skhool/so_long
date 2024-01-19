@@ -84,6 +84,8 @@ typedef struct s_assets
 	// questa cosa e' orribile e non andrebbe fatta sotto nessuna circostanza.
 	void	*death_1;
 	void	*death_2;
+	void	*win_1;
+	void	*win_2;
 }	t_assets;
 
 typedef struct	s_vars {

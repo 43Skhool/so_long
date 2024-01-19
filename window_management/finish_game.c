@@ -3,7 +3,7 @@
 void	initialize_window(t_vars *vars);
 int		hook(t_vars *vars);
 
-int	respawn( int keycode, t_vars *vars)
+int	finish_hook( int keycode, t_vars *vars)
 {
 	t_game *game;
 
@@ -36,14 +36,39 @@ int	death_animation(t_vars *vars)
 	return (0);
 }
 
-int	death(t_vars *vars)
+int	win_animation(t_vars *vars)
+{
+	static int celframe;
+
+	if (celframe > 1000)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->win_2, 0, 0);
+	else
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->win_1, 0, 0);
+
+	if (celframe == 2000)
+		celframe = 0;
+	celframe++;
+	return (0);
+}
+
+int	finish_game(t_vars *vars, game_status status)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
-	//vars->mlx = mlx_init(); INUTILE DATO CHE MLX È già stata inizializzata, è quello che faceva leakkare
-	vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU DIED");
-	mlx_key_hook(vars->win, respawn, vars);
+
+	if (status == lose)
+		vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU DIED");
+	else if (status == win)
+		vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU WIN");
+
+	mlx_key_hook(vars->win, finish_hook, vars);
+
 	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, end, vars);
-	mlx_loop_hook(vars->mlx, death_animation, vars);//FA LEAKKARE
+	if (status == lose)
+		mlx_loop_hook(vars->mlx, death_animation, vars);
+	else if (status == win)
+		mlx_loop_hook(vars->mlx, win_animation, vars);
+
 	mlx_loop(vars->mlx);
+
 	return (0);
 }
