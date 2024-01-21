@@ -25,6 +25,7 @@ t_game	*get_map(char *file_name)
 	game = malloc(sizeof(t_game));
 	if (!game)
 		return (NULL);
+	game->number_of_moves = 0;
 	game->is_map_valid = false;
 	if (validate_file_name(file_name, game) == false)
 		return (game);

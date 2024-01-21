@@ -71,6 +71,7 @@ typedef struct s_game
 	int			number_of_columns;
 	int			number_of_rows;
 	char		*file;
+	int			number_of_moves;
 }	t_game;
 
 typedef struct s_assets
