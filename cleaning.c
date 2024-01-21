@@ -59,6 +59,6 @@ int end(t_vars *vars, bool restart)
 	if (vars->mlx)
 		free(vars->mlx);
 	if (restart == false)
-		exit(1);
+		exit(0);
 	return (1);
 }

@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
 		printf("%s\n", game->reason);
 	else
 	{
-		game->file = argv[1];
 		printf("\nrows: %i\n", game->number_of_rows);
 		printf("cls: %i\n\n", game->number_of_columns);
 		print_char_matrix(game->map);

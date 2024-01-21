@@ -17,7 +17,7 @@ FLAGS		= -Wall -Werror -Wextra -g -s
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(SRC) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
+	cc $(SRC) $(FLAGS) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
 #TO DO rimettere le flag
 #TO DO risolvere il relink
 
@@ -26,6 +26,7 @@ all: $(NAME)
 clean:
 	rm -f *.o
 	cd ./libft/ && ${MAKE} clean
+	cd ./mlx/ && ${MAKE} clean
 
 fclean: clean
 	rm -f *.a
