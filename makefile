@@ -1,6 +1,7 @@
 NAME		= so_long
 
-SRC = map_validation/map_validation.c \
+SRC = main.c \
+	map_validation/map_validation.c \
 	map_validation/map_parsing.c \
 	map_validation/map_content.c \
 	utils.c \
@@ -9,17 +10,16 @@ SRC = map_validation/map_validation.c \
 	window_management/rendering.c \
 	window_management/finish_game.c \
 	movement.c \
-	cleaning.c \
-	main.c
+	cleaning.c 
 
 FLAGS		= -Wall -Werror -Wextra -g -s
 
-OBJS		= $(SRC:.c=.o)
+OBJS		= $(%.c=%.o)
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
 	cc -c $(SRC) $(FLAGS) -Ilibft -Imlx
-	cc $(OBJS) -o $(NAME) -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11
+	cc $(OBJS) -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 #TO DO rimettere le flag
 #TO DO risolvere il relink
 
