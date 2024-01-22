@@ -14,10 +14,12 @@ SRC = map_validation/map_validation.c \
 
 FLAGS		= -Wall -Werror -Wextra -g -s
 
+OBJS		= $(SRC:.c=.o)
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc $(SRC) $(FLAGS) -lm -Ilibft *.h -Llibft -lft -Imlx -Lmlx -lmlx -lXext -lX11
+	cc -c $(SRC) $(FLAGS) -Ilibft -Imlx
+	cc $(OBJS) -o $(NAME) -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11
 #TO DO rimettere le flag
 #TO DO risolvere il relink
 
@@ -32,12 +34,13 @@ fclean: clean
 	rm -f *.a
 	rm -f *.out
 	rm -f *.gch
+	rm -f $(NAME)
 	cd ./libft/ && ${MAKE} fclean
 
 re: fclean all
 
 test: re
-	 ./a.out maps/map.ber
+	 ./$(NAME) maps/map.ber
 
 val: re
 	 valgrind --leak-check=full --show-leak-kinds=all ./a.out maps/map.ber

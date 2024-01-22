@@ -63,13 +63,17 @@ typedef struct s_game
 	int			number_of_rows;
 	char		*file;
 	int			number_of_moves;
+	int			player_direction;
 }	t_game;
 
 typedef struct s_assets
 {
 	void	*wall;
 	void	*floor;
-	void	*player[2];
+	void	*player_left[2];
+	void	*player_right[2];
+	void	*player_up[2];
+	void	*player_down[2];
 	void	*collectible;
 	void	*exit;
 	void	*enemy;
