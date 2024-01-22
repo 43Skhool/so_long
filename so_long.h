@@ -41,7 +41,8 @@ typedef enum e_game_status
 {
 	win,
 	lose,
-	playing
+	playing,
+	moved,
 } game_status;
 
 typedef struct s_position

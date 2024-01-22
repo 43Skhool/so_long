@@ -33,6 +33,8 @@ void start_game(t_game *game)
 	if (!vars.mlx)
 		end(&vars, false);
 
+	write(1, "\nSTART GAME\n\n", 14);
+
 	initialize_window(&vars);
 	hook(&vars);
 	mlx_loop(vars.mlx);

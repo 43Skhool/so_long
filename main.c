@@ -1,38 +1,5 @@
 #include "so_long.h"
 
-// gcc *.c *.h -Lminilibx-linux -lmlx_Linux -lX11 -lXext
-// gcc *.c *.h
-
-void try_move(t_game *game)
-{
-	game_status status;
-	for (size_t i = 0; i < 4; i++)
-	{
-		printf("\n");
-		print_char_matrix(game->map);
-		status = move(game, RIGHT_ARROW);
-		if (status == playing)
-		{
-			printf("\n|PLAYING|\n");
-		}
-		if (status == lose)
-		{
-			printf("\n|LOSE|\n");
-			return;
-		}
-	}
-
-	printf("\narrivato a destra\n");
-	print_char_matrix(game->map);
-	status = move(game, RIGHT_ARROW);
-	if (status == win)
-	{
-		printf("\nEND\n");
-	}
-
-	print_char_matrix(game->map);
-}
-
 int main(int argc, char *argv[])
 {
 	if (argc != 2)
@@ -49,10 +16,10 @@ int main(int argc, char *argv[])
 		printf("%s\n", game->reason);
 	else
 	{
-		printf("\nrows: %i\n", game->number_of_rows);
-		printf("cls: %i\n\n", game->number_of_columns);
-		print_char_matrix(game->map);
-		printf("\n");
+		// printf("\nrows: %i\n", game->number_of_rows);
+		// printf("cls: %i\n\n", game->number_of_columns);
+		// print_char_matrix(game->map);
+		// printf("\n");
 		start_game(game);
 	}
 

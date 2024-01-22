@@ -56,9 +56,16 @@ int	finish_game(t_vars *vars, game_status status)
 	mlx_destroy_window(vars->mlx, vars->win);
 
 	if (status == lose)
+	{
 		vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU DIED");
+		write(1, "\nLOSE\n\n", 6);
+
+	}
 	else if (status == win)
+	{
 		vars->win = mlx_new_window(vars->mlx, 640, 480, "YOU WIN");
+		write(1, "\nWIN\n\n", 5);
+	}
 
 	mlx_key_hook(vars->win, finish_hook, vars);
 

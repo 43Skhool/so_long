@@ -54,6 +54,10 @@ void free_assets(t_vars *vars)
 
 int end(t_vars *vars, bool restart)
 {
+	if (restart == true)
+		write(1, "\nRestarting\n\n", 14);
+	else
+		write(1, "GAME END\n", 10);
 	free_game(vars->game);
 	free_assets(vars);
 	destroy_window(vars);

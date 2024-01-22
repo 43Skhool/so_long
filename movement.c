@@ -36,7 +36,7 @@ static game_status	switch_position(t_game *game, t_position newposition)
 {
 	game_status status;
 
-	status = playing;
+	status = moved;
 	if (game->map[newposition.x][newposition.y] == 'E' && game->collectibles_count == 0)
 		status = win;
 	if (game->map[newposition.x][newposition.y] == 'M')
