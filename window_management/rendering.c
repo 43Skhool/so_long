@@ -40,20 +40,34 @@ int render_next_frame(t_vars *vars)
 	return (0);
 }
 
+int render_player(t_vars *vars, t_position position, int animation_status)
+{
+	int direction = vars->game->player_direction;
+ 	if (direction == W_KEY || direction == UP_ARROW)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_up[animation_status], position.x, position.y);
+	else if (direction == S_KEY || direction == DOWN_ARROW)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_down[animation_status], position.x, position.y);
+	else if (direction == D_KEY || direction == RIGHT_ARROW)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_right[animation_status], position.x, position.y);
+	else if (direction == A_KEY || direction == LEFT_ARROW)
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_left[animation_status], position.x, position.y);
+	return (1);
+}
+
 int render_tile(t_vars *vars, char type, t_position position)
 {
 	static int frame_count;
-	int	anitmation_status;
+	int	animation_status;
 
 	if (frame_count > 30)
-		anitmation_status = 1;
+		animation_status = 1;
 	else
-		anitmation_status = 0;
+		animation_status = 0;
 
 	if (type == ENEMY)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->enemy, position.x, position.y);
 	else if (type == PLAYER)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player[anitmation_status], position.x, position.y);
+		render_player(vars, position, animation_status);
 	else if (type == COLLECTIBLES)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->collectible, position.x, position.y);
 	else if (type == FLOOR)
