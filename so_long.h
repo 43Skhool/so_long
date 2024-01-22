@@ -58,7 +58,6 @@ typedef struct s_game
 	t_position	*player_position;
 	t_position	*exit_position;
 	int			collectibles_count;
-	int			move_count;
 	char		**map;
 	int			number_of_columns;
 	int			number_of_rows;
@@ -84,9 +83,9 @@ typedef struct	s_vars {
 	void					*win;
 	t_assets				*assets;
 	t_game					*game;
-	//t_data					*img;
-
 }	t_vars;
+
+// TO DO levare tutti i printf
 
 t_game		*get_map(char *file_name);
 

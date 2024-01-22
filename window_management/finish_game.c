@@ -2,6 +2,7 @@
 
 void	initialize_window(t_vars *vars);
 int		hook(t_vars *vars);
+int		destroy_notify(t_vars *vars);
 
 int	finish_hook( int keycode, t_vars *vars)
 {
@@ -69,7 +70,7 @@ int	finish_game(t_vars *vars, game_status status)
 
 	mlx_key_hook(vars->win, finish_hook, vars);
 
-	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, end, vars);
+	mlx_hook(vars->win, DESTROY_NOTIFY, 1L << 0, destroy_notify, vars);
 	if (status == lose)
 		mlx_loop_hook(vars->mlx, death_animation, vars);
 	else if (status == win)

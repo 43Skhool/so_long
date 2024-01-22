@@ -14,6 +14,7 @@
 
 int render_next_frame(t_vars *vars);
 int render_tile(t_vars *vars, char type, t_position position);
+void render_movement_count(t_vars *vars, int x, int y, int color);
 
 int render_next_frame(t_vars *vars)
 {
@@ -35,6 +36,7 @@ int render_next_frame(t_vars *vars)
 		}
 		i++;
 	}
+	render_movement_count(vars, 15, 15, 000000);
 	return (0);
 }
 
@@ -67,4 +69,23 @@ int render_tile(t_vars *vars, char type, t_position position)
 	frame_count++;
 
 	return (0);
+}
+
+void render_movement_count(t_vars *vars, int x, int y, int color)
+{
+	int		tmp_movement_count;
+	char	new_number;
+
+	tmp_movement_count = vars->game->number_of_moves;
+	mlx_string_put(vars->mlx, vars->win, x, y, color, "Movement count");
+	while (tmp_movement_count / 10 > 10)
+	{
+		new_number = (tmp_movement_count % 10) + 48;
+		x += 20;
+		printf("|%s|\n", &new_number);
+		mlx_string_put(vars->mlx, vars->win, x, y, color, &new_number);
+		tmp_movement_count /= 10;
+	}
+	x += 20;
+	mlx_string_put(vars->mlx, vars->win, x, y, color, &new_number);
 }
