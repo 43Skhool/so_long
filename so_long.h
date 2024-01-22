@@ -50,15 +50,6 @@ typedef struct s_position
 	int	y;
 }	t_position;
 
-//Useless E' LO SCHERMO
-// typedef struct	s_data {
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// }				t_data;
-
 typedef struct s_game
 {
 	bool		is_map_valid;
@@ -82,9 +73,7 @@ typedef struct s_assets
 	void	*collectible;
 	void	*exit;
 	void	*enemy;
-	// questa cosa e' orribile e non andrebbe fatta sotto nessuna circostanza.
-	void	*death_1;
-	void	*death_2;
+	void	*death[2];
 	void	*win_1;
 	void	*win_2;
 }	t_assets;

@@ -66,9 +66,11 @@ void load_assets(t_vars *vars)
 	vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "assets/wall_1.xpm", &img_width, &img_heigth);
 	vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "assets/ground.xpm", &img_width, &img_heigth);
 	vars->assets->collectible = mlx_xpm_file_to_image(vars->mlx, "assets/collectible.xpm", &img_width, &img_heigth);
-	// Da trasformare in array
-	vars->assets->death_1 = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead.xpm", &img_width, &img_heigth);
-	vars->assets->death_2 = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead_1.xpm", &img_width, &img_heigth);
+
+	vars->assets->death[0] = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead.xpm", &img_width, &img_heigth);
+	vars->assets->death[1] = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead_1.xpm", &img_width, &img_heigth);
+
+	//TO DO da cambiare asset e mettere nel vettore
 	vars->assets->win_1 = mlx_xpm_file_to_image(vars->mlx, "assets/win_1.xpm", &img_width, &img_heigth);
 	vars->assets->win_2 = mlx_xpm_file_to_image(vars->mlx, "assets/win_2.xpm", &img_width, &img_heigth);
 

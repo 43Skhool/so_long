@@ -42,9 +42,10 @@ void free_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->assets->player[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player[1]);
 
-	mlx_destroy_image(vars->mlx, vars->assets->death_1);
-	mlx_destroy_image(vars->mlx, vars->assets->death_2);
+	mlx_destroy_image(vars->mlx, vars->assets->death[0]);
+	mlx_destroy_image(vars->mlx, vars->assets->death[1]);
 
+	//TO DO da cambiare quando saranno in un vettore
 	mlx_destroy_image(vars->mlx, vars->assets->win_1);
 	mlx_destroy_image(vars->mlx, vars->assets->win_2);
 
