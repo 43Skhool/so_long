@@ -29,7 +29,7 @@ clean:
 	rm -fr *.o
 	rm -fr **/*.o
 	cd ./libft/ && ${MAKE} clean
-	cd ./mlx/ && ${MAKE} clean
+	# cd ./mlx/ && ${MAKE} clean
 
 fclean: clean
 	rm -f *.a

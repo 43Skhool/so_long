@@ -74,8 +74,8 @@ void load_assets(t_vars *vars)
 
 	vars->assets->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
 	vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "assets/mine.xpm", &img_width, &img_heigth);
-	vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "assets/wall_1.xpm", &img_width, &img_heigth);
-	vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "assets/ground.xpm", &img_width, &img_heigth);
+	vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "assets/wall.xpm", &img_width, &img_heigth);
+	vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "assets/floor.xpm", &img_width, &img_heigth);
 	vars->assets->collectible = mlx_xpm_file_to_image(vars->mlx, "assets/collectible.xpm", &img_width, &img_heigth);
 
 	vars->assets->death[0] = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead.xpm", &img_width, &img_heigth);

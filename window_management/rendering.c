@@ -14,7 +14,7 @@
 
 int render_next_frame(t_vars *vars);
 int render_tile(t_vars *vars, char type, t_position position);
-void render_movement_count(t_vars *vars, int x, int y, int color);
+void render_movement_count(t_vars *vars, int x, int y);
 
 int render_next_frame(t_vars *vars)
 {
@@ -36,7 +36,7 @@ int render_next_frame(t_vars *vars)
 		}
 		i++;
 	}
-	render_movement_count(vars, 20, 20, 000000);
+	render_movement_count(vars, 10, 20);
 	return (0);
 }
 
@@ -86,12 +86,11 @@ int render_tile(t_vars *vars, char type, t_position position)
 	return (0);
 }
 
-void render_movement_count(t_vars *vars, int x, int y, int color)
+void render_movement_count(t_vars *vars, int x, int y)
 {
-	char *final;
 	char *number =  ft_itoa(vars->game->number_of_moves);
-	final = ft_strjoin("Number of moves :", number);
-	mlx_string_put(vars->mlx, vars->win, x, y, color, final);
+	mlx_string_put(vars->mlx, vars->win, x, y, 0XFFFFFF, "Number of moves :");
+	mlx_string_put(vars->mlx, vars->win, x + 105, y + 1, 0XFFFFFF, number);
+
 	free(number);
-	free(final);
 }
