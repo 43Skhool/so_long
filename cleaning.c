@@ -42,14 +42,14 @@ void free_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->assets->player_up[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player_up[1]);
 
-	mlx_destroy_image(vars->mlx, vars->assets->player_down[0]);
-	mlx_destroy_image(vars->mlx, vars->assets->player_down[1]);
+	// mlx_destroy_image(vars->mlx, vars->assets->player_down[0]);
+	// mlx_destroy_image(vars->mlx, vars->assets->player_down[1]);
 
-	mlx_destroy_image(vars->mlx, vars->assets->player_right[0]);
-	mlx_destroy_image(vars->mlx, vars->assets->player_right[1]);
+	// mlx_destroy_image(vars->mlx, vars->assets->player_right[0]);
+	// mlx_destroy_image(vars->mlx, vars->assets->player_right[1]);
 
-	mlx_destroy_image(vars->mlx, vars->assets->player_left[0]);
-	mlx_destroy_image(vars->mlx, vars->assets->player_left[1]);
+	// mlx_destroy_image(vars->mlx, vars->assets->player_left[0]);
+	// mlx_destroy_image(vars->mlx, vars->assets->player_left[1]);
 
 	mlx_destroy_image(vars->mlx, vars->assets->death[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->death[1]);

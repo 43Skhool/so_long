@@ -36,21 +36,22 @@ int render_next_frame(t_vars *vars)
 		}
 		i++;
 	}
-	render_movement_count(vars, 15, 15, 000000);
+	//render_movement_count(vars, 15, 15, 000000);
 	return (0);
 }
 
 int render_player(t_vars *vars, t_position position, int animation_status)
 {
-	int direction = vars->game->player_direction;
- 	if (direction == W_KEY || direction == UP_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_up[animation_status], position.x, position.y);
-	else if (direction == S_KEY || direction == DOWN_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_down[animation_status], position.x, position.y);
-	else if (direction == D_KEY || direction == RIGHT_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_right[animation_status], position.x, position.y);
-	else if (direction == A_KEY || direction == LEFT_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_left[animation_status], position.x, position.y);
+	// int direction = vars->game->player_direction;
+ 	// if (direction == W_KEY || direction == UP_ARROW)
+	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_up[animation_status], position.x, position.y);
+	// else if (direction == S_KEY || direction == DOWN_ARROW)
+	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_down[animation_status], position.x, position.y);
+	// else if (direction == D_KEY || direction == RIGHT_ARROW)
+	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_right[animation_status], position.x, position.y);
+	// else if (direction == A_KEY || direction == LEFT_ARROW)
+	// 	mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_left[animation_status], position.x, position.y);
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_up[1], position.x, position.y);
 	return (1);
 }
 

@@ -63,14 +63,14 @@ void load_assets(t_vars *vars)
 	vars->assets->player_up[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
 	vars->assets->player_up[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_idle_1.xpm", &img_width, &img_heigth);
 
-	vars->assets->player_down[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	vars->assets->player_down[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_down_idle_1.xpm", &img_width, &img_heigth);
+	// vars->assets->player_down[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
+	// vars->assets->player_down[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_down_idle_1.xpm", &img_width, &img_heigth);
 
-	vars->assets->player_right[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	vars->assets->player_right[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_right_1.xpm", &img_width, &img_heigth);
+	// vars->assets->player_right[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
+	// vars->assets->player_right[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_right_1.xpm", &img_width, &img_heigth);
 
-	vars->assets->player_left[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	vars->assets->player_left[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_left_1.xpm", &img_width, &img_heigth);
+	// vars->assets->player_left[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
+	// vars->assets->player_left[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_left_1.xpm", &img_width, &img_heigth);
 
 	vars->assets->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
 	vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "assets/mine.xpm", &img_width, &img_heigth);

@@ -13,22 +13,22 @@ game_status move(t_game *game, int direction)
 
 	if (direction == W_KEY || direction == UP_ARROW)
 	{
-		game->player_direction = direction;
+		//game->player_direction = direction;
 		return (newposition.x--, try_move(game, newposition));
 	}
 	if (direction == S_KEY || direction == DOWN_ARROW)
 	{
-		game->player_direction = direction;
+		//game->player_direction = direction;
 		return (newposition.x++, try_move(game, newposition));
 	}
 	if (direction == D_KEY || direction == RIGHT_ARROW)
 	{
-		game->player_direction = direction;
+		//game->player_direction = direction;
 		return (newposition.y++, try_move(game, newposition));
 	}
 	if (direction == A_KEY || direction == LEFT_ARROW)
 	{
-		game->player_direction = direction;
+		//game->player_direction = direction;
 		return (newposition.y--, try_move(game, newposition));
 	}
 	return (playing);
