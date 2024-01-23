@@ -14,19 +14,20 @@ SRC = main.c \
 
 FLAGS		= -Wall -Werror -Wextra -g -s
 
-OBJS		= $(%.c=%.o)
+OBJS		= $(SRC:%.c=%.o)
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
 	cc -c $(SRC) $(FLAGS) -Ilibft -Imlx
-	cc $(OBJS) -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
+	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 #TO DO rimettere le flag
 #TO DO risolvere il relink
 
 all: $(NAME)
 
 clean:
-	rm -f *.o
+	rm -fr *.o
+	rm -fr **/*.o
 	cd ./libft/ && ${MAKE} clean
 	cd ./mlx/ && ${MAKE} clean
 
