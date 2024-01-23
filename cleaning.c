@@ -10,8 +10,8 @@ static int	destroy_window(t_vars *vars)
 
 void	dealloc_matrix(char **matrix)
 {
-	if (!matrix)
-		return ;
+	// if (!matrix)
+	// 	return ;
 	int i = 0;
 	while (matrix[i])
 	{
@@ -30,7 +30,7 @@ void free_game(t_game *game)
 	if (game->map)
 		dealloc_matrix(game->map);
 
-	//free(game);
+	free(game);
 }
 
 void free_assets(t_vars *vars)

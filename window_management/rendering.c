@@ -40,7 +40,7 @@ int render_next_frame(t_vars *vars)
 	return (0);
 }
 
-int render_player(t_vars *vars, t_position position, int animation_status)
+int render_player(t_vars *vars, t_position position/*, int animation_status*/)
 {
 	// int direction = vars->game->player_direction;
  	// if (direction == W_KEY || direction == UP_ARROW)
@@ -58,17 +58,17 @@ int render_player(t_vars *vars, t_position position, int animation_status)
 int render_tile(t_vars *vars, char type, t_position position)
 {
 	static int frame_count;
-	int	animation_status;
+	// int	animation_status;
 
-	if (frame_count > 30)
-		animation_status = 1;
-	else
-		animation_status = 0;
+	// if (frame_count > 30)
+	// 	animation_status = 1;
+	// else
+	// 	animation_status = 0;
 
 	if (type == ENEMY)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->enemy, position.x, position.y);
 	else if (type == PLAYER)
-		render_player(vars, position, animation_status);
+		render_player(vars, position/*, animation_status*/);
 	else if (type == COLLECTIBLES)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->collectible, position.x, position.y);
 	else if (type == FLOOR)

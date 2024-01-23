@@ -11,8 +11,13 @@ int main(int argc, char *argv[])
 
 	game = get_map(argv[1]);
 
+	if (!game)
+		write(1, "Error, allocation failed\n", 25);
 	if (game->is_map_valid == false)
-		printf("%s\n", game->reason);
+	{
+		write(1, game->reason, ft_strlen(game->reason));
+		write(1, "\n", 1);
+	}
 	else
 	{
 		// printf("\nrows: %i\n", game->number_of_rows);

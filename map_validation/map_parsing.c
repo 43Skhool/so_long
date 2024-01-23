@@ -20,15 +20,17 @@ static void	allocate_map(t_game *game);
 
 t_game *get_map(char *file_name)
 {
-	t_game *game;
+	t_game	*game;
 
-	game = malloc(sizeof(game));
+	game = malloc(sizeof(t_game));
+	if (!game)
+		return (NULL);
 	game->player_direction = DOWN_ARROW;
 	game->number_of_moves = 0;
 	game->is_map_valid = false;
-	game->player_position = malloc(sizeof(t_position));
-	game->exit_position = malloc(sizeof(t_position));
 	game->map = NULL;
+	game->player_position = NULL;
+	game->exit_position = NULL;
 	if (validate_file_name(file_name, game) == false)
 		return (game);
 	if (get_map_size(file_name, game) == false)
