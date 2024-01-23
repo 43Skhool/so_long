@@ -75,11 +75,11 @@ typedef struct s_assets
 	void	*player_up[2];
 	void	*player_down[2];
 	void	*collectible;
-	void	*exit;
+	void	*exit_closed;
+	void	*exit_open;
 	void	*enemy;
 	void	*death[2];
-	void	*win_1;
-	void	*win_2;
+	void	*win;
 }	t_assets;
 
 typedef struct	s_vars {
@@ -91,7 +91,7 @@ typedef struct	s_vars {
 
 // TO DO levare tutti i printf
 
-t_game			*get_map(char *file_name);
+t_game		*get_map(char *file_name);
 
 void		dealloc_matrix(char **matrix);
 

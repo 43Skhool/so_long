@@ -15,6 +15,7 @@ SRC = main.c \
 FLAGS		= -Wall -Werror -Wextra -g -s
 
 OBJS		= $(SRC:%.c=%.o)
+
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx

@@ -29,14 +29,14 @@ void free_game(t_game *game)
 		free(game->player_position);
 	if (game->map)
 		dealloc_matrix(game->map);
-
 	free(game);
 }
 
 void free_assets(t_vars *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->assets->collectible);
-	mlx_destroy_image(vars->mlx, vars->assets->exit);
+	mlx_destroy_image(vars->mlx, vars->assets->exit_closed);
+	mlx_destroy_image(vars->mlx, vars->assets->exit_open);
 	mlx_destroy_image(vars->mlx, vars->assets->enemy);
 	mlx_destroy_image(vars->mlx, vars->assets->wall);
 	mlx_destroy_image(vars->mlx, vars->assets->floor);
@@ -44,21 +44,19 @@ void free_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->assets->player_up[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player_up[1]);
 
-	// mlx_destroy_image(vars->mlx, vars->assets->player_down[0]);
-	// mlx_destroy_image(vars->mlx, vars->assets->player_down[1]);
+	mlx_destroy_image(vars->mlx, vars->assets->player_down[0]);
+	mlx_destroy_image(vars->mlx, vars->assets->player_down[1]);
 
-	// mlx_destroy_image(vars->mlx, vars->assets->player_right[0]);
-	// mlx_destroy_image(vars->mlx, vars->assets->player_right[1]);
+	mlx_destroy_image(vars->mlx, vars->assets->player_right[0]);
+	mlx_destroy_image(vars->mlx, vars->assets->player_right[1]);
 
-	// mlx_destroy_image(vars->mlx, vars->assets->player_left[0]);
-	// mlx_destroy_image(vars->mlx, vars->assets->player_left[1]);
+	mlx_destroy_image(vars->mlx, vars->assets->player_left[0]);
+	mlx_destroy_image(vars->mlx, vars->assets->player_left[1]);
 
 	mlx_destroy_image(vars->mlx, vars->assets->death[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->death[1]);
 
-	//TO DO da cambiare quando saranno in un vettore
-	mlx_destroy_image(vars->mlx, vars->assets->win_1);
-	mlx_destroy_image(vars->mlx, vars->assets->win_2);
+	mlx_destroy_image(vars->mlx, vars->assets->win);
 
 	free(vars->assets);
 }

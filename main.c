@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		write(1, game->reason, ft_strlen(game->reason));
 		write(1, "\n", 1);
 	}
-	else
+	else if (1 == 1)
 	{
 		// printf("\nrows: %i\n", game->number_of_rows);
 		// printf("cls: %i\n\n", game->number_of_columns);

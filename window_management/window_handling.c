@@ -52,19 +52,20 @@ void load_assets(t_vars *vars)
 
 	vars->assets = malloc(sizeof(t_assets));
 
-	vars->assets->player_up[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	vars->assets->player_up[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_idle_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_up[0] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_idle_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_up[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_idle_2.xpm", &img_width, &img_heigth);
 
-	// vars->assets->player_down[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	// vars->assets->player_down[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_down_idle_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_down[0] = mlx_xpm_file_to_image(vars->mlx, "assets/player_down_idle_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_down[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_down_idle_2.xpm", &img_width, &img_heigth);
 
-	// vars->assets->player_right[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	// vars->assets->player_right[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_right_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_right[0] = mlx_xpm_file_to_image(vars->mlx, "assets/player_right_idle_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_right[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_right_idle_2.xpm", &img_width, &img_heigth);
 
-	// vars->assets->player_left[0] = mlx_xpm_file_to_image(vars->mlx, "assets/teapot.xpm", &img_width, &img_heigth);
-	// vars->assets->player_left[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_left_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_left[0] = mlx_xpm_file_to_image(vars->mlx, "assets/player_left_idle_1.xpm", &img_width, &img_heigth);
+	vars->assets->player_left[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_left_idle_2.xpm", &img_width, &img_heigth);
 
-	vars->assets->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
+	vars->assets->exit_open = mlx_xpm_file_to_image(vars->mlx, "assets/exit_open.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
+	vars->assets->exit_closed = mlx_xpm_file_to_image(vars->mlx, "assets/exit_closed.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
 	vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "assets/enemy.xpm", &img_width, &img_heigth);
 	vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "assets/wall.xpm", &img_width, &img_heigth);
 	vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "assets/floor.xpm", &img_width, &img_heigth);
@@ -74,8 +75,5 @@ void load_assets(t_vars *vars)
 	vars->assets->death[1] = mlx_xpm_file_to_image(vars->mlx, "assets/you_are_dead_1.xpm", &img_width, &img_heigth);
 
 	//TO DO da cambiare asset e mettere nel vettore
-	vars->assets->win_1 = mlx_xpm_file_to_image(vars->mlx, "assets/win_1.xpm", &img_width, &img_heigth);
-	vars->assets->win_2 = mlx_xpm_file_to_image(vars->mlx, "assets/win_2.xpm", &img_width, &img_heigth);
-
-
+	vars->assets->win = mlx_xpm_file_to_image(vars->mlx, "assets/win.xpm", &img_width, &img_heigth);
 }

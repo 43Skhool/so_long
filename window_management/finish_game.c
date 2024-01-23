@@ -39,16 +39,8 @@ int	death_animation(t_vars *vars)
 
 int	win_animation(t_vars *vars)
 {
-	static int celframe;
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->win, 0, 0);
 
-	if (celframe > 1000)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->win_2, 0, 0);
-	else
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->win_1, 0, 0);
-
-	if (celframe == 2000)
-		celframe = 0;
-	celframe++;
 	return (0);
 }
 
