@@ -91,7 +91,7 @@ typedef struct	s_vars {
 
 // TO DO levare tutti i printf
 
-t_game		*get_map(char *file_name);
+t_game			*get_map(char *file_name);
 
 void		dealloc_matrix(char **matrix);
 
@@ -101,17 +101,17 @@ size_t		count_matrix_row(char **matrix);
 
 void		print_char_matrix(char **matrix);//TO DO da levare
 
-void		start_game(t_game *map);
+void		start_game(t_game *game);
 
-int end(t_vars *vars, bool restart);
+int			end(t_vars *vars, bool restart);
 
 void		free_game(t_game *game);
 
-int		render_next_frame(t_vars *vars);
+int			render_next_frame(t_vars *vars);
 
 game_status	move(t_game *game, int direction);
 
-int end_game(t_vars *vars);
+int			end_game(t_vars *vars);
 
 //int		keyboard_handler(int direction, t_vars *vars);
 

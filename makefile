@@ -18,10 +18,10 @@ OBJS		= $(SRC:%.c=%.o)
 $(NAME):
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc -c $(SRC) -Ilibft -Imlx
+	cc -c $(SRC) $(FLAGS) -Ilibft -Imlx
 	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 #TO DO rimettere le flag
-#TO DO risolvere il relink
+#TO DO non relinka nemmeno cambiando cose nei file
 
 all: $(NAME)
 
@@ -44,4 +44,4 @@ test: re
 	 ./$(NAME) maps/map.ber
 
 val: re
-	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/map.ber
+	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/ma.ber

@@ -29,7 +29,8 @@ void free_game(t_game *game)
 		free(game->player_position);
 	if (game->map)
 		dealloc_matrix(game->map);
-	free(game);
+
+	//free(game);
 }
 
 void free_assets(t_vars *vars)

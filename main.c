@@ -2,17 +2,16 @@
 
 int main(int argc, char *argv[])
 {
+	t_game *game;
 	if (argc != 2)
 	{
 		printf("Specify a map file\n");
 		return (0);
 	}
 
-	t_game *game = get_map(argv[1]);
+	game = get_map(argv[1]);
 
-	if (!game)
-		printf("error, memory allocation fail\n");
-	else if (game->is_map_valid == false)
+	if (game->is_map_valid == false)
 		printf("%s\n", game->reason);
 	else
 	{

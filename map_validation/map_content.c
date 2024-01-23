@@ -23,8 +23,6 @@ bool	validate_components(t_game *game)
 	player_position_count = 0;
 	game->collectibles_count = 0;
 	exit_count = 0;
-	game->player_position = malloc(sizeof(t_position));
-	game->exit_position = malloc(sizeof(t_position));
 	if (!game->exit_position || !game->player_position)
 		return (false);
 	if (search_components(game, &exit_count, &player_position_count) == false)

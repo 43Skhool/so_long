@@ -16,14 +16,6 @@ int		hook(t_vars *vars);
 void	load_assets(t_vars *vars);
 void	initialize_window(t_vars *vars);
 
-// void my_mlx_pixel_put(t_data *data, int x, int y, int color)
-// {
-// 	char *dst;
-
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
-// }
-
 void start_game(t_game *game)
 {
 	t_vars vars;
@@ -73,7 +65,7 @@ void load_assets(t_vars *vars)
 	// vars->assets->player_left[1] = mlx_xpm_file_to_image(vars->mlx, "assets/player_up_left_1.xpm", &img_width, &img_heigth);
 
 	vars->assets->exit = mlx_xpm_file_to_image(vars->mlx, "assets/exit.xpm", &img_width, &img_heigth); // TO DO da cambiare con un'altro file
-	vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "assets/mine.xpm", &img_width, &img_heigth);
+	vars->assets->enemy = mlx_xpm_file_to_image(vars->mlx, "assets/enemy.xpm", &img_width, &img_heigth);
 	vars->assets->wall = mlx_xpm_file_to_image(vars->mlx, "assets/wall.xpm", &img_width, &img_heigth);
 	vars->assets->floor = mlx_xpm_file_to_image(vars->mlx, "assets/floor.xpm", &img_width, &img_heigth);
 	vars->assets->collectible = mlx_xpm_file_to_image(vars->mlx, "assets/collectible.xpm", &img_width, &img_heigth);
@@ -87,22 +79,3 @@ void load_assets(t_vars *vars)
 
 
 }
-
-
-// void draw_line(t_data img, int beginX, int beginY, int endX, int endY, int color)
-// {
-// 	double deltaX = endX - beginX;
-// 	double deltaY = endY - beginY;
-// 	int pixels = sqrt((deltaX * deltaX) + (deltaY * deltaY));
-// 	deltaX /= pixels;
-// 	deltaY /= pixels;
-// 	double pixelX = beginX;
-// 	double pixelY = beginY;
-// 	while (pixels)
-// 	{
-// 		my_mlx_pixel_put(&img, pixelX, pixelY, color);
-// 		pixelX += deltaX;
-// 		pixelY += deltaY;
-// 		--pixels;
-// 	}
-// }
