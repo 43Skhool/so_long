@@ -23,16 +23,14 @@ t_game	*get_map(char *file_name)
 	t_game	*game;
 
 	game = malloc(sizeof(t_game));
-	if (!game)
-		return (NULL);
+	if (!game || validate_file_name(file_name, game) == false)
+		return (game);
 	game->player_direction = DOWN_ARROW;
 	game->number_of_moves = 0;
 	game->is_map_valid = false;
 	game->map = NULL;
 	game->player_position = NULL;
 	game->exit_position = NULL;
-	if (validate_file_name(file_name, game) == false)
-		return (game);
 	if (get_map_size(file_name, game) == false)
 	{
 		game->reason = "Error, map isn't a rectangle or it is too small";
