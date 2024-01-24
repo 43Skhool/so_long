@@ -9,14 +9,12 @@
 #include "mlx.h"
 #include "libft.h"
 
-#include <stdio.h>//TODO da levare
-
 # define WALL			'1'
 # define FLOOR			'0'
 # define COLLECTIBLES	'C'
 # define PLAYER			'P'
 # define EXIT			'E'
-# define ENEMY			'M'//mina
+# define ENEMY			'M'
 # define TILE_SIZE		64
 # define DESTROY_NOTIFY 17
 # define KEY_ESC		65307
@@ -29,7 +27,6 @@
 # define LEFT_ARROW		65361
 # define DOWN_ARROW		65364
 # define RIGHT_ARROW	65363
-
 
 typedef enum e_bool
 {
@@ -54,7 +51,7 @@ typedef struct s_position
 typedef struct s_game
 {
 	bool		is_map_valid;
-	char		*reason;//Non va mai deallocata
+	char		*reason;
 	t_position	*player_position;
 	t_position	*exit_position;
 	int			collectibles_count;
@@ -89,8 +86,6 @@ typedef struct	s_vars {
 	t_game					*game;
 }	t_vars;
 
-// TO DO levare tutti i printf
-
 t_game		*get_map(char *file_name);
 
 void		dealloc_matrix(char **matrix);
@@ -99,7 +94,7 @@ char		**duplicate_char_matrix(char	**matrix);
 
 size_t		count_matrix_row(char **matrix);
 
-void		print_char_matrix(char **matrix);//TO DO da levare
+void		print_char_matrix(char **matrix);
 
 void		start_game(t_game *game);
 
@@ -112,8 +107,5 @@ int			render_next_frame(t_vars *vars);
 game_status	move(t_game *game, int direction);
 
 int			end_game(t_vars *vars);
-
-//int		keyboard_handler(int direction, t_vars *vars);
-
 
 #endif

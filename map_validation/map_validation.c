@@ -12,9 +12,8 @@
 
 #include "../so_long.h"
 
-void		validate_map(t_game *game);
+bool		validate_content(t_game *game);
 static bool	is_surrended_by_walls(char *map[]);
-bool		validate_components(t_game *game);
 static void	try_reach(char **map, t_position start_pos, int *exit, int *n_coll);
 
 void	validate_map(t_game *game)
@@ -30,7 +29,7 @@ void	validate_map(t_game *game)
 		game->reason = "Map isn't surrended by walls";
 		return ;
 	}
-	if (validate_components(game) == false)
+	if (validate_content(game) == false)
 		return ;
 	tmp_matrix = duplicate_char_matrix(game->map);
 	try_reach(tmp_matrix, *game->player_position, &exit, &collectibles);

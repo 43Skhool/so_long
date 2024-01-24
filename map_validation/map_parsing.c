@@ -18,7 +18,7 @@ static void	read_map(char *file_name, t_game *game);
 static bool	get_map_size(char *file_name, t_game *game);
 static void	allocate_map(t_game *game);
 
-t_game *get_map(char *file_name)
+t_game	*get_map(char *file_name)
 {
 	t_game	*game;
 
@@ -69,7 +69,6 @@ static bool	validate_file_name(char *file_name, t_game *game)
 		return (true);
 	}
 	dealloc_matrix(file_name_splitted);
-
 	return (game->reason = "Error, wring file extension", false);
 }
 

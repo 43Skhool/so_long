@@ -23,7 +23,6 @@ $(NAME):
 	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 #TO DO rimettere le flag
 #TO DO non relinka nemmeno cambiando cose nei file
-#TO DO mettere l'assegnazione del file name nel validate file name e levarlo sia dallo start che dal mai
 
 all: $(NAME)
 

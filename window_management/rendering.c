@@ -12,14 +12,14 @@
 
 #include "../so_long.h"
 
-int render_next_frame(t_vars *vars);
-int render_tile(t_vars *vars, char type, t_position position);
-void render_movement_count(t_vars *vars, int x, int y);
+int		render_next_frame(t_vars *vars);
+int		render_tile(t_vars *vars, char type, t_position position);
+void	render_movement_count(t_vars *vars, int x, int y);
 
-int render_next_frame(t_vars *vars)
+int	render_next_frame(t_vars *vars)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	t_position position;
 
 	i = 0;
@@ -40,9 +40,11 @@ int render_next_frame(t_vars *vars)
 	return (0);
 }
 
-int render_player(t_vars *vars, t_position position, int animation_status)
+int	render_player(t_vars *vars, t_position position, int animation_status)
 {
-	int direction = vars->game->player_direction;
+	int	direction;
+
+	direction = vars->game->player_direction;
  	if (direction == S_KEY || direction == DOWN_ARROW)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_down[animation_status], position.x, position.y);
 	else if (direction == W_KEY || direction == UP_ARROW)
@@ -54,7 +56,7 @@ int render_player(t_vars *vars, t_position position, int animation_status)
 	return (1);
 }
 
-int render_exit(t_vars *vars, t_position position)
+int	render_exit(t_vars *vars, t_position position)
 {
 	if (vars->game->collectibles_count != 0)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->exit_closed, position.x, position.y);
@@ -62,16 +64,16 @@ int render_exit(t_vars *vars, t_position position)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->exit_open, position.x, position.y);
 }
 
-int render_tile(t_vars *vars, char type, t_position position)
+int	render_tile(t_vars *vars, char type, t_position position)
 {
-	static int frame_count;
-	int	animation_status;
+	static int	frame_count;
+	int			animation_status;
 
 	if (frame_count > 10000)
 		animation_status = 1;
 	else
 		animation_status = 0;
-
+	//
 	if (type == ENEMY)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->enemy, position.x, position.y);
 	else if (type == PLAYER)
@@ -84,20 +86,19 @@ int render_tile(t_vars *vars, char type, t_position position)
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->wall, position.x, position.y);
 	else if (type == EXIT)
 		render_exit(vars, position);
-
+	//
 	if (frame_count == 20000)
 		frame_count = 0;
-
 	frame_count++;
-
+	//
 	return (0);
 }
 
-void render_movement_count(t_vars *vars, int x, int y)
+void	render_movement_count(t_vars *vars, int x, int y)
 {
-	char *number =  ft_itoa(vars->game->number_of_moves);
+	char *number;
+	number = ft_itoa(vars->game->number_of_moves);
 	mlx_string_put(vars->mlx, vars->win, x, y, 0XFFFFFF, "Number of moves :");
 	mlx_string_put(vars->mlx, vars->win, x + 105, y + 1, 0XFFFFFF, number);
-
 	free(number);
 }

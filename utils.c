@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-size_t	count_matrix_row(char    **matrix)
+size_t	count_matrix_row(char **matrix)
 {
 	size_t	i;
 
@@ -10,7 +10,7 @@ size_t	count_matrix_row(char    **matrix)
 	return (i);
 }
 
-char **duplicate_char_matrix(char	**matrix)
+char	**duplicate_char_matrix(char **matrix)
 {
 	int count_rows;
 	int	str_len;
@@ -33,13 +33,14 @@ char **duplicate_char_matrix(char	**matrix)
 	return (result);
 }
 
-void print_char_matrix(char **matrix)
+void	print_char_matrix(char **matrix)
 {
 	int i = 0;
 
 	while (matrix[i])
 	{
-		printf("%s\n", matrix[i]);
+		write(1, matrix[i] , ft_strlen(matrix[i]));
+		write(1, "\n", 1);
 		i++;
 	}
 }

@@ -1,9 +1,9 @@
 
 #include "../so_long.h"
 
-static int handle_keyboard_input(int keysym, t_vars *vars);
-int	finish_game(t_vars *vars, game_status status);
-int	destroy_notify(t_vars *vars);
+static int	handle_keyboard_input(int keysym, t_vars *vars);
+int			finish_game(t_vars *vars, game_status status);
+int			destroy_notify(t_vars *vars);
 
 int	hook(t_vars *vars)
 {
@@ -14,20 +14,20 @@ int	hook(t_vars *vars)
 }
 
 //Non static perchè usata nel finish game
-int destroy_notify(t_vars *vars)
+int	destroy_notify(t_vars *vars)
 {
 	end(vars, false);
 	return (1);
 }
 
-static int handle_keyboard_input(int keysym, t_vars *vars)
+static int	handle_keyboard_input(int keysym, t_vars *vars)
 {
 	game_status status;
+
 	if (keysym == KEY_ESC)
 		end(vars, false);
-
+	//
 	status = move(vars->game, keysym);
-
 	if (status == moved)
 	{
 		vars->game->number_of_moves++;
@@ -35,9 +35,9 @@ static int handle_keyboard_input(int keysym, t_vars *vars)
 		ft_putnbr_fd(vars->game->number_of_moves, 1);
 		write(1, "\n", 1);
 	}
-
+	//
 	if (status == win || status == lose)
 		finish_game(vars, status);
-
+	//
 	return (0);
 }
