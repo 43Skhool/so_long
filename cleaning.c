@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cleaning.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/24 18:15:04 by marvin            #+#    #+#             */
+/*   Updated: 2024/01/24 18:15:04 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 //ex window_close
@@ -10,9 +22,11 @@ static int	destroy_window(t_vars *vars)
 
 void	dealloc_matrix(char **matrix)
 {
+	int	i;
+
 	if (!matrix)
 		return ;
-	int i = 0;
+	i = 0;
 	while (matrix[i])
 	{
 		free(matrix[i]);
@@ -32,7 +46,7 @@ void	free_game(t_game *game)
 	free(game);
 }
 
-void	free_assets(t_vars *vars)
+static void	free_assets(t_vars *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->assets->collectible);
 	mlx_destroy_image(vars->mlx, vars->assets->exit_closed);
@@ -40,24 +54,17 @@ void	free_assets(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->assets->enemy);
 	mlx_destroy_image(vars->mlx, vars->assets->wall);
 	mlx_destroy_image(vars->mlx, vars->assets->floor);
-	//
 	mlx_destroy_image(vars->mlx, vars->assets->player_up[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player_up[1]);
-	//
 	mlx_destroy_image(vars->mlx, vars->assets->player_down[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player_down[1]);
-	//
 	mlx_destroy_image(vars->mlx, vars->assets->player_right[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player_right[1]);
-	//
 	mlx_destroy_image(vars->mlx, vars->assets->player_left[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->player_left[1]);
-	//
 	mlx_destroy_image(vars->mlx, vars->assets->death[0]);
 	mlx_destroy_image(vars->mlx, vars->assets->death[1]);
-	//
 	mlx_destroy_image(vars->mlx, vars->assets->win);
-	//
 	free(vars->assets);
 }
 

@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/24 18:16:58 by marvin            #+#    #+#             */
+/*   Updated: 2024/01/24 18:16:58 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	t_game *game;
+	t_game	*game;
+
 	if (argc != 2)
 	{
 		write(1, "Error, Specify a map file\n", 26);
