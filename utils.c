@@ -57,3 +57,10 @@ void	print_char_matrix(char **matrix)
 		i++;
 	}
 }
+
+//Used for norminette
+int	put_img(t_vars *vars, void *asset, int x, int y)
+{
+	mlx_put_image_to_window(vars->mlx, vars->win, asset, x, y);
+	return (0);
+}
