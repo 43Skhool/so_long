@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooking.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 12:31:02 by marvin            #+#    #+#             */
+/*   Updated: 2024/01/25 12:31:02 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../so_long.h"
 
@@ -22,11 +33,10 @@ int	destroy_notify(t_vars *vars)
 
 static int	handle_keyboard_input(int keysym, t_vars *vars)
 {
-	t_game_status status;
+	t_game_status	status;
 
 	if (keysym == KEY_ESC)
 		end(vars, false);
-	//
 	status = move(vars->game, keysym);
 	if (status == moved)
 	{
@@ -35,9 +45,7 @@ static int	handle_keyboard_input(int keysym, t_vars *vars)
 		ft_putnbr_fd(vars->game->number_of_moves, 1);
 		write(1, "\n", 1);
 	}
-	//
 	if (status == win || status == lose)
 		finish_game(vars, status);
-	//
 	return (0);
 }

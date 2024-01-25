@@ -15,7 +15,6 @@
 void	initialize_window(t_vars *vars);
 int		hook(t_vars *vars);
 int		destroy_notify(t_vars *vars);
-int		put_img(t_vars *vars, void *asset, int x, int y);
 
 int	finish_hook( int keycode, t_vars *vars)
 {
