@@ -12,8 +12,8 @@
 
 #include "../so_long.h"
 
-static t_bool	search_components(t_game *game, int	*exit_count, int *player_count);
-static int	switch_by_element_type(t_game *game, int i, int j, int *exit_num);
+static t_bool	search_components(t_game *game, int	*n_exit, int *n_player);
+static int		switch_element_type(t_game *game, int i, int j, int *n_exit);
 
 t_bool	validate_content(t_game *game)
 {
@@ -45,7 +45,7 @@ t_bool	validate_content(t_game *game)
 }
 
 //false: found unkown element
-static t_bool	search_components(t_game *game, int	*exit_count, int *player_count)
+static t_bool	search_components(t_game *game, int	*n_exit, int *n_player)
 {
 	int	i;
 	int	j;
@@ -58,11 +58,11 @@ static t_bool	search_components(t_game *game, int	*exit_count, int *player_count
 		j = 1;
 		while (game->map[i][j])
 		{
-			tmp = switch_by_element_type(game, i, j, exit_count);
+			tmp = switch_by_element_type(game, i, j, n_exit);
 			if (tmp == -1)
 				return (false);
 			else if (tmp == 1)
-				(*player_count)++;
+				(*n_player)++;
 			j++;
 		}
 		i++;
@@ -71,7 +71,7 @@ static t_bool	search_components(t_game *game, int	*exit_count, int *player_count
 }
 
 //return number of player, -1: unknown element
-static int	switch_by_element_type(t_game *game, int i, int j, int *exit_num)
+static int	switch_element_type(t_game *game, int i, int j, int *exit_num)
 {
 	int	player_num;
 

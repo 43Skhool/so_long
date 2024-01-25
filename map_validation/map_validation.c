@@ -12,9 +12,9 @@
 
 #include "../so_long.h"
 
-t_bool		validate_content(t_game *game);
+t_bool			validate_content(t_game *game);
 static t_bool	is_surrended_by_walls(char *map[]);
-static void	try_reach(char **map, t_position start_pos, int *exit, int *n_coll);
+static void		try_reach(char **map, t_position s_pos, int *n_ex, int *n_col);
 
 void	validate_map(t_game *game)
 {
@@ -69,7 +69,7 @@ static t_bool	is_surrended_by_walls(char *map[])
 }
 
 // n_coll: number of collectibles, exit: if exit is reachble
-static void	try_reach(char **map, t_position start_pos, int *exit, int *n_coll)
+void	try_reach(char **map, t_position s_pos, int *n_ex, int *n_col)
 {
 	int			x;
 	int			y;
