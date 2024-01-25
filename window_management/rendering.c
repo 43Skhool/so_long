@@ -46,22 +46,22 @@ int	render_player(t_vars *vars, t_position pos, int status)
 
 	direction = vars->game->player_direction;
 	if (direction == S_KEY || direction == DOWN_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_down[status], pos.x, pos.y);
+		put_img(vars, vars->assets->player_down[status], pos.x, pos.y);
 	else if (direction == W_KEY || direction == UP_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_up[status], pos.x, pos.y);
+		put_img(vars, vars->assets->player_up[status], pos.x, pos.y);
 	else if (direction == D_KEY || direction == RIGHT_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_right[status], pos.x, pos.y);
+		put_img(vars, vars->assets->player_right[status], pos.x, pos.y);
 	else if (direction == A_KEY || direction == LEFT_ARROW)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->player_left[status], pos.x, pos.y);
+		put_img(vars, vars->assets->player_left[status], pos.x, pos.y);
 	return (1);
 }
 
 int	render_exit(t_vars *vars, t_position pos)
 {
 	if (vars->game->collectibles_count != 0)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->exit_closed, pos.x, pos.y);
+		put_img(vars, vars->assets->exit_closed, pos.x, pos.y);
 	else
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->exit_open, pos.x, pos.y);
+		put_img(vars, vars->assets->exit_open, pos.x, pos.y);
 }
 
 int	render_tile(t_vars *vars, char type, t_position pos)
@@ -74,15 +74,15 @@ int	render_tile(t_vars *vars, char type, t_position pos)
 	else
 		animation_status = 0;
 	if (type == ENEMY)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->enemy, pos.x, pos.y);
+		put_img(vars, vars->assets->enemy, pos.x, pos.y);
 	else if (type == PLAYER)
 		render_player(vars, pos, animation_status);
 	else if (type == COLLECTIBLES)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->collectible, pos.x, pos.y);
+		put_img(vars, vars->assets->collectible, pos.x, pos.y);
 	else if (type == FLOOR)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->floor, pos.x, pos.y);
+		put_img(vars, vars->assets->floor, pos.x, pos.y);
 	else if (type == WALL)
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->assets->wall, pos.x, pos.y);
+		put_img(vars, vars->assets->wall, pos.x, pos.y);
 	else if (type == EXIT)
 		render_exit(vars, pos);
 	if (frame_count == 20000)
