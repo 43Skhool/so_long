@@ -13,9 +13,9 @@
 #include "../so_long.h"
 
 t_game		*validate_map(t_game *game);
-static bool	validate_file_name(char *file_name, t_game *game);
+static t_bool	validate_file_name(char *file_name, t_game *game);
 static void	read_map(char *file_name, t_game *game);
-static bool	get_map_size(char *file_name, t_game *game);
+static t_bool	get_map_size(char *file_name, t_game *game);
 static void	allocate_map(t_game *game);
 
 t_game	*get_map(char *file_name)
@@ -47,7 +47,7 @@ t_game	*get_map(char *file_name)
 }
 
 // check if file is a '.ber'
-static bool	validate_file_name(char *file_name, t_game *game)
+static t_bool	validate_file_name(char *file_name, t_game *game)
 {
 	char	**file_name_splitted;
 	size_t	row_count;
@@ -112,7 +112,7 @@ static void	allocate_map(t_game *game)
 }
 
 // check if is a rectangle and save the size
-static bool	get_map_size(char *file_name, t_game *game)
+static t_bool	get_map_size(char *file_name, t_game *game)
 {
 	int			fd;
 	char		buffer[1];

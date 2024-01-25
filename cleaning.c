@@ -68,7 +68,7 @@ static void	free_assets(t_vars *vars)
 	free(vars->assets);
 }
 
-int	end(t_vars *vars, bool restart)
+int	end(t_vars *vars, t_bool restart)
 {
 	if (restart == true)
 		write(1, "\nRestarting\n\n", 14);

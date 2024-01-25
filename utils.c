@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 12:10:55 by marvin            #+#    #+#             */
+/*   Updated: 2024/01/25 12:10:55 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 size_t	count_matrix_row(char **matrix)
@@ -12,10 +24,10 @@ size_t	count_matrix_row(char **matrix)
 
 char	**duplicate_char_matrix(char **matrix)
 {
-	int count_rows;
-	int	str_len;
-	char **result;
-	int	i;
+	int		count_rows;
+	int		str_len;
+	char	**result;
+	int		i;
 
 	count_rows = count_matrix_row(matrix);
 	result = malloc(sizeof(char *) * (count_rows + 1));
@@ -35,11 +47,12 @@ char	**duplicate_char_matrix(char **matrix)
 
 void	print_char_matrix(char **matrix)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (matrix[i])
 	{
-		write(1, matrix[i] , ft_strlen(matrix[i]));
+		write(1, matrix[i], ft_strlen(matrix[i]));
 		write(1, "\n", 1);
 		i++;
 	}

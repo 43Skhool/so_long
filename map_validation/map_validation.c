@@ -12,8 +12,8 @@
 
 #include "../so_long.h"
 
-bool		validate_content(t_game *game);
-static bool	is_surrended_by_walls(char *map[]);
+t_bool		validate_content(t_game *game);
+static t_bool	is_surrended_by_walls(char *map[]);
 static void	try_reach(char **map, t_position start_pos, int *exit, int *n_coll);
 
 void	validate_map(t_game *game)
@@ -44,7 +44,7 @@ void	validate_map(t_game *game)
 		dealloc_matrix(tmp_matrix);
 }
 
-static bool	is_surrended_by_walls(char *map[])
+static t_bool	is_surrended_by_walls(char *map[])
 {
 	int		i;
 	size_t	j;

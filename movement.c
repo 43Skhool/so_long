@@ -12,10 +12,10 @@
 
 #include "so_long.h"
 
-static game_status	try_move(t_game *game, t_position newposition);
-static game_status	switch_position(t_game *game, t_position newposition);
+static t_game_status	try_move(t_game *game, t_position newposition);
+static t_game_status	switch_position(t_game *game, t_position newposition);
 
-game_status	move(t_game *game, int direction)
+t_game_status	move(t_game *game, int direction)
 {
 	t_position	newposition;
 
@@ -43,7 +43,7 @@ game_status	move(t_game *game, int direction)
 	return (playing);
 }
 
-static game_status	try_move(t_game *game, t_position newposition)
+static t_game_status	try_move(t_game *game, t_position newposition)
 {
 	if (game->map[newposition.x][newposition.y] == WALL)
 		return (playing);
@@ -52,9 +52,9 @@ static game_status	try_move(t_game *game, t_position newposition)
 	return (switch_position(game, newposition));
 }
 
-static game_status	switch_position(t_game *game, t_position newposition)
+static t_game_status	switch_position(t_game *game, t_position newposition)
 {
-	game_status	status;
+	t_game_status	status;
 
 	status = moved;
 	if (game->map[newposition.x][newposition.y] == 'E')

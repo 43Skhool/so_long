@@ -42,7 +42,7 @@ int	win_animation(t_vars *vars)
 	return (0);
 }
 
-int	finish_game(t_vars *vars, game_status status)
+int	finish_game(t_vars *vars, t_game_status status)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
 	//

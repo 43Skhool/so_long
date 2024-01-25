@@ -2,7 +2,7 @@
 #include "../so_long.h"
 
 static int	handle_keyboard_input(int keysym, t_vars *vars);
-int			finish_game(t_vars *vars, game_status status);
+int			finish_game(t_vars *vars, t_game_status status);
 int			destroy_notify(t_vars *vars);
 
 int	hook(t_vars *vars)
@@ -22,7 +22,7 @@ int	destroy_notify(t_vars *vars)
 
 static int	handle_keyboard_input(int keysym, t_vars *vars)
 {
-	game_status status;
+	t_game_status status;
 
 	if (keysym == KEY_ESC)
 		end(vars, false);

@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/25 12:09:40 by marvin            #+#    #+#             */
+/*   Updated: 2024/01/25 12:09:40 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <math.h>
-#include "mlx.h"
-#include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <math.h>
+# include "mlx.h"
+# include "libft.h"
 
 # define WALL			'1'
 # define FLOOR			'0'
@@ -32,7 +44,7 @@ typedef enum e_bool
 {
 	false,
 	true
-}	bool;
+}	t_bool;
 
 typedef enum e_game_status
 {
@@ -40,7 +52,7 @@ typedef enum e_game_status
 	lose,
 	playing,
 	moved,
-} game_status;
+}	t_game_status;
 
 typedef struct s_position
 {
@@ -50,7 +62,7 @@ typedef struct s_position
 
 typedef struct s_game
 {
-	bool		is_map_valid;
+	t_bool		is_map_valid;
 	char		*reason;
 	t_position	*player_position;
 	t_position	*exit_position;
@@ -79,7 +91,8 @@ typedef struct s_assets
 	void	*win;
 }	t_assets;
 
-typedef struct	s_vars {
+typedef struct s_vars
+{
 	void					*mlx;
 	void					*win;
 	t_assets				*assets;
@@ -98,13 +111,13 @@ void		print_char_matrix(char **matrix);
 
 void		start_game(t_game *game);
 
-int			end(t_vars *vars, bool restart);
+int			end(t_vars *vars, t_bool restart);
 
 void		free_game(t_game *game);
 
 int			render_next_frame(t_vars *vars);
 
-game_status	move(t_game *game, int direction);
+t_game_status	move(t_game *game, int direction);
 
 int			end_game(t_vars *vars);
 

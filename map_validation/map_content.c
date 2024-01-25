@@ -12,10 +12,10 @@
 
 #include "../so_long.h"
 
-static bool	search_components(t_game *game, int	*exit_count, int *player_count);
+static t_bool	search_components(t_game *game, int	*exit_count, int *player_count);
 static int	switch_by_element_type(t_game *game, int i, int j, int *exit_num);
 
-bool	validate_content(t_game *game)
+t_bool	validate_content(t_game *game)
 {
 	int	exit_count;
 	int	player_position_count;
@@ -45,7 +45,7 @@ bool	validate_content(t_game *game)
 }
 
 //false: found unkown element
-static bool	search_components(t_game *game, int	*exit_count, int *player_count)
+static t_bool	search_components(t_game *game, int	*exit_count, int *player_count)
 {
 	int	i;
 	int	j;
