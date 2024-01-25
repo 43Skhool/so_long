@@ -67,6 +67,8 @@ static t_game_status	switch_position(t_game *game, t_position newposition)
 	{
 		if (game->exit_position->y == game->player_position->y)
 			game->map[game->player_position->x][game->player_position->y] = 'E';
+		else
+			game->map[game->player_position->x][game->player_position->y] = '0';
 	}
 	else
 		game->map[game->player_position->x][game->player_position->y] = '0';

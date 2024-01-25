@@ -45,4 +45,4 @@ test: re
 	 ./$(NAME) maps/map.ber
 
 val: re
-	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/map.ber
+	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/big_map.ber
