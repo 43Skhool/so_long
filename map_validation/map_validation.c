@@ -74,26 +74,26 @@ void	try_reach(char **map, t_position s_pos, int *n_ex, int *n_col)
 	int			x;
 	int			y;
 
-	x = start_pos.x;
-	y = start_pos.y;
+	x = s_pos.x;
+	y = s_pos.y;
 	if (map[x][y] == EXIT)
-		*exit = 90;
+		*n_ex = 90;
 	if (map[x][y] == COLLECTIBLES)
-		(*n_coll)++;
+		(*n_col)++;
 	if (map[x][y] == WALL || map[x][y] == 'v' || map[x][y] == ENEMY)
 		return ;
 	map[x][y] = 'v';
-	start_pos.x = x + 1;
-	start_pos.y = y;
-	try_reach(map, start_pos, exit, n_coll);
-	start_pos.x = x;
-	start_pos.y = y + 1;
-	try_reach(map, start_pos, exit, n_coll);
-	start_pos.x = x - 1;
-	start_pos.y = y;
-	try_reach(map, start_pos, exit, n_coll);
-	start_pos.x = x;
-	start_pos.y = y -1;
-	try_reach(map, start_pos, exit, n_coll);
+	s_pos.x = x + 1;
+	s_pos.y = y;
+	try_reach(map, s_pos, n_ex, n_col);
+	s_pos.x = x;
+	s_pos.y = y + 1;
+	try_reach(map, s_pos, n_ex, n_col);
+	s_pos.x = x - 1;
+	s_pos.y = y;
+	try_reach(map, s_pos, n_ex, n_col);
+	s_pos.x = x;
+	s_pos.y = y -1;
+	try_reach(map, s_pos, n_ex, n_col);
 	return ;
 }

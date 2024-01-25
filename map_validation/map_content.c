@@ -58,7 +58,7 @@ static t_bool	search_components(t_game *game, int	*n_exit, int *n_player)
 		j = 1;
 		while (game->map[i][j])
 		{
-			tmp = switch_by_element_type(game, i, j, n_exit);
+			tmp = switch_element_type(game, i, j, n_exit);
 			if (tmp == -1)
 				return (false);
 			else if (tmp == 1)
