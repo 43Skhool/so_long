@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 	}
 	game = get_map(argv[1]);
 	if (!game)
-		write(1, "Error, allocation failed\n", 25);
+		write(1, "Error, allocation failed?\n", 25);
 	if (game->is_map_valid == false)
 	{
 		write(1, game->reason, ft_strlen(game->reason));

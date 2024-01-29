@@ -12,20 +12,21 @@ SRC = main.c \
 	movement.c \
 	cleaning.c
 
-FLAGS		= -Wall -Werror -Wextra -g -s
+FLAGS		= -Wall -Werror -Wextra
 
 OBJS		= $(SRC:%.c=%.o)
 
-$(NAME):
+
+$(NAME): $(OBJS)
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
 	cc -c $(SRC) -Ilibft -Imlx
 	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 #TO DO rimettere le flag
 #TO DO non relinka nemmeno cambiando cose nei file
-
-all: $(NAME)
-
+%.o: %.c
+	cc -c $< -o $@ -Ilibft -Imlx
+	
 clean:
 	rm -fr *.o
 	rm -fr **/*.o
