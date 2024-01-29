@@ -24,6 +24,9 @@ $(NAME): $(OBJS)
 	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 #TO DO rimettere le flag
 #TO DO non relinka nemmeno cambiando cose nei file
+
+all:$(NAME)
+
 %.o: %.c
 	cc -c $< -o $@ -Ilibft -Imlx
 	
