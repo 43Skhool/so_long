@@ -62,6 +62,7 @@ int	render_exit(t_vars *vars, t_position pos)
 		put_img(vars, vars->assets->exit_closed, pos.x, pos.y);
 	else
 		put_img(vars, vars->assets->exit_open, pos.x, pos.y);
+	return (0);
 }
 
 int	render_tile(t_vars *vars, char type, t_position pos)

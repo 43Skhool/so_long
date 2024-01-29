@@ -16,32 +16,29 @@ FLAGS		= -Wall -Werror -Wextra
 
 OBJS		= $(SRC:%.c=%.o)
 
-
 $(NAME): $(OBJS)
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
-	cc -c $(SRC) -Ilibft -Imlx
+	cc $(FLAGS) -c $(SRC) -Ilibft -Imlx
 	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
-#TO DO rimettere le flag
-#TO DO non relinka nemmeno cambiando cose nei file
 
 all:$(NAME)
 
 %.o: %.c
 	cc -c $< -o $@ -Ilibft -Imlx
-	
+
 clean:
 	rm -fr *.o
 	rm -fr **/*.o
-	cd ./libft/ && ${MAKE} clean
-	# cd ./mlx/ && ${MAKE} clean
+	${MAKE} -C libft clean
+	${MAKE} -C mlx clean
 
 fclean: clean
 	rm -f *.a
 	rm -f *.out
 	rm -f *.gch
 	rm -f $(NAME)
-	cd ./libft/ && ${MAKE} fclean
+	${MAKE} -C libft fclean
 
 re: fclean all
 
