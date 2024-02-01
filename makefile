@@ -20,12 +20,18 @@ $(NAME): $(OBJS)
 	${MAKE} -C libft bonus
 	${MAKE} -C mlx
 	cc $(FLAGS) -c $(SRC) -Ilibft -Imlx
-	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
+	cc $(OBJS) -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
 
 all:$(NAME)
 
 %.o: %.c
 	cc -c $< -o $@ -Ilibft -Imlx
+
+download:
+	@wget https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
+	@tar -xf minilibx-linux.tgz
+	@mv minilibx-linux mlx
+	@rm -f minilibx-linux.tgz
 
 clean:
 	rm -fr *.o
