@@ -43,9 +43,13 @@ fclean: clean
 	rm -f $(NAME)
 	@${MAKE} -C corekit fclean -s && echo "$(RED)[COREKIT]:\t COREKIT FCLEAN$(RESET)"
 
-re: fclean all
+re: download_corekit download_mlx fclean all
 
-download:
+download_corekit:
+	@wget https://github.com/Sheratan095/corekit.git
+	rm -fr corekit.git
+
+download_mlx:
 	@wget https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
 	@tar -xf minilibx-linux.tgz
 	@mv minilibx-linux mlx
