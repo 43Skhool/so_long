@@ -43,7 +43,7 @@ fclean: clean
 	rm -f $(NAME)
 	@${MAKE} -C corekit fclean -s && echo "$(RED)[COREKIT]:\t COREKIT FCLEAN$(RESET)"
 
-re: fclean download all
+re: download fclean all
 
 download:
 	@wget https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
