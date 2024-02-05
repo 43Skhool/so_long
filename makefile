@@ -47,7 +47,7 @@ re: download_corekit download_mlx fclean all
 
 download_corekit:
 	@wget https://github.com/Sheratan095/corekit.git
-	rm -fr corekit.git
+	rm -f corekit.git
 
 download_mlx:
 	@wget https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
