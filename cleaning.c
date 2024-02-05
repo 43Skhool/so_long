@@ -20,21 +20,6 @@ static int	destroy_window(t_vars *vars)
 	return (0);
 }
 
-void	dealloc_matrix(char **matrix)
-{
-	int	i;
-
-	if (!matrix)
-		return ;
-	i = 0;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-}
-
 void	free_game(t_game *game)
 {
 	if (game->exit_position)
@@ -42,7 +27,7 @@ void	free_game(t_game *game)
 	if (game->player_position)
 		free(game->player_position);
 	if (game->map)
-		dealloc_matrix(game->map);
+		ft_free_matrix((void **)game->map);
 	free(game);
 }
 

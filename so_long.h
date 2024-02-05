@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include "mlx.h"
-# include "libft.h"
+# include "corekit.h"
 
 # define WALL			'1'
 # define FLOOR			'0'
@@ -40,11 +40,11 @@
 # define DOWN_ARROW		65364
 # define RIGHT_ARROW	65363
 
-typedef enum e_bool
-{
-	false,
-	true
-}	t_bool;
+// typedef enum e_bool
+// {
+// 	false,
+// 	true
+// }	t_bool;
 
 typedef enum e_game_status
 {

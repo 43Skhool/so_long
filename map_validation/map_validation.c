@@ -31,7 +31,7 @@ void	validate_map(t_game *game)
 	}
 	if (validate_content(game) == false)
 		return ;
-	tmp_matrix = duplicate_char_matrix(game->map);
+	tmp_matrix = ft_duplicate_char_matrix(game->map);
 	try_reach(tmp_matrix, *game->player_position, &exit, &collectibles);
 	game->is_map_valid = false;
 	if (collectibles != game->collectibles_count)
@@ -41,7 +41,7 @@ void	validate_map(t_game *game)
 	else
 		game->is_map_valid = true;
 	if (tmp_matrix)
-		dealloc_matrix(tmp_matrix);
+		ft_free_matrix((void **)tmp_matrix);
 }
 
 static t_bool	is_surrended_by_walls(char *map[])

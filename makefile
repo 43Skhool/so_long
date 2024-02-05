@@ -1,5 +1,7 @@
 NAME		= so_long
 
+COREKIT_PATH = ./corekit
+
 SRC = main.c \
 	map_validation/map_validation.c \
 	map_validation/map_parsing.c \
@@ -16,34 +18,46 @@ FLAGS		= -Wall -Werror -Wextra
 
 OBJS		= $(SRC:%.c=%.o)
 
+#-s used to silent terminal output
 $(NAME): $(OBJS)
-	${MAKE} -C libft bonus
-	${MAKE} -C mlx
-	cc $(FLAGS) -c $(SRC) -Ilibft -Imlx
-	cc *.o -lm -Llibft -lft -Lmlx -lmlx -lXext -lX11  -o $(NAME)
+	@${MAKE} -sC corekit
+	@${MAKE} -s -C mlx && echo "$(GREEN)[MLX]:\t\t MLX CREATED$(RESET)"
+	@cc $(OBJS) -lm -L$(COREKIT_PATH) -lcorekit -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
+	@echo "$(GREEN)[MLX]:\t\t PROJECT COMPILED$(RESET)"
 
 all:$(NAME)
 
 %.o: %.c
-	cc -c $< -o $@ -Ilibft -Imlx
+	@cc -c $< -o $@ -I$(COREKIT_PATH)/includes -Imlx -s
 
 clean:
 	rm -fr *.o
 	rm -fr **/*.o
-	${MAKE} -C libft clean
-	${MAKE} -C mlx clean
+	@${MAKE} -C corekit clean -s && echo "$(RED)[COREKIT]:\t COREKIT CLEAN$(RESET)"
+	@${MAKE} -C mlx clean -s && echo "$(RED)[MLX]:\t\t MLX CLEAN$(RESET)"
 
 fclean: clean
 	rm -f *.a
 	rm -f *.out
 	rm -f *.gch
 	rm -f $(NAME)
-	${MAKE} -C libft fclean
+	@${MAKE} -C corekit fclean -s && echo "$(RED)[COREKIT]:\t COREKIT FCLEAN$(RESET)"
 
 re: fclean all
 
-test: re
+download:
+	@wget https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
+	@tar -xf minilibx-linux.tgz
+	@mv minilibx-linux mlx
+	@rm -f minilibx-linux.tgz
+
+test: all
 	 ./$(NAME) maps/map.ber
 
-val: re
-	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/big_map.ber
+val: all
+	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/map.ber
+
+GREEN=\033[0;32m
+RED=\033[0;31m
+BLUE=\033[0;34m
+RESET=\033[0m
