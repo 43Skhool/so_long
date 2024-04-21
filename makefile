@@ -66,7 +66,17 @@ test: all
 val: all
 	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/map.ber
 
+
+#COLORS
+
 GREEN=\033[0;32m
 RED=\033[0;31m
 BLUE=\033[0;34m
 RESET=\033[0m
+
+prova:
+	if [ -d "~/Dropbox" ]; then
+		echo "The ~/Dropbox folder does exist"
+	else
+		echo "The ~/Dropbox folder does not exist"
+	fi
