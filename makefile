@@ -53,7 +53,6 @@ fclean: clean
 re: fclean all
 
 download:
-	@rm -fr mlx/
 	@wget -q https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
 	@tar -xf minilibx-linux.tgz
 	@mv minilibx-linux mlx
@@ -75,8 +74,7 @@ BLUE=\033[0;34m
 RESET=\033[0m
 
 prova:
-	if [ -d "~/Dropbox" ]; then
-		echo "The ~/Dropbox folder does exist"
-	else
-		echo "The ~/Dropbox folder does not exist"
+	@if [ ! -d "./mlx/" ]; then \
+		${MAKE} -s download; \
 	fi
+	@echo "ciao"
