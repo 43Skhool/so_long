@@ -21,14 +21,15 @@ OBJS		= $(SRC:%.c=%.o)
 #-s used to silent terminal output
 $(NAME): $(OBJS)
 	@${MAKE} -sC corekit
-	@${MAKE} -s -C mlx && echo "$(GREEN)[MLX]:\t\t MLX CREATED$(RESET)"
+	@${MAKE} -sC mlx > /dev/null
+	@echo "$(GREEN)[MLX]:\t\t MLX CREATED$(RESET)"
 	@cc $(OBJS) -lm -L$(COREKIT_PATH) -lcorekit -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
-	@echo "$(GREEN)[MLX]:\t\t PROJECT COMPILED$(RESET)"
+	@echo "$(GREEN)[SO_LONG]:\t PROJECT COMPILED$(RESET)"
 
 all:$(NAME)
 
 %.o: %.c
-	@cc -c $< -o $@ -I$(COREKIT_PATH)/includes -Imlx -s
+	@cc -c $< -o $@ -I$(COREKIT_PATH)/includes -Imlx
 
 clean:
 	rm -fr *.o

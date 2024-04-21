@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 16:21:03 by maceccar          #+#    #+#             */
-/*   Updated: 2024/02/07 16:21:03 by maceccar         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by maceccar          #+#    #+#             */
+/*   Updated: 2024/04/21 12:15:23 by maceccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
