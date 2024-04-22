@@ -22,7 +22,7 @@ OBJS		= $(SRC:%.c=%.o)
 #2>/dev/null 1>/dev/null Redirect stout adnd stderr to null file and don't display them
 #  -> it can be writed >/dev/null 2>&1
 
-$(NAME): download $(OBJS)
+$(NAME): $(OBJS)
 	@${MAKE} -sC corekit
 	@${MAKE} -sC mlx 2>/dev/null 1>/dev/null
 	@echo "$(GREEN)[MLX]:\t\t MLX CREATED$(RESET)"
@@ -63,6 +63,8 @@ download:
 		mv minilibx-linux mlx; \
 		rm -f minilibx-linux.tgz; \
 		echo "$(GREEN)[MLX]:\t\t MLX DOWNLADED$(RESET)"; \
+	else \
+		echo "$(RED)[MLX]:\t\t MLX ALREADY EXISTS$(RESET)"; \
 	fi
 
 remove_mlx:
@@ -74,6 +76,7 @@ test: all
 val: all
 	 valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) maps/map.ber
 
+.PHONY: download
 
 #COLORS
 
