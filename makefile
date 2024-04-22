@@ -21,7 +21,8 @@ OBJS		= $(SRC:%.c=%.o)
 #-s used to silent terminal output
 #2>/dev/null 1>/dev/null Redirect stout adnd stderr to null file and don't display them
 #  -> it can be writed >/dev/null 2>&1
-$(NAME): $(OBJS)
+
+$(NAME): download $(OBJS)
 	@${MAKE} -sC corekit
 	@${MAKE} -sC mlx 2>/dev/null 1>/dev/null
 	@echo "$(GREEN)[MLX]:\t\t MLX CREATED$(RESET)"
@@ -39,8 +40,10 @@ clean:
 	@rm -fr **/*.o
 	@${MAKE} -C corekit clean -s
 	@echo "$(RED)[COREKIT]:\t COREKIT CLEAN$(RESET)"
-	@${MAKE} -sC mlx clean >/dev/null 2>&1 -i
-	@echo "$(RED)[MLX]:\t\t MLX CLEAN$(RESET)"
+	@if [ -d "./mlx/" ]; then \
+		${MAKE} -sC mlx clean >/dev/null 2>&1; \
+		echo "$(RED)[MLX]:\t\t MLX CLEAN$(RESET)"; \
+	fi
 
 fclean: clean
 	@rm -f *.a
@@ -52,12 +55,18 @@ fclean: clean
 
 re: fclean all
 
+#If mlx folder doesn't exist, download it
 download:
-	@wget -q https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz
-	@tar -xf minilibx-linux.tgz
-	@mv minilibx-linux mlx
-	@rm -f minilibx-linux.tgz
-	@echo "$(GREEN)[MLX]:\t MLX DOWNLADED$(RESET)"
+	@if [ ! -d "./mlx/" ]; then \
+		wget -q https://cdn.intra.42.fr/document/document/21656/minilibx-linux.tgz; \
+		tar -xf minilibx-linux.tgz; \
+		mv minilibx-linux mlx; \
+		rm -f minilibx-linux.tgz; \
+		echo "$(GREEN)[MLX]:\t\t MLX DOWNLADED$(RESET)"; \
+	fi
+
+remove_mlx:
+	@rm -fr mlx
 
 test: all
 	 ./$(NAME) maps/map.ber
@@ -72,9 +81,3 @@ GREEN=\033[0;32m
 RED=\033[0;31m
 BLUE=\033[0;34m
 RESET=\033[0m
-
-prova:
-	@if [ ! -d "./mlx/" ]; then \
-		${MAKE} -s download; \
-	fi
-	@echo "ciao"
