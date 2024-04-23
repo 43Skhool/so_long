@@ -97,7 +97,7 @@ void	render_movement_count(t_vars *vars, int x, int y)
 	char	*number;
 
 	number = ft_itoa(vars->game->number_of_moves);
-	g_put(vars->mlx, vars->win, x, y, 0XFFFFFF, "Number of moves :");
+	mlx_string_put(vars->mlx, vars->win, x, y, 0XFFFFFF, "Number of moves :");
 	mlx_string_put(vars->mlx, vars->win, x + 105, y + 1, 0XFFFFFF, number);
 	free(number);
 }
