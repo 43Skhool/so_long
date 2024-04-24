@@ -6,7 +6,7 @@
 /*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by maceccar          #+#    #+#             */
-/*   Updated: 2024/04/24 13:56:23 by maceccar         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:52:14 by maceccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ static void	read_map(char *file_name, t_game *game)
 	fd = open(file_name, O_RDONLY);
 	while (read(fd, buffer, 1) > 0)
 	{
-
 		if (*buffer == '\n')
 		{
 			i++;

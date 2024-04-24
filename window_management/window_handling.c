@@ -6,7 +6,7 @@
 /*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 01:00:00 by maceccar          #+#    #+#             */
-/*   Updated: 2024/04/24 13:56:23 by maceccar         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:52:14 by maceccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,23 @@ void	initialize_window(t_vars *vars)
 static void	load_assets(t_vars *vars)
 {
 	vars->assets = malloc(sizeof(t_assets));
-	vars->assets->player_up[0] = get_img(vars, "textures/player_up1.xpm");
-	vars->assets->player_up[1] = get_img(vars, "textures/player_up2.xpm");
-	vars->assets->player_down[0] = get_img(vars, "textures/player_down1.xpm");
-	vars->assets->player_down[1] = get_img(vars, "textures/player_down2.xpm");
-	vars->assets->player_right[0] = get_img(vars, "textures/player_right1.xpm");
-	vars->assets->player_right[1] = get_img(vars, "textures/player_right2.xpm");
-	vars->assets->player_left[0] = get_img(vars, "textures/player_left1.xpm");
-	vars->assets->player_left[1] = get_img(vars, "textures/player_left2.xpm");
-	vars->assets->exit_open = get_img(vars, "textures/exit_open.xpm");
-	vars->assets->exit_closed = get_img(vars, "textures/exit_closed.xpm");
-	vars->assets->enemy = get_img(vars, "textures/enemy.xpm");
-	vars->assets->wall = get_img(vars, "textures/wall.xpm");
-	vars->assets->floor = get_img(vars, "textures/floor.xpm");
-	vars->assets->collectible = get_img(vars, "textures/collectible.xpm");
-	vars->assets->death[0] = get_img(vars, "textures/you_are_dead.xpm");
-	vars->assets->death[1] = get_img(vars, "textures/you_are_dead_1.xpm");
-	vars->assets->win = get_img(vars, "textures/win.xpm");
+	vars->assets->player_up[0] = get_img(vars, "assets/player_up1.xpm");
+	vars->assets->player_up[1] = get_img(vars, "assets/player_up2.xpm");
+	vars->assets->player_down[0] = get_img(vars, "assets/player_down1.xpm");
+	vars->assets->player_down[1] = get_img(vars, "assets/player_down2.xpm");
+	vars->assets->player_right[0] = get_img(vars, "assets/player_right1.xpm");
+	vars->assets->player_right[1] = get_img(vars, "assets/player_right2.xpm");
+	vars->assets->player_left[0] = get_img(vars, "assets/player_left1.xpm");
+	vars->assets->player_left[1] = get_img(vars, "assets/player_left2.xpm");
+	vars->assets->exit_open = get_img(vars, "assets/exit_open.xpm");
+	vars->assets->exit_closed = get_img(vars, "assets/exit_closed.xpm");
+	vars->assets->enemy = get_img(vars, "assets/enemy.xpm");
+	vars->assets->wall = get_img(vars, "assets/wall.xpm");
+	vars->assets->floor = get_img(vars, "assets/floor.xpm");
+	vars->assets->collectible = get_img(vars, "assets/collectible.xpm");
+	vars->assets->death[0] = get_img(vars, "assets/you_are_dead.xpm");
+	vars->assets->death[1] = get_img(vars, "assets/you_are_dead_1.xpm");
+	vars->assets->win = get_img(vars, "assets/win.xpm");
 }
 
 static void	*get_img(t_vars *vars, char *file)
