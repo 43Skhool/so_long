@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: maceccar <maceccar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 01:00:00 by maceccar          #+#    #+#             */
-/*   Updated: 2024/04/22 16:52:14 by maceccar         ###   ########.fr       */
+/*   Created: 2024/02/07 15:55:37 by maceccar          #+#    #+#             */
+/*   Updated: 2024/02/07 15:55:37 by maceccar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@ char	*format_result(char *reminder);
 char	*format_new_reminder(char *reminder);
 
 // Legge e aggiunge alla stringa main finchè non viene letto uno
-// Se last_call == 1 -> libera variabile statica
 //		'\n' oppure il file è finito
 // Estrae la stringa risultante da quella main(reminder)
 // Area il nuove reminder eliminando la linea appena eliminata, (substring?)
-char	*get_next_line(int fd, int last_call)
+char	*get_next_line(int fd, t_bool last_call)
 {
 	static char	*reminder[OPEN_MAX];
 	char		*output;
 
-	if (last_call == 1)
-		return (free(reminder[fd]), NULL);
+	if (last_call)
+	{
+		free(reminder[fd]);
+		reminder[fd] = NULL;
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	reminder[fd] = read_line(fd, reminder[fd]);
@@ -125,7 +128,7 @@ char	*format_new_reminder(char *reminder)
 		free(reminder);
 		return (NULL);
 	}
-	new_reminder = (char *)malloc(sizeof(char) * (ft_sl_gnl(reminder) - i + 1));
+	new_reminder = (char *)malloc(sizeof(char) * (ft_strlen_gnl(reminder) - i + 1));
 	if (!new_reminder)
 		return (NULL);
 	i++;

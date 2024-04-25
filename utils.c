@@ -27,6 +27,8 @@ t_game	*allocate_game(t_game *game)
 		return (game);
 	game->player_direction = DOWN_ARROW;
 	game->number_of_moves = 0;
+	game->number_of_columns = 0;
+	game->number_of_rows = 0;
 	game->is_map_valid = false;
 	game->map = NULL;
 	game->player_position = NULL;

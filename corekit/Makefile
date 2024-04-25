@@ -2,6 +2,7 @@ NAME = libcorekit.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 COMPILE = $(CC) $(CFLAGS)
+# TO DO rimettere le flag
 ARCHIVE = ar rc $(NAME)
 REMOVE = rm -f
 
@@ -48,6 +49,7 @@ SRC = ./src/char/ft_tolower.c \
 	./src/string/ft_strtoupper.c \
 	./src/string/ft_strtrim.c \
 	./src/string/ft_substr.c \
+	./src/string/ft_is_string_numeric.c \
 	./src/output/ft_putchar_fd.c \
 	./src/output/ft_putendl_fd.c \
 	./src/output/ft_putnbr_fd.c \
@@ -62,6 +64,18 @@ SRC = ./src/char/ft_tolower.c \
 	./src/2d_matrix/ft_print_char_matrix.c \
 	./src/2d_matrix/ft_free_matrix.c \
 
+SRC_STACK = ./src/int_stack/ft_initialize_stack.c \
+			./src/int_stack/ft_create_node.c \
+			./src/int_stack/ft_display_stack.c \
+			./src/int_stack/ft_is_stack_empty.c \
+			./src/int_stack/ft_free_stack.c \
+			./src/int_stack/ft_push.c \
+			./src/int_stack/ft_push_tail.c \
+			./src/int_stack/ft_pop.c \
+			./src/int_stack/ft_pop_tail.c \
+			./src/int_stack/ft_stack_contains.c \
+			./src/int_stack/ft_search_duplicate.c \
+
 
 SRC_PRINTF = ./src/ft_printf/ft_is_in.c \
 			./src/ft_printf/ft_printf.c \
@@ -75,7 +89,7 @@ SRC_PRINTF = ./src/ft_printf/ft_is_in.c \
 SRC_GET_NEXT_LINE = ./src/get_next_line/get_next_line_bonus.c \
 				./src/get_next_line/get_next_line_utils_bonus.c
 
-OBJ = ${SRC:.c=.o} ${SRC_PRINTF:.c=.o} ${SRC_GET_NEXT_LINE:.c=.o}
+OBJ = ${SRC:.c=.o} ${SRC_PRINTF:.c=.o} ${SRC_GET_NEXT_LINE:.c=.o} ${SRC_STACK:.c=.o}
 
 %.o: %.c
 	@$(COMPILE) -c $< -Iincludes -o $@
