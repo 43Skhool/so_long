@@ -116,7 +116,7 @@ char	*format_result(char *reminder)
 // Liberato il vecchio reminder
 char	*format_new_reminder(char *reminder)
 {
-	char	*new_reminder;
+	char	*result;
 	int		i;
 	int		j;
 
@@ -128,14 +128,14 @@ char	*format_new_reminder(char *reminder)
 		free(reminder);
 		return (NULL);
 	}
-	new_reminder = (char *)malloc(sizeof(char) * (ft_strlen_gnl(reminder) - i + 1));
-	if (!new_reminder)
+	result = (char *)malloc(sizeof(char) * (ft_strlen_gnl(reminder) - i + 1));
+	if (!result)
 		return (NULL);
 	i++;
 	j = 0;
 	while (reminder[i])
-		new_reminder[j++] = reminder[i++];
-	new_reminder[j] = '\0';
+		result[j++] = reminder[i++];
+	result[j] = '\0';
 	free(reminder);
-	return (new_reminder);
+	return (result);
 }
