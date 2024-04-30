@@ -112,29 +112,24 @@ static t_bool	get_map_size(char *file_name, t_game *game)
 {
 	char	*buffer;
 	int		fd;
-	t_bool	result;
 	int		line_length;
 
-	result = true;
 	fd = open(file_name, O_RDONLY);
-	while (buffer = get_next_line(fd, false))
+	buffer = get_next_line(fd, false);
+	while (buffer)
 	{
 		line_length = ft_strlen(buffer);
-		if (line_length != game->number_of_columns && game->number_of_columns != 0)
-		{
-			free(buffer);
-			result = false;
-			break;
-		}
+		if (line_length != game->number_of_columns && game->number_of_columns)
+			return (free(buffer), get_next_line(fd, true), close(fd), false);
 		game->number_of_columns = line_length;
-
 		game->number_of_rows++;
 		free(buffer);
+		buffer = get_next_line(fd, false);
 	}
-
+	free (buffer);
 	get_next_line(fd, true);
 	close(fd);
-	if (game->number_of_rows == 0)
-		result = false;
-	return (result);
+	if (game->number_of_rows <= 2)
+		return (false);
+	return (true);
 }

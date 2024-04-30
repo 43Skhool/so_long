@@ -14,7 +14,7 @@ SRC = main.c \
 	movement.c \
 	cleaning.c
 
-FLAGS		= -Wall -Werror -Wextra -Wno-unused-result
+FLAGS		= -Wall -Werror -Wextra -Wno-unused-result -g
 
 OBJS		= $(SRC:%.c=%.o)
 
@@ -71,10 +71,10 @@ remove_mlx:
 	@rm -fr mlx
 
 test: all
-	 ./$(NAME) maps/map.ber
+	 ./$(NAME) maps/big_map.ber
 
 val: all
-	 valgrind --leak-check=full --track-origins=yes 	--show-leak-kinds=all ./$(NAME) maps/map.ber
+	 valgrind --leak-check=full --track-origins=yes 	--show-leak-kinds=all ./$(NAME) maps/big_map.ber
 
 .PHONY: download
 
