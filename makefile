@@ -74,7 +74,7 @@ test: all
 	 ./$(NAME) maps/big_map.ber
 
 val: all
-	 valgrind --leak-check=full --track-origins=yes -s	--show-leak-kinds=all ./$(NAME) maps/map.ber
+	 valgrind --leak-check=full --track-origins=yes -s	--show-leak-kinds=all ./$(NAME) maps/big_map.ber
 
 .PHONY: download
 
