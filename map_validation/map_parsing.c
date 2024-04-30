@@ -74,7 +74,6 @@ static void	read_map(char *file_name, t_game *game)
 	int		j;
 	int		fd;
 	char	buffer[1];
-
 	allocate_map(game);
 	j = 0;
 	i = 0;
@@ -134,7 +133,7 @@ static t_bool	get_map_size(char *file_name, t_game *game)
 
 	get_next_line(fd, true);
 	close(fd);
-	if (game->number_of_rows == 0)
+	if (game->number_of_rows <= 2)
 		result = false;
 	return (result);
 }
