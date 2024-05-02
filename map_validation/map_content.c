@@ -15,14 +15,21 @@
 static t_bool	search_components(t_game *game, int	*n_exit, int *n_player);
 static int		switch_element_type(t_game *game, int i, int j, int *n_exit);
 
+//CHECK THE MAP LOOKING FOR THE RIGHT NUMBER OF ELEMENT AND INITIALIZE THE
+//	MAIN PARAMETERS OF t_game
+//exit_count and player_position count are used to handle differende type
+//	message depending of the error
+//Alloc player and exit position and initialize
+//	collectibles_count in t_game
+//Read all the map content and check the number of elements
 t_bool	validate_content(t_game *game)
 {
 	int	exit_count;
 	int	player_position_count;
 
 	player_position_count = 0;
-	game->collectibles_count = 0;
 	exit_count = 0;
+	game->collectibles_count = 0;
 	game->player_position = malloc(sizeof(t_position));
 	game->exit_position = malloc(sizeof(t_position));
 	if (!game->exit_position || !game->player_position)
@@ -44,7 +51,14 @@ t_bool	validate_content(t_game *game)
 	return (game->is_map_valid = true, true);
 }
 
-//false: found unkown element
+//Pass throw the map
+//For each element check his type
+//If is unknowrn => error
+//If number of founder player is 1 => add 1
+//n_player: number of player position
+//n_exit: number of exit
+//THIS BAD OF MANAGEMENT OF PARAMETERS IS CAUSED BY NORM, IT COULD BE DONE
+//	ALSO WITH GLOBAL VARIABLES
 static t_bool	search_components(t_game *game, int	*n_exit, int *n_player)
 {
 	int	i;
@@ -70,7 +84,15 @@ static t_bool	search_components(t_game *game, int	*n_exit, int *n_player)
 	return (true);
 }
 
-//return number of player, -1: unknown element
+//LITERALLY A SWITCH
+//Return 1 if the char examinated rappresent the starting position of the
+//	player
+//Return 0 for all the other components
+//Return -1 if an unidentified character was found
+//When the player or the exit position are found, their coordinates are
+//	assigned to the respective variable in t_game
+//THIS BAD OF MANAGEMENT OF PARAMETERS IS CAUSED BY NORM, IT COULD BE DONE
+//	ALSO WITH GLOBAL VARIABLES
 static int	switch_element_type(t_game *game, int i, int j, int *exit_num)
 {
 	int	player_num;
