@@ -75,6 +75,8 @@ static t_bool	validate_file_name(char *file_name, t_game *game)
 
 //Allocate the map by sizes previously taken
 //Parse map form file
+//The copy is done until number of colums - 1 to avoid '\n'
+//Last gnl is done to free static variable
 static void	read_map(char *file_name, t_game *game)
 {
 	int		i;
@@ -95,32 +97,8 @@ static void	read_map(char *file_name, t_game *game)
 	get_next_line(fd, true);
 	close(fd);
 }
-// static void	read_map(char *file_name, t_game *game)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		fd;
-// 	char	buffer[1];
-// 	allocate_map(game);
-// 	j = 0;
-// 	i = 0;
-// 	fd = open(file_name, O_RDONLY);
-// 	while (read(fd, buffer, 1) > 0)
-// 	{
-// 		if (*buffer == '\n')
-// 		{
-// 			i++;
-// 			j = 0;
-// 		}
-// 		else if (*buffer != '\r')
-// 		{
-// 			game->map[i][j] = *buffer;
-// 			j++;
-// 		}
-// 	}
-// 	close(fd);
-// }
 
+//Map allocation depending of map size
 static void	allocate_map(t_game *game)
 {
 	int	i;
@@ -134,6 +112,9 @@ static void	allocate_map(t_game *game)
 	}
 }
 
+//Read all file with gnl
+//Check if all the rows have the same legth
+//Check ther's at leat 3 rows
 static t_bool	get_map_size(char *file_name, t_game *game)
 {
 	char	*buffer;
@@ -159,3 +140,30 @@ static t_bool	get_map_size(char *file_name, t_game *game)
 		return (false);
 	return (true);
 }
+
+//OLD VERSION
+// static void	read_map(char *file_name, t_game *game)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		fd;
+// 	char	buffer[1];
+// 	allocate_map(game);
+// 	j = 0;
+// 	i = 0;
+// 	fd = open(file_name, O_RDONLY);
+// 	while (read(fd, buffer, 1) > 0)
+// 	{
+// 		if (*buffer == '\n')
+// 		{
+// 			i++;
+// 			j = 0;
+// 		}
+// 		else if (*buffer != '\r')
+// 		{
+// 			game->map[i][j] = *buffer;
+// 			j++;
+// 		}
+// 	}
+// 	close(fd);
+// }
