@@ -31,6 +31,7 @@ void	start_game(t_game *game)
 	mlx_loop(vars.mlx);
 }
 
+// TO DO solve too small map
 void	initialize_window(t_vars *vars)
 {
 	int	win_height;

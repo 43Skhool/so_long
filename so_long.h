@@ -101,14 +101,6 @@ typedef struct s_vars
 
 t_game			*get_map(char *file_name);
 
-void			dealloc_matrix(char **matrix);
-
-char			**duplicate_char_matrix(char	**matrix);
-
-size_t			count_matrix_row(char **matrix);
-
-void			print_char_matrix(char **matrix);
-
 void			start_game(t_game *game);
 
 int				end(t_vars *vars, t_bool restart);
@@ -122,5 +114,9 @@ t_game_status	move(t_game *game, int direction);
 int				end_game(t_vars *vars);
 
 int				put_img(t_vars *vars, void *asset, int x, int y);
+
+int				enemy_movement(t_vars *vars);
+
+int				finish_game(t_vars *vars, t_game_status status);
 
 #endif

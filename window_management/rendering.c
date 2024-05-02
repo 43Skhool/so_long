@@ -22,6 +22,7 @@ int	render_next_frame(t_vars *vars)
 	int			j;
 	t_position	position;
 
+	enemy_movement(vars);
 	i = 0;
 	j = 0;
 	while (i < vars->game->number_of_rows)

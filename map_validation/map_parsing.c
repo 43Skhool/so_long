@@ -23,6 +23,7 @@ t_game	*get_map(char *file_name)
 {
 	t_game	*game;
 
+	game = NULL;
 	game = allocate_game(game);
 	if (!game)
 		return (NULL);
