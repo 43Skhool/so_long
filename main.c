@@ -12,6 +12,10 @@
 
 #include "so_long.h"
 
+//Args check
+//Parsing and check map
+//Start game
+//Free game in each case at the end of program
 int	main(int argc, char *argv[])
 {
 	t_game	*game;

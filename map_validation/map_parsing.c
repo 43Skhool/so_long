@@ -19,6 +19,11 @@ static void		read_map(char *file_name, t_game *game);
 static t_bool	get_map_size(char *file_name, t_game *game);
 static void		allocate_map(t_game *game);
 
+//Check file name
+//Get map size for allocation
+//Read and check the map from file
+//Validate the map
+//Assing file name fro future use
 t_game	*get_map(char *file_name)
 {
 	t_game	*game;
@@ -44,7 +49,7 @@ t_game	*get_map(char *file_name)
 	return (game);
 }
 
-// check if file is a '.ber'
+//CHECK IF FILE IS A '.ber'
 static t_bool	validate_file_name(char *file_name, t_game *game)
 {
 	char	**file_name_splitted;
@@ -68,33 +73,53 @@ static t_bool	validate_file_name(char *file_name, t_game *game)
 	return (game->reason = "Error, wring file extension", false);
 }
 
-//map reading from file and check if is a rectangle
+//Allocate the map by sizes previously taken
+//Parse map form file
 static void	read_map(char *file_name, t_game *game)
 {
 	int		i;
-	int		j;
 	int		fd;
-	char	buffer[1];
+	char	*buffer;
 
 	allocate_map(game);
-	j = 0;
 	i = 0;
 	fd = open(file_name, O_RDONLY);
-	while (read(fd, buffer, 1) > 0)
+	buffer = get_next_line(fd, false);
+	while (buffer)
 	{
-		if (*buffer == '\n')
-		{
-			i++;
-			j = 0;
-		}
-		else if (*buffer != '\r')
-		{
-			game->map[i][j] = *buffer;
-			j++;
-		}
+		ft_strlcpy(game->map[i], buffer, game->number_of_columns - 1);
+		i++;
+		free(buffer);
+		buffer = get_next_line(fd, false);
 	}
+	get_next_line(fd, true);
 	close(fd);
 }
+// static void	read_map(char *file_name, t_game *game)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		fd;
+// 	char	buffer[1];
+// 	allocate_map(game);
+// 	j = 0;
+// 	i = 0;
+// 	fd = open(file_name, O_RDONLY);
+// 	while (read(fd, buffer, 1) > 0)
+// 	{
+// 		if (*buffer == '\n')
+// 		{
+// 			i++;
+// 			j = 0;
+// 		}
+// 		else if (*buffer != '\r')
+// 		{
+// 			game->map[i][j] = *buffer;
+// 			j++;
+// 		}
+// 	}
+// 	close(fd);
+// }
 
 static void	allocate_map(t_game *game)
 {
