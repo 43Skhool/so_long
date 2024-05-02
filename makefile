@@ -27,15 +27,13 @@ $(NAME): $(OBJS)
 	@${MAKE} -sC corekit
 	@${MAKE} -sC mlx 2>/dev/null 1>/dev/null
 	@echo "$(GREEN)[MLX]:\t\t MLX CREATED$(RESET)"
-	@cc $(OBJS) -lm -L$(COREKIT_PATH) -lcorekit -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
+	@cc $(OBJS) $(FLAGS) -lm -L$(COREKIT_PATH) -lcorekit -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
 	@echo "$(GREEN)[SO_LONG]:\t PROJECT COMPILED$(RESET)"
-#TO DO rimettere le flag
 
 all:$(NAME)
 
 %.o: %.c
-	@cc -c $< -o $@ -I$(COREKIT_PATH)/includes -Imlx
-#TO DO rimettere le flag
+	@cc -c $< -o $@ -I$(COREKIT_PATH)/includes -Imlx $(FLAGS)
 
 #-i is used to ingore errors
 clean:

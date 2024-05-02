@@ -16,6 +16,12 @@ t_bool			validate_content(t_game *game);
 static t_bool	is_surrended_by_walls(char *map[]);
 static void		try_reach(char **map, t_position s_pos, int *n_ex, int *n_col);
 
+//Check if the map is surrended by walls
+//Validate content, the message will be chosen depending on the error
+//Duplicate the map
+//	=>Try to reach all collectibles and the exit
+//Map validation is set by default to false and it's changed when the
+//	map is checked
 void	validate_map(t_game *game)
 {
 	char	**tmp_matrix;
@@ -44,6 +50,8 @@ void	validate_map(t_game *game)
 		ft_free_matrix((void **)tmp_matrix);
 }
 
+//Check if the first and last chars in a row are walls (100000001)
+//Check if first and last row are all composed by 1    (111111111)
 static t_bool	is_surrended_by_walls(char *map[])
 {
 	int		i;
@@ -68,7 +76,15 @@ static t_bool	is_surrended_by_walls(char *map[])
 	return (true);
 }
 
-// n_coll: number of collectibles, exit: if exit is reachble
+//Recursive function to establish if ther's a valid path to reach 
+//	all collectibles and the exit
+//s_pos: starting position
+//n_ex: establish if exit is reachable
+//n_col: number of rechable collectibles
+//n_ex & n_col are pointer to int defined in the primary function
+//	beacause of error handling, i can't be done properly in a
+//	recursive function, so the data are to be stored and checked
+//	at the end of recursice function in the primary (validate_map)
 void	try_reach(char **map, t_position s_pos, int *n_ex, int *n_col)
 {
 	int			x;
@@ -77,7 +93,7 @@ void	try_reach(char **map, t_position s_pos, int *n_ex, int *n_col)
 	x = s_pos.x;
 	y = s_pos.y;
 	if (map[x][y] == EXIT)
-		*n_ex = 90;
+		*n_ex = 1;
 	if (map[x][y] == COLLECTIBLES)
 		(*n_col)++;
 	if (map[x][y] == WALL || map[x][y] == 'v' || map[x][y] == ENEMY)
