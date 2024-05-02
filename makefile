@@ -12,6 +12,7 @@ SRC = main.c \
 	window_management/rendering.c \
 	window_management/finish_game.c \
 	movement.c \
+	enemy_movement.c \
 	cleaning.c
 
 FLAGS		= -Wall -Werror -Wextra -g
