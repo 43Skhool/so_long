@@ -15,6 +15,13 @@
 static void	move_enemy(t_vars *vars, int x, int y);
 static void	try_move_enemy(t_vars *vars, t_position init, int end_x, int end_y);
 
+//Each 1000 frame, the enemy moves
+//	1000 beacase are 500(0-500) + 500(1000)
+//	500: after 500 frame from the start of the game the enemy moves
+//	1000: each 1000 frame, the count restart form 0
+//The frame_count is static so it can store his value throw the calls
+//	Beacause it increment each call of this function
+//Each enemy in the map moves
 int	enemy_movement(t_vars *vars)
 {
 	static int	frame_count;
@@ -42,6 +49,9 @@ int	enemy_movement(t_vars *vars)
 	return (1);
 }
 
+//Extract a random number using 'rand' function
+//	get the module 4 of random number and switch the result
+//	the new position of the enemy will depend by this number
 //0 => UP
 //1 => RIGHT
 //2 => DOWN
@@ -64,6 +74,8 @@ static void	move_enemy(t_vars *vars, int x, int y)
 		try_move_enemy(vars, start, x - 1, y);
 }
 
+//If ther's the player, kill it => the game ends
+//If ther's an empty tile, just switch the position
 static void	try_move_enemy(t_vars *vars, t_position init, int end_x, int end_y)
 {
 	if (vars->game->map[end_x][end_y] == PLAYER)

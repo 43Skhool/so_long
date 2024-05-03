@@ -70,6 +70,8 @@ static t_game_status	try_move(t_game *game, t_position newposition)
 //	POSITION BEACAUSE IT WOULDN'T HAVE BEEN KEEPED IN MEMORY BEACUASE
 //	OVERWRITTEN BY PLAYER
 //Set the player position to his new real position
+//EXIT AND FLOOR ARE DEFINED 'CONSTANT' AND NOT WITH THE DEINIFTION IN .h JUST
+//	BEACAUSE NORM
 static t_game_status	switch_position(t_game *game, t_position newposition)
 {
 	t_game_status	status;
@@ -84,9 +86,9 @@ static t_game_status	switch_position(t_game *game, t_position newposition)
 	if (game->exit_position->x == game->player_position->x)
 	{
 		if (game->exit_position->y == game->player_position->y)
-			game->map[game->player_position->x][game->player_position->y] = EXIT;
+			game->map[game->player_position->x][game->player_position->y] = 'E';
 		else
-			game->map[game->player_position->x][game->player_position->y] = FLOOR;
+			game->map[game->player_position->x][game->player_position->y] = '0';
 	}
 	else
 		game->map[game->player_position->x][game->player_position->y] = FLOOR;
