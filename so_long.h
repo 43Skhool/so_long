@@ -32,8 +32,10 @@
 
 # define TILE_SIZE		64
 
-//Keysim
+//X11 Event
 # define DESTROY_NOTIFY 17
+
+//Keysym of keayboard
 # define KEY_ESC		65307
 # define W_KEY			119
 # define R_KEY			114
@@ -44,6 +46,11 @@
 # define LEFT_ARROW		65361
 # define DOWN_ARROW		65364
 # define RIGHT_ARROW	65363
+//The keycode is the numeric representation received by the kernel
+//	when a key or a mouse button is pressed.
+//The keysym is the value assigned to the keycode.
+//Keysym is better beacause it doesn't depend by the kernel, it's an
+//	abstraction of the key
 
 typedef enum e_game_status
 {

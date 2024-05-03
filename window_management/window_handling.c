@@ -12,11 +12,14 @@
 
 #include "../so_long.h"
 
-int			hook(t_vars *vars);
-void		initialize_window(t_vars *vars);
 static void	*get_img(t_vars *vars, char *file);
 static void	load_assets(t_vars *vars);
+int			hook(t_vars *vars);
+void		initialize_window(t_vars *vars);
 
+//Initialize mlx, window
+//Start hooking
+//mlx_loop: make mlx run
 void	start_game(t_game *game)
 {
 	t_vars	vars;
@@ -31,6 +34,8 @@ void	start_game(t_game *game)
 	mlx_loop(vars.mlx);
 }
 
+//Create the mlx window depending on map sized
+//Load all the assets
 // TO DO solve too small map
 void	initialize_window(t_vars *vars)
 {
@@ -45,6 +50,7 @@ void	initialize_window(t_vars *vars)
 	load_assets(vars);
 }
 
+//Convert all .xpm files in mlx_image
 static void	load_assets(t_vars *vars)
 {
 	vars->assets = malloc(sizeof(t_assets));
@@ -67,6 +73,8 @@ static void	load_assets(t_vars *vars)
 	vars->assets->win = get_img(vars, "assets/win.xpm");
 }
 
+//Function that actually does the convertion
+//	Done beacause of norm
 static void	*get_img(t_vars *vars, char *file)
 {
 	int	w;
