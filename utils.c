@@ -19,7 +19,7 @@ int	put_img(t_vars *vars, void *asset, int x, int y)
 	return (0);
 }
 
-//Return tre in case of allocation failed
+//Allocate and initialize all the parameter of t_game
 t_game	*allocate_game(t_game *game)
 {
 	game = malloc(sizeof(t_game));
