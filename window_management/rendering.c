@@ -12,10 +12,17 @@
 
 #include "../so_long.h"
 
-int		render_next_frame(t_vars *vars);
-int		render_tile(t_vars *vars, char type, t_position position);
-void	render_movement_count(t_vars *vars, int x, int y);
+static void	render_movement_count(t_vars *vars, int x, int y);
+static int	render_player(t_vars *vars, t_position pos, int status);
+static int	render_exit(t_vars *vars, t_position pos);
+static int	render_tile(t_vars *vars, char type, t_position position);
+int			render_next_frame(t_vars *vars);
 
+//This function is called each frame and render on screen the game
+//First of all make leet move all the enemies
+//position: coordinates of each tile to render
+//Passthrow the map and rander tile depending on his position
+//Render movement count on screen
 int	render_next_frame(t_vars *vars)
 {
 	int			i;
@@ -41,7 +48,9 @@ int	render_next_frame(t_vars *vars)
 	return (0);
 }
 
-int	render_player(t_vars *vars, t_position pos, int status)
+//Render player depending on witch direction(last movement key pressed)
+//	 is he facing and on witch status of animation is
+static int	render_player(t_vars *vars, t_position pos, int status)
 {
 	int	direction;
 
@@ -57,7 +66,8 @@ int	render_player(t_vars *vars, t_position pos, int status)
 	return (1);
 }
 
-int	render_exit(t_vars *vars, t_position pos)
+//Render exit depending on if the player already get all collectibles
+static int	render_exit(t_vars *vars, t_position pos)
 {
 	if (vars->game->collectibles_count != 0)
 		put_img(vars, vars->assets->exit_closed, pos.x, pos.y);
@@ -66,7 +76,12 @@ int	render_exit(t_vars *vars, t_position pos)
 	return (0);
 }
 
-int	render_tile(t_vars *vars, char type, t_position pos)
+//Switch different type of element in the map and render each one in
+//	his tile
+//frame_count is used to change the stauts of player animation each 10000 frame
+//frame_count is static so it can store his value throw the calls
+//	Beacause it increment each call of this function
+static int	render_tile(t_vars *vars, char type, t_position pos)
 {
 	static int	frame_count;
 	int			animation_status;
@@ -93,7 +108,10 @@ int	render_tile(t_vars *vars, char type, t_position pos)
 	return (0);
 }
 
-void	render_movement_count(t_vars *vars, int x, int y)
+//Transform number of movement from int to string
+//Print it on the screen with a certain padding to align it with the
+//	phrase before
+static void	render_movement_count(t_vars *vars, int x, int y)
 {
 	char	*number;
 

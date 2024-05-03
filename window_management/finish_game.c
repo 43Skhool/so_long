@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-static int		finish_hook( int keycode, t_vars *vars);
+static int	finish_hook( int keycode, t_vars *vars);
 static int	death_animation(t_vars *vars);
 static int	win_animation(t_vars *vars);
 void		initialize_window(t_vars *vars);
@@ -80,7 +80,7 @@ static int	finish_hook( int keycode, t_vars *vars)
 
 //Each 1000 frame change the animation status
 //	displaiyng different images on window
-//The frame_count is static so it can store his value throw the calls
+//frame_count is static so it can store his value throw the calls
 //	Beacause it increment each call of this function
 static int	death_animation(t_vars *vars)
 {

@@ -19,7 +19,7 @@ static void	try_move_enemy(t_vars *vars, t_position init, int end_x, int end_y);
 //	1000 beacase are 500(0-500) + 500(1000)
 //	500: after 500 frame from the start of the game the enemy moves
 //	1000: each 1000 frame, the count restart form 0
-//The frame_count is static so it can store his value throw the calls
+//frame_count is static so it can store his value throw the calls
 //	Beacause it increment each call of this function
 //Each enemy in the map moves
 int	enemy_movement(t_vars *vars)
