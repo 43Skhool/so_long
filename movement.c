@@ -72,6 +72,7 @@ static t_game_status	try_move(t_game *game, t_position newposition)
 //Set the player position to his new real position
 //EXIT AND FLOOR ARE DEFINED 'CONSTANT' AND NOT WITH THE DEINIFTION IN .h JUST
 //	BEACAUSE NORM
+// TO DO solve this norm problem using constant defined in the header
 static t_game_status	switch_position(t_game *game, t_position newposition)
 {
 	t_game_status	status;

@@ -21,13 +21,18 @@
 # include "mlx.h"
 # include "corekit.h"
 
+//'Macro' are defined to rappresent the map component
+//	=>easier to modify
 # define WALL			'1'
 # define FLOOR			'0'
 # define COLLECTIBLES	'C'
 # define PLAYER			'P'
 # define EXIT			'E'
 # define ENEMY			'M'
+
 # define TILE_SIZE		64
+
+//Keysim
 # define DESTROY_NOTIFY 17
 # define KEY_ESC		65307
 # define W_KEY			119
@@ -39,12 +44,6 @@
 # define LEFT_ARROW		65361
 # define DOWN_ARROW		65364
 # define RIGHT_ARROW	65363
-
-// typedef enum e_bool
-// {
-// 	false,
-// 	true
-// }	t_bool;
 
 typedef enum e_game_status
 {
