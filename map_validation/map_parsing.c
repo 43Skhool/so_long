@@ -126,6 +126,7 @@ static t_bool	get_map_size(char *file_name, t_game *game)
 	while (buffer)
 	{
 		line_length = ft_strlen(buffer);
+		printf("%i\n", line_length);
 		if (line_length != game->number_of_columns && game->number_of_columns)
 			return (free(buffer), get_next_line(fd, true), close(fd), false);
 		game->number_of_columns = line_length;
