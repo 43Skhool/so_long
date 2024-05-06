@@ -47,7 +47,7 @@ SRC = ./src/char/ft_tolower.c \
 	./src/string/ft_strrchr.c \
 	./src/string/ft_strtolower.c \
 	./src/string/ft_strtoupper.c \
-	./src/string/ft_strtrim.c \
+	./src/string/ft_strtrim_free_s1.c \
 	./src/string/ft_substr.c \
 	./src/string/ft_is_string_numeric.c \
 	./src/output/ft_putchar_fd.c \
