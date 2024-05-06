@@ -36,14 +36,15 @@ void	start_game(t_game *game)
 
 //Create the mlx window depending on map sized
 //Load all the assets
-// TO DO solve too small map
+//-2 is to avoid to count \n and \r (i don't know why but it works)
+//	without it, the windows would be 2 empty tiles longer
 void	initialize_window(t_vars *vars)
 {
 	int	win_height;
 	int	win_width;
 
 	win_height = TILE_SIZE * vars->game->number_of_rows;
-	win_width = TILE_SIZE * vars->game->number_of_columns;
+	win_width = TILE_SIZE * (vars->game->number_of_columns - 2);
 	vars->win = mlx_new_window(vars->mlx, win_width, win_height, "So long");
 	if (!vars->win)
 		end(vars, false);
