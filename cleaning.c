@@ -15,6 +15,7 @@
 void		free_game(t_game *game);
 static void	free_assets(t_vars *vars);
 static int	destroy_window(t_vars *vars);
+static void	free_enemy_lst(t_game *game);
 
 //CLEAN EVERITHING
 //If restart == false => exit
@@ -46,6 +47,8 @@ void	free_game(t_game *game)
 		free(game->player_position);
 	if (game->map)
 		ft_free_matrix((void **)game->map);
+	if (game->enemies)
+		free_enemy_lst(game);
 	free(game);
 }
 
@@ -78,4 +81,19 @@ static int	destroy_window(t_vars *vars)
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_display(vars->mlx);
 	return (0);
+}
+
+static void	free_enemy_lst(t_game *game)
+{
+	t_list	*tmp;
+
+	tmp = game->enemies;
+	while (tmp->content != NULL)
+	{
+		game->enemies = tmp->next;
+		free(tmp->content);
+		free(tmp);
+		tmp = game->enemies;
+	}
+	free(game->enemies);
 }

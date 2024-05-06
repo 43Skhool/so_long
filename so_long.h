@@ -79,6 +79,7 @@ typedef struct s_game
 	char		*file;
 	int			number_of_moves;
 	int			player_direction;
+	t_list		*enemies;
 }	t_game;
 
 typedef struct s_assets

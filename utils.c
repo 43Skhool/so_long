@@ -20,6 +20,8 @@ int	put_img(t_vars *vars, void *asset, int x, int y)
 }
 
 //Allocate and initialize all the parameter of t_game
+//Enemy list is allocated with just a null pointer
+//	it will be checked in allocation to avoid segfault
 t_game	*allocate_game(t_game *game)
 {
 	game = malloc(sizeof(t_game));
@@ -33,5 +35,6 @@ t_game	*allocate_game(t_game *game)
 	game->map = NULL;
 	game->player_position = NULL;
 	game->exit_position = NULL;
+	game->enemies = ft_lstnew(NULL);
 	return (game);
 }

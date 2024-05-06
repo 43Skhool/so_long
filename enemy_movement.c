@@ -12,8 +12,8 @@
 
 #include "so_long.h"
 
-static void	move_enemy(t_vars *vars, int x, int y);
-static void	try_move_enemy(t_vars *vars, t_position init, int end_x, int end_y);
+static void	move_enemy(t_vars *vars, t_position	*start);
+static void	try_move_enemy(t_vars *vars, t_position *start, t_position end);
 
 //Each 1000 frame, the enemy moves
 //	1000 beacase are 500(0-500) + 500(1000)
@@ -25,25 +25,18 @@ static void	try_move_enemy(t_vars *vars, t_position init, int end_x, int end_y);
 int	enemy_movement(t_vars *vars)
 {
 	static int	frame_count;
-	int			i;
-	int			j;
+	t_list		*tmp;
 
-	if (frame_count == 500)
+	if (frame_count == 1000)
 	{
-		i = 0;
-		while (vars->game->map[i])
+		tmp = vars->game->enemies;
+		while (tmp->content != NULL)
 		{
-			j = 0;
-			while (vars->game->map[i][j])
-			{
-				if (vars->game->map[i][j] == ENEMY)
-					move_enemy(vars, i, j);
-				j++;
-			}
-			i++;
+			move_enemy(vars, tmp->content);
+			tmp = tmp->next;
 		}
 	}
-	if (frame_count == 1000)
+	if (frame_count == 2000)
 		frame_count = 0;
 	frame_count++;
 	return (1);
@@ -56,33 +49,34 @@ int	enemy_movement(t_vars *vars)
 //1 => RIGHT
 //2 => DOWN
 //3 => LEFT
-static void	move_enemy(t_vars *vars, int x, int y)
+static void	move_enemy(t_vars *vars, t_position	*start)
 {
 	int			rndm_nmb;
-	t_position	start;
+	t_position	end;
 
-	start.x = x;
-	start.y = y;
 	rndm_nmb = rand() % 4;
 	if (rndm_nmb == 0)
-		try_move_enemy(vars, start, x, y - 1);
+		end = (t_position){start->x, start->y - 1};
 	if (rndm_nmb == 1)
-		try_move_enemy(vars, start, x + 1, y);
+		end = (t_position){start->x + 1, start->y};
 	if (rndm_nmb == 2)
-		try_move_enemy(vars, start, x, y + 1);
+		end = (t_position){start->x, start->y + 1};
 	if (rndm_nmb == 3)
-		try_move_enemy(vars, start, x - 1, y);
+		end = (t_position){start->x - 1, start->y};
+	try_move_enemy(vars, start, end);
 }
 
 //If ther's the player, kill it => the game ends
 //If ther's an empty tile, just switch the position
-static void	try_move_enemy(t_vars *vars, t_position init, int end_x, int end_y)
+static void	try_move_enemy(t_vars *vars, t_position *start, t_position end)
 {
-	if (vars->game->map[end_x][end_y] == PLAYER)
+	if (vars->game->map[end.x][end.y] == PLAYER)
 		finish_game(vars, lose);
-	if (vars->game->map[end_x][end_y] == FLOOR)
+	if (vars->game->map[end.x][end.y] == FLOOR)
 	{
-		vars->game->map[end_x][end_y] = ENEMY;
-		vars->game->map[init.x][init.y] = FLOOR;
+		vars->game->map[end.x][end.y] = ENEMY;
+		vars->game->map[start->x][start->y] = FLOOR;
+		start->x = end.x;
+		start->y = end.y;
 	}
 }
