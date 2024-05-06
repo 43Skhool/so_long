@@ -75,7 +75,7 @@ static t_bool	validate_file_name(char *file_name, t_game *game)
 
 //Allocate the map by sizes previously taken
 //Parse map form file
-//The copy is done until number of colums - 1 to avoid '\n'
+//The copy is done until number of colums + 1 beacause want the index in string
 //Last gnl is done to free static variable
 static void	read_map(char *file_name, t_game *game)
 {
@@ -89,7 +89,8 @@ static void	read_map(char *file_name, t_game *game)
 	buffer = get_next_line(fd, false);
 	while (buffer)
 	{
-		ft_strlcpy(game->map[i], buffer, game->number_of_columns - 1);
+		buffer = ft_strtrim_free_s1(buffer, "\n\r");
+		ft_strlcpy(game->map[i], buffer, game->number_of_columns + 1);
 		i++;
 		free(buffer);
 		buffer = get_next_line(fd, false);
@@ -125,6 +126,7 @@ static t_bool	get_map_size(char *file_name, t_game *game)
 	buffer = get_next_line(fd, false);
 	while (buffer)
 	{
+		buffer = ft_strtrim_free_s1(buffer, "\n\r");
 		line_length = ft_strlen(buffer);
 		if (line_length != game->number_of_columns && game->number_of_columns)
 			return (free(buffer), get_next_line(fd, true), close(fd), false);
