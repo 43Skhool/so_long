@@ -1,6 +1,6 @@
 NAME		= so_long
 
-COREKIT_PATH = ./corekit
+LIBFT_PATH = ./libft
 
 SRC = main.c \
 	map_validation.c \
@@ -20,27 +20,27 @@ FLAGS		= -Wall -Werror -Wextra -g
 OBJS		= $(SRC:%.c=%.o)
 
 $(NAME): $(OBJS)
-	@${MAKE} -sC corekit
+	@${MAKE} -sC libft bonus
 	@${MAKE} -sC mlx
-	@cc $(OBJS) -lm -L$(COREKIT_PATH) -lcorekit -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
+	@cc $(OBJS) -lm -L$(LIBFT_PATH) -lft -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
 
 all:$(NAME)
 
 %.o: %.c
-	@cc -c $< -o $@ -I$(COREKIT_PATH)/includes -Imlx
+	@cc -c $< -o $@ -I$(LIBFT_PATH) -Imlx
 
 clean:
 	@rm -fr *.o
 	@rm -fr **/*.o
-	@${MAKE} -C corekit clean -s
-	@${MAKE} -sC mlx clean;
+	@${MAKE} -sC libft clean
+	@${MAKE} -sC mlx clean
 
 fclean: clean
 	@rm -f *.a
 	@rm -f *.out
 	@rm -f *.gch
 	@rm -f $(NAME)
-	@${MAKE} -C corekit fclean -s
+	@${MAKE} -C libft fclean -s
 
 re: fclean all
 
@@ -54,4 +54,4 @@ test: all
 	 ./$(NAME) maps/map.ber
 
 valgrind: all
-	 valgrind --leak-check=full --track-origins=yes -s --show-leak-kinds=all ./$(NAME) maps/map.ber
+	 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./$(NAME) maps/map.ber

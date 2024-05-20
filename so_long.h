@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include "mlx.h"
-# include "corekit.h"
+# include "libft.h"
 
 //'Macro' are defined to rappresent the map component
 //	=>easier to modify

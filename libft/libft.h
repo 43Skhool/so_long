@@ -16,6 +16,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef enum e_bool
+{
+	false,
+	true
+}	t_bool;
+
 typedef struct s_list
 {
 	void			*content;
@@ -74,6 +80,8 @@ char			*ft_strjoin(char const *s1, char const *s2);
 
 char			*ft_strtrim(char const *s1, char const *set);
 
+char			*ft_strtrim_free_s1(char *s1, char const *set);
+
 char			**ft_split(char const *s, char c);
 
 char			*ft_itoa(int n);
@@ -109,5 +117,16 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+
+size_t			ft_count_matrix_row(void **matrix);
+
+char			**ft_duplicate_char_matrix(char **matrix);
+
+void			ft_free_matrix(void **matrix);
+
+void			ft_print_char_matrix(char **matrix);
+
+char			*get_next_line(int fd, t_bool last_call);
 
 #endif
