@@ -12,7 +12,8 @@ SRCS		= ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_free_matrix.c \
 					ft_print_char_matrix.c \
 					ft_strtrim_free_s1.c \
-					get_next_line_bonus.c \
+					gnl/get_next_line_bonus.c \
+					gnl/get_next_line_utils_bonus.c \
 
 BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \

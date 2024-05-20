@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free_s1.c                               :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: lebartol <lebartol@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 11:22:43 by maceccar          #+#    #+#             */
-/*   Updated: 2024/05/03 00:47:17 by maceccar         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by lebartol          #+#    #+#             */
+/*   Updated: 2024/04/26 19:38:47 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corekit.h"
+#include "../libft.h"
 
-char	*ft_strjoin_free_s1(char *s1, char *s2)
+int	ft_strlen_gnl(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -25,7 +35,7 @@ char	*ft_strjoin_free_s1(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	str = malloc(sizeof(char) * ((ft_strlen_gnl(s1) + ft_strlen_gnl(s2)) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
@@ -35,7 +45,23 @@ char	*ft_strjoin_free_s1(char *s1, char *s2)
 			str[i] = s1[i];
 	while (s2[j] != '\0')
 		str[i++] = s2[j++];
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	str[ft_strlen_gnl(s1) + ft_strlen_gnl(s2)] = '\0';
 	free(s1);
 	return (str);
+}
+
+int	has_nl(char const *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (-1);
 }
