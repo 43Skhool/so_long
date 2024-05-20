@@ -45,6 +45,7 @@ int	render_next_frame(t_vars *vars)
 		i++;
 	}
 	render_movement_count(vars, 10, 20);
+	usleep(210);
 	return (0);
 }
 
