@@ -1,0 +1,14 @@
+{
+	"C_Cpp.errorSquiggles": "disabled",
+	"files.associations": {
+		"*.embeddedhtml": "html",
+		"stdio.h": "c",
+		"libft.h": "c",
+		"algorithm": "c",
+<<<<<<< HEAD
+		"type_traits": "c"
+=======
+		"functional": "c"
+>>>>>>> 068c27d48fef22559b6624e2b0b21f7f283b6c65
+	}
+}

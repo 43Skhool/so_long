@@ -21,7 +21,7 @@ OBJS		= $(SRC:%.c=%.o)
 
 $(NAME): $(OBJS)
 	@${MAKE} -sC corekit
-	@${MAKE} -sC mlx 2>/dev/null 1>/dev/null
+	@${MAKE} -sC mlx
 	@cc $(OBJS) -lm -L$(COREKIT_PATH) -lcorekit -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
 
 all:$(NAME)
