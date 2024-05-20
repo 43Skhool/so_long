@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	*get_img(t_vars *vars, char *file);
 static void	load_assets(t_vars *vars);

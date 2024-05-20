@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static void	render_movement_count(t_vars *vars, int x, int y);
 static int	render_player(t_vars *vars, t_position pos, int status);

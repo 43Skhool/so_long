@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static t_bool	search_components(t_game *game, int *n_exit, int *n_player);
 static int		switch_element_type(t_game *game, int i, int j, int *n_exit);

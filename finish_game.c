@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static int	finish_hook( int keycode, t_vars *vars);
 static int	death_animation(t_vars *vars);

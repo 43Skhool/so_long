@@ -3,14 +3,14 @@ NAME		= so_long
 COREKIT_PATH = ./corekit
 
 SRC = main.c \
-	map_validation/map_validation.c \
-	map_validation/map_parsing.c \
-	map_validation/map_content.c \
+	map_validation.c \
+	map_parsing.c \
+	map_content.c \
 	utils.c \
-	window_management/hooking.c \
-	window_management/window_handling.c \
-	window_management/rendering.c \
-	window_management/finish_game.c \
+	hooking.c \
+	window_handling.c \
+	rendering.c \
+	finish_game.c \
 	movement.c \
 	enemy_movement.c \
 	cleaning.c

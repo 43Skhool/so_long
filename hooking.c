@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 static int	handle_keyboard_input(int keysym, t_vars *vars);
 int			destroy_notify(t_vars *vars);

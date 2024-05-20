@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 t_bool			validate_content(t_game *game);
 static t_bool	is_surrended_by_walls(char *map[]);

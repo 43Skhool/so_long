@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
 t_game			*validate_map(t_game *game);
 t_game			*allocate_game(t_game *game);
