@@ -12,15 +12,6 @@
 
 #include "../libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
-//massimo numero di file che possono essere gestiti
-# ifndef OPEN_MAX
-#  define OPEN_MAX 2048
-# endif
-
 int		ft_strlen_gnl(char *str);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 int		has_nl(char const *str);
