@@ -126,4 +126,10 @@ int				enemy_movement(t_vars *vars);
 
 int				finish_game(t_vars *vars, t_game_status status);
 
+t_bool			validate_content(t_game *game);
+
+void			validate_map(t_game *game);
+
+t_game			*allocate_game(t_game *game);
+
 #endif

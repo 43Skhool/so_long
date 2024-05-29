@@ -12,33 +12,21 @@
 
 #include "so_long.h"
 
-void		free_game(t_game *game);
-static void	free_assets(t_vars *vars);
-static int	destroy_window(t_vars *vars);
-static void	free_enemy_lst(t_game *game);
-
-//CLEAN EVERITHING
-//If restart == false => exit
-//Else => don't exit beacause, after this function, the game will started back 
-int	end(t_vars *vars, t_bool restart)
+static void	free_enemy_lst(t_game *game)
 {
-	if (restart == true)
-		write(1, "\nRESTARTING\n\n", 14);
-	else
-		write(1, "\nGAME END\n\n", 11);
-	free_game(vars->game);
-	free_assets(vars);
-	destroy_window(vars);
-	if (vars->mlx)
-		free(vars->mlx);
-	if (restart == false)
-		exit(0);
-	return (1);
+	t_list	*tmp;
+
+	tmp = game->enemies;
+	while (tmp->content != NULL)
+	{
+		game->enemies = tmp->next;
+		free(tmp->content);
+		free(tmp);
+		tmp = game->enemies;
+	}
+	free(game->enemies);
 }
 
-//FREE ALL POINTER IN T_GAME
-//Non-static beacause it's called by main if something goes wrong during
-//	map parsing
 void	free_game(t_game *game)
 {
 	if (game->exit_position)
@@ -52,7 +40,6 @@ void	free_game(t_game *game)
 	free(game);
 }
 
-//FREE THE ASSETS DESTROYING MLX_IMAGE
 static void	free_assets(t_vars *vars)
 {
 	mlx_destroy_image(vars->mlx, vars->assets->collectible);
@@ -75,7 +62,6 @@ static void	free_assets(t_vars *vars)
 	free(vars->assets);
 }
 
-//DESTROY ALL MLX ELEMENTS
 static int	destroy_window(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
@@ -83,17 +69,18 @@ static int	destroy_window(t_vars *vars)
 	return (0);
 }
 
-static void	free_enemy_lst(t_game *game)
+int	end(t_vars *vars, t_bool restart)
 {
-	t_list	*tmp;
-
-	tmp = game->enemies;
-	while (tmp->content != NULL)
-	{
-		game->enemies = tmp->next;
-		free(tmp->content);
-		free(tmp);
-		tmp = game->enemies;
-	}
-	free(game->enemies);
+	if (restart == true)
+		write(1, "\nRESTARTING\n\n", 14);
+	else
+		write(1, "\nGAME END\n\n", 11);
+	free_game(vars->game);
+	free_assets(vars);
+	destroy_window(vars);
+	if (vars->mlx)
+		free(vars->mlx);
+	if (restart == false)
+		exit(0);
+	return (1);
 }
