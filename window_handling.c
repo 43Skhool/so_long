@@ -3,53 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   window_handling.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: lebartol <lebartol@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 11:22:43 by maceccar          #+#    #+#             */
-/*   Updated: 2024/05/03 00:47:17 by maceccar         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by lebartol          #+#    #+#             */
+/*   Updated: 2024/05/20 17:31:41 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	*get_img(t_vars *vars, char *file);
-static void	load_assets(t_vars *vars);
-int			hook(t_vars *vars);
-void		initialize_window(t_vars *vars);
-
-//Initialize mlx, window
-//Start hooking
-//mlx_loop: make mlx run
-void	start_game(t_game *game)
+static void	*get_img(t_vars *vars, char *file)
 {
-	t_vars	vars;
+	int	w;
+	int	h;
 
-	vars.game = game;
-	vars.mlx = mlx_init();
-	if (!vars.mlx)
-		end(&vars, false);
-	write(1, "\nSTART GAME\n\n", 14);
-	initialize_window(&vars);
-	hook(&vars);
-	mlx_loop(vars.mlx);
+	return (mlx_xpm_file_to_image(vars->mlx, file, &w, &h));
 }
 
-//Create the mlx window depending on map sized
-//Load all the assets
-void	initialize_window(t_vars *vars)
-{
-	int	win_height;
-	int	win_width;
-
-	win_height = TILE_SIZE * vars->game->number_of_rows;
-	win_width = TILE_SIZE * vars->game->number_of_columns;
-	vars->win = mlx_new_window(vars->mlx, win_width, win_height, "So long");
-	if (!vars->win)
-		end(vars, false);
-	load_assets(vars);
-}
-
-//Convert all .xpm files in mlx_image
 static void	load_assets(t_vars *vars)
 {
 	vars->assets = malloc(sizeof(t_assets));
@@ -72,12 +42,29 @@ static void	load_assets(t_vars *vars)
 	vars->assets->win = get_img(vars, "assets/win.xpm");
 }
 
-//Function that actually does the convertion
-//	Done beacause of norm
-static void	*get_img(t_vars *vars, char *file)
+void	initialize_window(t_vars *vars)
 {
-	int	w;
-	int	h;
+	int	win_height;
+	int	win_width;
 
-	return (mlx_xpm_file_to_image(vars->mlx, file, &w, &h));
+	win_height = TILE_SIZE * vars->game->number_of_rows;
+	win_width = TILE_SIZE * vars->game->number_of_columns;
+	vars->win = mlx_new_window(vars->mlx, win_width, win_height, "So long");
+	if (!vars->win)
+		end(vars, false);
+	load_assets(vars);
+}
+
+void	start_game(t_game *game)
+{
+	t_vars	vars;
+
+	vars.game = game;
+	vars.mlx = mlx_init();
+	if (!vars.mlx)
+		end(&vars, false);
+	write(1, "\nSTART GAME\n\n", 14);
+	initialize_window(&vars);
+	hook(&vars);
+	mlx_loop(vars.mlx);
 }

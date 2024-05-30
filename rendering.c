@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: lebartol <lebartol@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 11:22:43 by maceccar          #+#    #+#             */
-/*   Updated: 2024/05/03 00:47:17 by maceccar         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by lebartol          #+#    #+#             */
+/*   Updated: 2024/05/28 13:05:29 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	render_movement_count(t_vars *vars, int x, int y)
 
 	number = ft_itoa(vars->game->number_of_moves);
 	mlx_string_put(vars->mlx, vars->win, x, y, 0XFFFFFF, "Number of moves :");
-	mlx_string_put(vars->mlx, vars->win, x + 105, y + 1, 0XFFFFFF, number);
+	mlx_string_put(vars->mlx, vars->win, x + 105, y, 0XFFFFFF, number);
 	free(number);
 }
 
@@ -47,19 +47,18 @@ static int	render_exit(t_vars *vars, t_position pos)
 	return (0);
 }
 
-static int	render_tile(t_vars *vars, char type, t_position pos)
+static int	render_tile(t_vars *vars, int j, int i, int as)
 {
-	static int	frame_count;
-	int			animation_status;
+	t_position	pos;
+	char		type;
 
-	if (frame_count > 10000)
-		animation_status = 1;
-	else
-		animation_status = 0;
+	type = vars->game->map[i][j];
+	pos.x = j * TILE_SIZE;
+	pos.y = i * TILE_SIZE;
 	if (type == ENEMY)
 		put_img(vars, vars->assets->enemy, pos.x, pos.y);
 	else if (type == PLAYER)
-		render_player(vars, pos, animation_status);
+		render_player(vars, pos, as);
 	else if (type == COLLECTIBLES)
 		put_img(vars, vars->assets->collectible, pos.x, pos.y);
 	else if (type == FLOOR)
@@ -68,18 +67,19 @@ static int	render_tile(t_vars *vars, char type, t_position pos)
 		put_img(vars, vars->assets->wall, pos.x, pos.y);
 	else if (type == EXIT)
 		render_exit(vars, pos);
-	if (frame_count == 20000)
-		frame_count = 0;
-	frame_count++;
 	return (0);
 }
 
 int	render_next_frame(t_vars *vars)
 {
+	static int	ms;
+	int			anim_status;
 	int			i;
 	int			j;
-	t_position	position;
 
+	anim_status = (ms > 500);
+	if (ms > 1000)
+		ms = 0;
 	enemy_movement(vars);
 	i = 0;
 	j = 0;
@@ -88,14 +88,13 @@ int	render_next_frame(t_vars *vars)
 		j = 0;
 		while (j < vars->game->number_of_columns)
 		{
-			position.x = j * TILE_SIZE;
-			position.y = i * TILE_SIZE;
-			render_tile(vars, vars->game->map[i][j], position);
+			render_tile(vars,j , i, anim_status);
 			j++;
 		}
 		i++;
 	}
 	render_movement_count(vars, 10, 20);
-	usleep(210);
+	usleep(100);
+	ms++;
 	return (0);
 }

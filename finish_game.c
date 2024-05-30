@@ -3,33 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   finish_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: lebartol <lebartol@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 11:22:43 by maceccar          #+#    #+#             */
-/*   Updated: 2024/05/03 00:47:17 by maceccar         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by lebartol          #+#    #+#             */
+/*   Updated: 2024/05/20 18:18:34 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	finish_hook( int keycode, t_vars *vars);
-static int	death_animation(t_vars *vars);
-static int	win_animation(t_vars *vars);
-void		initialize_window(t_vars *vars);
-int			hook(t_vars *vars);
-int			destroy_notify(t_vars *vars);
-
 static int	death_animation(t_vars *vars)
 {
-	static int	frame_count;
+	static int	i;
 
-	if (frame_count > 1000)
-		put_img(vars, vars->assets->death[0], 0, 0);
+	put_img(vars, vars->assets->death[i], 0, 0);
+	usleep(210000);
+	if (!i)
+		i++;
 	else
-		put_img(vars, vars->assets->death[1], 0, 0);
-	if (frame_count == 2000)
-		frame_count = 0;
-	frame_count++;
+		i = 0;
 	return (0);
 }
 

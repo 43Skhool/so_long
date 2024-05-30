@@ -1,0 +1,676 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+$(NAME)	libft/Makefile	/^$(NAME):$/;"	t
+$(NAME)	makefile	/^$(NAME): $(OBJS)$/;"	t
+$(NAME)	mlx/Makefile.mk	/^$(NAME)	: $(OBJ)$/;"	t
+$(NAME)	mlx/test/Makefile.mk	/^$(NAME): $(OBJ)$/;"	t
+$(OBJ_DIR)/%.o	mlx/Makefile.mk	/^$(OBJ_DIR)\/%.o: %.c$/;"	t
+%.o	makefile	/^%.o: %.c$/;"	t
+*.embeddedhtml	.vscode/settings.json	/^    "*.embeddedhtml": "html",$/;"	s	object:files.associations
+*.embeddedhtml	libft/.vscode/settings.json	/^		"*.embeddedhtml": "html",$/;"	s	object:files.associations
+0	.vscode/c_cpp_properties.json	/^                ""$/;"	s	array:configurations.0.compilerArgs
+0	.vscode/c_cpp_properties.json	/^                "${workspaceFolder}\/**"$/;"	s	array:configurations.0.includePath
+0	.vscode/c_cpp_properties.json	/^        {$/;"	o	array:configurations
+0	.vscode/launch.json	/^          {$/;"	o	array:configurations.0.setupCommands
+0	.vscode/launch.json	/^      "args": ["maps\/big_map.ber"],$/;"	s	array:configurations.0.args
+0	.vscode/launch.json	/^    {$/;"	o	array:configurations
+0	.vscode/settings.json	/^    "*",$/;"	s	array:C_Cpp_Runner.includeSearch
+0	.vscode/settings.json	/^    "**\/build",$/;"	s	array:C_Cpp_Runner.excludeSearch
+0	.vscode/settings.json	/^    "-Wall",$/;"	s	array:C_Cpp_Runner.warnings
+0	.vscode/settings.json	/^    "\/W4",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+0	.vscode/tasks.json	/^                "$gcc"$/;"	s	array:tasks.0.problemMatcher
+0	.vscode/tasks.json	/^                "-fdiagnostics-color=always",$/;"	s	array:tasks.0.args
+0	.vscode/tasks.json	/^        {$/;"	o	array:tasks
+0	libft/.vscode/tasks.json	/^                "$gcc"$/;"	s	array:tasks.0.problemMatcher
+0	libft/.vscode/tasks.json	/^                "-fdiagnostics-color=always",$/;"	s	array:tasks.0.args
+0	libft/.vscode/tasks.json	/^        {$/;"	o	array:tasks
+1	.vscode/launch.json	/^          {$/;"	o	array:configurations.0.setupCommands
+1	.vscode/settings.json	/^    "**\/*"$/;"	s	array:C_Cpp_Runner.includeSearch
+1	.vscode/settings.json	/^    "**\/build\/**",$/;"	s	array:C_Cpp_Runner.excludeSearch
+1	.vscode/settings.json	/^    "-Wextra",$/;"	s	array:C_Cpp_Runner.warnings
+1	.vscode/settings.json	/^    "\/permissive-",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+1	.vscode/tasks.json	/^                "-g",$/;"	s	array:tasks.0.args
+1	libft/.vscode/tasks.json	/^                "-g",$/;"	s	array:tasks.0.args
+10	.vscode/settings.json	/^    "\/w14906",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+11	.vscode/settings.json	/^    "\/w14263",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+12	.vscode/settings.json	/^    "\/w44265",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+13	.vscode/settings.json	/^    "\/w14928"$/;"	s	array:C_Cpp_Runner.msvcWarnings
+2	.vscode/settings.json	/^    "**\/.*",$/;"	s	array:C_Cpp_Runner.excludeSearch
+2	.vscode/settings.json	/^    "-Wpedantic",$/;"	s	array:C_Cpp_Runner.warnings
+2	.vscode/settings.json	/^    "\/w14242",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+2	.vscode/tasks.json	/^                "${file}",$/;"	s	array:tasks.0.args
+2	libft/.vscode/tasks.json	/^                "${file}",$/;"	s	array:tasks.0.args
+3	.vscode/settings.json	/^    "**\/.*\/**",$/;"	s	array:C_Cpp_Runner.excludeSearch
+3	.vscode/settings.json	/^    "-Wshadow",$/;"	s	array:C_Cpp_Runner.warnings
+3	.vscode/settings.json	/^    "\/w14287",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+3	.vscode/tasks.json	/^                "-o",$/;"	s	array:tasks.0.args
+3	libft/.vscode/tasks.json	/^                "-o",$/;"	s	array:tasks.0.args
+4	.vscode/settings.json	/^    "**\/.vscode",$/;"	s	array:C_Cpp_Runner.excludeSearch
+4	.vscode/settings.json	/^    "-Wformat=2",$/;"	s	array:C_Cpp_Runner.warnings
+4	.vscode/settings.json	/^    "\/w14296",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+4	.vscode/tasks.json	/^                "${fileDirname}\\\\${fileBasenameNoExtension}.exe"$/;"	s	array:tasks.0.args
+4	libft/.vscode/tasks.json	/^                "${fileDirname}\/${fileBasenameNoExtension}"$/;"	s	array:tasks.0.args
+5	.vscode/settings.json	/^    "**\/.vscode\/**"$/;"	s	array:C_Cpp_Runner.excludeSearch
+5	.vscode/settings.json	/^    "-Wcast-align",$/;"	s	array:C_Cpp_Runner.warnings
+5	.vscode/settings.json	/^    "\/w14311",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+6	.vscode/settings.json	/^    "-Wconversion",$/;"	s	array:C_Cpp_Runner.warnings
+6	.vscode/settings.json	/^    "\/w14826",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+7	.vscode/settings.json	/^    "-Wsign-conversion",$/;"	s	array:C_Cpp_Runner.warnings
+7	.vscode/settings.json	/^    "\/w44062",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+8	.vscode/settings.json	/^    "-Wnull-dereference"$/;"	s	array:C_Cpp_Runner.warnings
+8	.vscode/settings.json	/^    "\/w44242",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+9	.vscode/settings.json	/^    "\/w14905",$/;"	s	array:C_Cpp_Runner.msvcWarnings
+AUTHOR	mlx/man/man1/mlx.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man1/mlx_loop.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man1/mlx_new_image.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man1/mlx_new_window.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man1/mlx_pixel_put.1	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man3/mlx.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man3/mlx_loop.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man3/mlx_new_image.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man3/mlx_new_window.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+AUTHOR	mlx/man/man3/mlx_pixel_put.3	/^.SH AUTHOR$/;"	s	title:MiniLibX
+A_KEY	so_long.h	/^# define A_KEY	/;"	d
+BONUS	libft/Makefile	/^BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \\$/;"	m
+BONUS_OBJS	libft/Makefile	/^BONUS_OBJS		= $(BONUS:.c=.o)$/;"	m
+BUFFER_SIZE	libft/libft.h	/^#  define BUFFER_SIZE /;"	d
+CC	mlx/Makefile.mk	/^	CC = clang$/;"	m
+CC	mlx/Makefile.mk	/^CC	= gcc$/;"	m
+CC	mlx/test/Makefile.mk	/^	CC	= gcc$/;"	m
+CC	mlx/test/Makefile.mk	/^	CC = clang$/;"	m
+CFLAGS	mlx/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
+CFLAGS	mlx/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
+COLLECTIBLES	so_long.h	/^# define COLLECTIBLES	/;"	d
+COLOR	mlx/man/man1/mlx_pixel_put.1	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
+COLOR	mlx/man/man3/mlx_pixel_put.3	/^.SH COLOR MANAGEMENT$/;"	s	title:MiniLibX
+C_Cpp.default.compilerPath	.vscode/settings.json	/^  "C_Cpp.default.compilerPath": "D:\\\\Applications\\\\MinGW_(C_Complier)\\\\bin\\\\gcc.exe",$/;"	s
+C_Cpp.default.configurationProvider	.vscode/settings.json	/^  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",$/;"	s
+C_Cpp.errorSquiggles	libft/.vscode/settings.json	/^	"C_Cpp.errorSquiggles": "disabled",$/;"	s
+C_Cpp_Runner.cCompilerPath	.vscode/settings.json	/^  "C_Cpp_Runner.cCompilerPath": "gcc",$/;"	s
+C_Cpp_Runner.cStandard	.vscode/settings.json	/^  "C_Cpp_Runner.cStandard": "",$/;"	s
+C_Cpp_Runner.compilerArgs	.vscode/settings.json	/^  "C_Cpp_Runner.compilerArgs": [],$/;"	a
+C_Cpp_Runner.cppCompilerPath	.vscode/settings.json	/^  "C_Cpp_Runner.cppCompilerPath": "g++",$/;"	s
+C_Cpp_Runner.cppStandard	.vscode/settings.json	/^  "C_Cpp_Runner.cppStandard": "",$/;"	s
+C_Cpp_Runner.debuggerPath	.vscode/settings.json	/^  "C_Cpp_Runner.debuggerPath": "gdb",$/;"	s
+C_Cpp_Runner.enableWarnings	.vscode/settings.json	/^  "C_Cpp_Runner.enableWarnings": true,$/;"	b
+C_Cpp_Runner.excludeSearch	.vscode/settings.json	/^  "C_Cpp_Runner.excludeSearch": [$/;"	a
+C_Cpp_Runner.includePaths	.vscode/settings.json	/^  "C_Cpp_Runner.includePaths": [],$/;"	a
+C_Cpp_Runner.includeSearch	.vscode/settings.json	/^  "C_Cpp_Runner.includeSearch": [$/;"	a
+C_Cpp_Runner.linkerArgs	.vscode/settings.json	/^  "C_Cpp_Runner.linkerArgs": [],$/;"	a
+C_Cpp_Runner.msvcBatchPath	.vscode/settings.json	/^  "C_Cpp_Runner.msvcBatchPath": "",$/;"	s
+C_Cpp_Runner.msvcSecureNoWarnings	.vscode/settings.json	/^  "C_Cpp_Runner.msvcSecureNoWarnings": false,$/;"	b
+C_Cpp_Runner.msvcWarnings	.vscode/settings.json	/^  "C_Cpp_Runner.msvcWarnings": [$/;"	a
+C_Cpp_Runner.showCompilationTime	.vscode/settings.json	/^  "C_Cpp_Runner.showCompilationTime": false,$/;"	b
+C_Cpp_Runner.useAddressSanitizer	.vscode/settings.json	/^  "C_Cpp_Runner.useAddressSanitizer": false,$/;"	b
+C_Cpp_Runner.useLeakSanitizer	.vscode/settings.json	/^  "C_Cpp_Runner.useLeakSanitizer": false,$/;"	b
+C_Cpp_Runner.useLinkTimeOptimization	.vscode/settings.json	/^  "C_Cpp_Runner.useLinkTimeOptimization": false,$/;"	b
+C_Cpp_Runner.useMsvc	.vscode/settings.json	/^  "C_Cpp_Runner.useMsvc": false,$/;"	b
+C_Cpp_Runner.useUndefinedSanitizer	.vscode/settings.json	/^  "C_Cpp_Runner.useUndefinedSanitizer": false,$/;"	b
+C_Cpp_Runner.warnings	.vscode/settings.json	/^  "C_Cpp_Runner.warnings": [$/;"	a
+C_Cpp_Runner.warningsAsError	.vscode/settings.json	/^  "C_Cpp_Runner.warningsAsError": false,$/;"	b
+DESCRIPTION	mlx/man/man1/mlx.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man1/mlx_loop.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man1/mlx_new_image.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man1/mlx_new_window.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man1/mlx_pixel_put.1	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man3/mlx.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man3/mlx_loop.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man3/mlx_new_image.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man3/mlx_new_window.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESCRIPTION	mlx/man/man3/mlx_pixel_put.3	/^.SH DESCRIPTION$/;"	s	title:MiniLibX
+DESTROY_NOTIFY	so_long.h	/^# define DESTROY_NOTIFY /;"	d
+DOWN_ARROW	so_long.h	/^# define DOWN_ARROW	/;"	d
+D_KEY	so_long.h	/^# define D_KEY	/;"	d
+ENEMY	so_long.h	/^# define ENEMY	/;"	d
+ENV_DISPLAY	mlx/mlx_int.h	/^# define ENV_DISPLAY /;"	d
+EOF	mlx/configure	/^cat <<EOF$/;"	h
+ERR_NO_TRUECOLOR	mlx/mlx_int.h	/^# define ERR_NO_TRUECOLOR /;"	d
+EXIT	so_long.h	/^# define EXIT	/;"	d
+FLAGS	libft/Makefile	/^FLAGS		= -Wall -Werror -Wextra$/;"	m
+FLAGS	makefile	/^FLAGS		= -Wall -Werror -Wextra -g$/;"	m
+FLOOR	so_long.h	/^# define FLOOR	/;"	d
+GOING	mlx/man/man1/mlx_loop.1	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
+GOING	mlx/man/man3/mlx_loop.3	/^.SH GOING FURTHER WITH EVENTS$/;"	s	title:MiniLibX
+IM1_SX	mlx/test/main.c	/^#define	IM1_SX	/;"	d	file:
+IM1_SY	mlx/test/main.c	/^#define	IM1_SY	/;"	d	file:
+IM3_SX	mlx/test/main.c	/^#define	IM3_SX	/;"	d	file:
+IM3_SY	mlx/test/main.c	/^#define	IM3_SY	/;"	d	file:
+INC	mlx/Makefile.mk	/^INC	=%%%%$/;"	m
+INC	mlx/test/Makefile.mk	/^INC=%%%%$/;"	m
+INCLIB	mlx/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
+INCLUDE	mlx/man/man1/mlx.1	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
+INCLUDE	mlx/man/man3/mlx.3	/^.SH INCLUDE FILE$/;"	s	title:MiniLibX
+KEY_ESC	so_long.h	/^# define KEY_ESC	/;"	d
+LEFT_ARROW	so_long.h	/^# define LEFT_ARROW	/;"	d
+LFLAGS	mlx/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
+LIBFT_H	libft/libft.h	/^# define LIBFT_H$/;"	d
+LIBFT_PATH	makefile	/^LIBFT_PATH = .\/libft$/;"	m
+LIBRARY	mlx/man/man1/mlx.1	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
+LIBRARY	mlx/man/man3/mlx.3	/^.SH LIBRARY FUNCTIONS$/;"	s	title:MiniLibX
+LINKING	mlx/man/man1/mlx.1	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
+LINKING	mlx/man/man3/mlx.3	/^.SH LINKING MiniLibX$/;"	s	title:MiniLibX
+LOCALHOST	mlx/mlx_int.h	/^# define LOCALHOST /;"	d
+MIMode	.vscode/launch.json	/^      "MIMode": "gdb",$/;"	s	object:configurations.0
+MLX_H	mlx/mlx.h	/^#define	MLX_H$/;"	d
+MLX_INT_H	mlx/mlx_int.h	/^# define MLX_INT_H$/;"	d
+MLX_MAX_EVENT	mlx/mlx_int.h	/^# define MLX_MAX_EVENT /;"	d
+MLX_TYPE_SHM	mlx/mlx_int.h	/^# define MLX_TYPE_SHM /;"	d
+MLX_TYPE_SHM_PIXMAP	mlx/mlx_int.h	/^# define MLX_TYPE_SHM_PIXMAP /;"	d
+MLX_TYPE_XIMAGE	mlx/mlx_int.h	/^# define MLX_TYPE_XIMAGE /;"	d
+MiniLibX	mlx/man/man1/mlx.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man1/mlx_loop.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man1/mlx_new_image.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man1/mlx_new_window.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man1/mlx_pixel_put.1	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man3/mlx.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man3/mlx_loop.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man3/mlx_new_image.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man3/mlx_new_window.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+MiniLibX	mlx/man/man3/mlx_pixel_put.3	/^.TH MiniLibX 3 "September 19, 2002"$/;"	t
+NAME	libft/Makefile	/^NAME		= libft.a$/;"	m
+NAME	makefile	/^NAME		= so_long$/;"	m
+NAME	mlx/Makefile.mk	/^NAME		= libmlx.a$/;"	m
+NAME	mlx/man/man1/mlx.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man1/mlx_loop.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man1/mlx_new_image.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man1/mlx_new_window.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man1/mlx_pixel_put.1	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man3/mlx.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man3/mlx_loop.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man3/mlx_new_image.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man3/mlx_new_window.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/man/man3/mlx_pixel_put.3	/^.SH NAME$/;"	s	title:MiniLibX
+NAME	mlx/test/Makefile.mk	/^NAME= mlx-test$/;"	m
+NAME_UNAME	mlx/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
+OBJ	mlx/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
+OBJ	mlx/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
+OBJS	libft/Makefile	/^OBJS		= $(SRCS:%.c=%.o)$/;"	m
+OBJS	makefile	/^OBJS		= $(SRC:%.c=%.o)$/;"	m
+OBJ_DIR	mlx/Makefile.mk	/^OBJ_DIR = obj$/;"	m
+OPEN_MAX	libft/libft.h	/^#  define OPEN_MAX /;"	d
+PLAYER	so_long.h	/^# define PLAYER	/;"	d
+RETURN	mlx/man/man1/mlx.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	mlx/man/man1/mlx_new_image.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	mlx/man/man1/mlx_new_window.1	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	mlx/man/man3/mlx.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	mlx/man/man3/mlx_new_image.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	mlx/man/man3/mlx_new_window.3	/^.SH RETURN VALUES$/;"	s	title:MiniLibX
+RETURN	mlx/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
+RIGHT_ARROW	so_long.h	/^# define RIGHT_ARROW	/;"	d
+R_KEY	so_long.h	/^# define R_KEY	/;"	d
+SEE	mlx/man/man1/mlx.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man1/mlx_loop.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man1/mlx_new_image.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man1/mlx_new_window.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man1/mlx_pixel_put.1	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man3/mlx.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man3/mlx_loop.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man3/mlx_new_image.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man3/mlx_new_window.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SEE	mlx/man/man3/mlx_pixel_put.3	/^.SH SEE ALSO$/;"	s	title:MiniLibX
+SO_LONG_H	so_long.h	/^# define SO_LONG_H$/;"	d
+SRC	makefile	/^SRC = main.c \\$/;"	m
+SRC	mlx/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
+SRC	mlx/test/Makefile.mk	/^SRC = main.c$/;"	m
+SRCS	libft/Makefile	/^SRCS		= ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \\$/;"	m
+STORING	mlx/man/man1/mlx_new_image.1	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
+STORING	mlx/man/man3/mlx_new_image.3	/^.SH STORING COLOR INSIDE IMAGES$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man1/mlx.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man1/mlx_loop.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man1/mlx_new_image.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man1/mlx_new_window.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man1/mlx_pixel_put.1	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man3/mlx.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man3/mlx_loop.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man3/mlx_new_image.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man3/mlx_new_window.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+SYNOPSYS	mlx/man/man3/mlx_pixel_put.3	/^.SH SYNOPSYS$/;"	s	title:MiniLibX
+S_KEY	so_long.h	/^# define S_KEY	/;"	d
+TILE_SIZE	so_long.h	/^# define TILE_SIZE	/;"	d
+UNAME	mlx/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
+UNAME	mlx/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
+UP_ARROW	so_long.h	/^# define UP_ARROW	/;"	d
+WALL	so_long.h	/^# define WALL	/;"	d
+WARN_SHM_ATTACH	mlx/mlx_int.h	/^# define WARN_SHM_ATTACH /;"	d
+WIN1_SX	mlx/test/main.c	/^#define	WIN1_SX	/;"	d	file:
+WIN1_SY	mlx/test/main.c	/^#define	WIN1_SY	/;"	d	file:
+W_KEY	so_long.h	/^# define W_KEY	/;"	d
+X-WINDOW	mlx/man/man1/mlx.1	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
+X-WINDOW	mlx/man/man1/mlx_loop.1	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
+X-WINDOW	mlx/man/man3/mlx.3	/^.SH X-WINDOW CONCEPT$/;"	s	title:MiniLibX
+X-WINDOW	mlx/man/man3/mlx_loop.3	/^.SH X-WINDOW EVENTS$/;"	s	title:MiniLibX
+XPM	mlx/man/man1/mlx_new_image.1	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
+XPM	mlx/man/man3/mlx_new_image.3	/^.SH XPM IMAGES$/;"	s	title:MiniLibX
+X_ShmAttach	mlx/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
+add_enemy_to_list	map_content.c	/^static void	add_enemy_to_list(t_game *game, int x, int y)$/;"	f	typeref:typename:void	file:
+algorithm	libft/.vscode/settings.json	/^		"algorithm": "c",$/;"	s	object:files.associations
+all	libft/Makefile	/^all: $(NAME)$/;"	t
+all	makefile	/^all:$(NAME)$/;"	t
+all	mlx/Makefile	/^all	: do_configure$/;"	t
+all	mlx/Makefile.mk	/^all	: $(NAME)$/;"	t
+all	mlx/test/Makefile.mk	/^all: $(NAME)$/;"	t
+allocate_game	utils.c	/^t_game	*allocate_game(t_game *game)$/;"	f	typeref:typename:t_game *
+allocate_map	map_parsing.c	/^static void	allocate_map(t_game *game)$/;"	f	typeref:typename:void	file:
+args	.vscode/launch.json	/^      "args": ["maps\/big_map.ber"],$/;"	a	object:configurations.0
+args	.vscode/tasks.json	/^            "args": [$/;"	a	object:tasks.0
+args	libft/.vscode/tasks.json	/^            "args": [$/;"	a	object:tasks.0
+assets	so_long.h	/^	t_assets				*assets;$/;"	m	struct:s_vars	typeref:typename:t_assets *
+at_exit	mlx/test/run_tests.sh	/^at_exit() {$/;"	f
+bonus	libft/Makefile	/^bonus: $(OBJS) $(BONUS_OBJS)$/;"	t
+bpp	mlx/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img	typeref:typename:int
+bpp1	mlx/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
+bpp2	mlx/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
+bpp3	mlx/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
+bpp4	mlx/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
+cStandard	.vscode/c_cpp_properties.json	/^            "cStandard": "${default}",$/;"	s	object:configurations.0
+check	mlx/Makefile.mk	/^check: all$/;"	t
+clean	libft/Makefile	/^clean:$/;"	t
+clean	makefile	/^clean:$/;"	t
+clean	mlx/Makefile	/^clean	:$/;"	t
+clean	mlx/Makefile.mk	/^clean	:$/;"	t
+clean	mlx/configure	/^clean(){$/;"	f
+clean	mlx/test/Makefile.mk	/^clean:$/;"	t
+cmap	mlx/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar	typeref:typename:Colormap
+col	mlx/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col	typeref:typename:int
+collectible	so_long.h	/^	void	*collectible;$/;"	m	struct:s_assets	typeref:typename:void *
+collectibles_count	so_long.h	/^	int			collectibles_count;$/;"	m	struct:s_game	typeref:typename:int
+color	mlx/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name	typeref:typename:int
+color_map_1	mlx/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int
+color_map_2	mlx/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int
+command	.vscode/tasks.json	/^            "command": "D:\\\\Applications\\\\MinGW_(C_Complier)\\\\bin\\\\gcc.exe",$/;"	s	object:tasks.0
+command	libft/.vscode/tasks.json	/^            "command": "\/usr\/bin\/gcc",$/;"	s	object:tasks.0
+compilerArgs	.vscode/c_cpp_properties.json	/^            "compilerArgs": [$/;"	a	object:configurations.0
+compilerPath	.vscode/c_cpp_properties.json	/^            "compilerPath": "D:\\\\Applications\\\\MinGW_(C_Complier)\\\\bin\\\\g++.exe",$/;"	s	object:configurations.0
+configurations	.vscode/c_cpp_properties.json	/^    "configurations": [$/;"	a
+configurations	.vscode/launch.json	/^  "configurations": [$/;"	a
+content	libft/libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
+corekit.h	.vscode/settings.json	/^    "corekit.h": "c",$/;"	s	object:files.associations
+count_digits	libft/ft_itoa.c	/^static size_t	count_digits(long int num)$/;"	f	typeref:typename:size_t	file:
+cppStandard	.vscode/c_cpp_properties.json	/^            "cppStandard": "${default}",$/;"	s	object:configurations.0
+cwd	.vscode/launch.json	/^      "cwd": "${fileDirname}",$/;"	s	object:configurations.0
+cwd	.vscode/tasks.json	/^                "cwd": "${fileDirname}"$/;"	s	object:tasks.0.options
+cwd	libft/.vscode/tasks.json	/^                "cwd": "${fileDirname}"$/;"	s	object:tasks.0.options
+data	mlx/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img	typeref:typename:char *
+data1	mlx/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
+data2	mlx/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
+data3	mlx/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
+data4	mlx/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
+death	so_long.h	/^	void	*death[2];$/;"	m	struct:s_assets	typeref:typename:void * [2]
+death_animation	finish_game.c	/^static int	death_animation(t_vars *vars)$/;"	f	typeref:typename:int	file:
+decrgb	mlx/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar	typeref:typename:int[6]
+depth	mlx/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar	typeref:typename:int
+description	.vscode/launch.json	/^              "description": "Enable pretty-printing for gdb",$/;"	s	object:configurations.0.setupCommands.0
+description	.vscode/launch.json	/^              "description": "Set Disassembly Flavor to Intel",$/;"	s	object:configurations.0.setupCommands.1
+destroy_notify	hooking.c	/^int	destroy_notify(t_vars *vars)$/;"	f	typeref:typename:int
+destroy_window	cleaning.c	/^static int	destroy_window(t_vars *vars)$/;"	f	typeref:typename:int	file:
+detail	.vscode/tasks.json	/^            "detail": "Task generated by Debugger."$/;"	s	object:tasks.0
+detail	libft/.vscode/tasks.json	/^            "detail": "Task generated by Debugger."$/;"	s	object:tasks.0
+display	mlx/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar	typeref:typename:Display *
+do_configure	mlx/Makefile	/^do_configure	:$/;"	t
+do_flush	mlx/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar	typeref:typename:int
+download	makefile	/^download:$/;"	t
+e_bool	libft/libft.h	/^typedef enum e_bool$/;"	g
+e_game_status	so_long.h	/^typedef enum e_game_status$/;"	g
+end	cleaning.c	/^int	end(t_vars *vars, t_bool restart)$/;"	f	typeref:typename:int
+end_loop	mlx/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar	typeref:typename:int
+endian1	mlx/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
+endian2	mlx/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
+endian3	mlx/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
+endian4	mlx/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
+enemies	so_long.h	/^	t_list		*enemies;$/;"	m	struct:s_game	typeref:typename:t_list *
+enemy	so_long.h	/^	void	*enemy;$/;"	m	struct:s_assets	typeref:typename:void *
+enemy_movement	enemy_movement.c	/^int	enemy_movement(t_vars *vars)$/;"	f	typeref:typename:int
+environment	.vscode/launch.json	/^      "environment": [],$/;"	a	object:configurations.0
+exit_closed	so_long.h	/^	void	*exit_closed;$/;"	m	struct:s_assets	typeref:typename:void *
+exit_open	so_long.h	/^	void	*exit_open;$/;"	m	struct:s_assets	typeref:typename:void *
+exit_position	so_long.h	/^	t_position	*exit_position;$/;"	m	struct:s_game	typeref:typename:t_position *
+expose_hook	mlx/mlx_int.h	/^	int					(*expose_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+expose_param	mlx/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+expose_win1	mlx/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int
+expose_win2	mlx/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int
+externalConsole	.vscode/launch.json	/^      "externalConsole": false,$/;"	b	object:configurations.0
+fclean	libft/Makefile	/^fclean: clean$/;"	t
+fclean	makefile	/^fclean: clean$/;"	t
+file	so_long.h	/^	char		*file;$/;"	m	struct:s_game	typeref:typename:char *
+files.associations	.vscode/settings.json	/^  "files.associations": {$/;"	o
+files.associations	libft/.vscode/settings.json	/^	"files.associations": {$/;"	o
+finish_game	finish_game.c	/^int	finish_game(t_vars *vars, t_game_status status)$/;"	f	typeref:typename:int
+finish_hook	finish_game.c	/^static int	finish_hook( int keycode, t_vars *vars)$/;"	f	typeref:typename:int	file:
+floor	so_long.h	/^	void	*floor;$/;"	m	struct:s_assets	typeref:typename:void *
+format	mlx/mlx_int.h	/^	int				format;$/;"	m	struct:s_img	typeref:typename:int
+free_assets	cleaning.c	/^static void	free_assets(t_vars *vars)$/;"	f	typeref:typename:void	file:
+free_enemy_lst	cleaning.c	/^static void	free_enemy_lst(t_game *game)$/;"	f	typeref:typename:void	file:
+free_game	cleaning.c	/^void	free_game(t_game *game)$/;"	f	typeref:typename:void
+ft_atoi	libft/ft_atoi.c	/^int	ft_atoi(const char *str)$/;"	f	typeref:typename:int
+ft_bzero	libft/ft_bzero.c	/^void	*ft_bzero(void *dest, size_t count)$/;"	f	typeref:typename:void *
+ft_calloc	libft/ft_calloc.c	/^void	*ft_calloc(size_t nitems, size_t size)$/;"	f	typeref:typename:void *
+ft_clear	libft/ft_split.c	/^static void	ft_clear(char **array, size_t arr_index)$/;"	f	typeref:typename:void	file:
+ft_contains_char	libft/ft_strtrim.c	/^static int	ft_contains_char(const char *str, char c)$/;"	f	typeref:typename:int	file:
+ft_contains_char	libft/ft_strtrim_free_s1.c	/^static int	ft_contains_char(const char *str, char c)$/;"	f	typeref:typename:int	file:
+ft_count_arr	libft/ft_split.c	/^static size_t	ft_count_arr(char const *s, char c)$/;"	f	typeref:typename:size_t	file:
+ft_count_matrix_row	libft/ft_count_matrix_row.c	/^size_t	ft_count_matrix_row(void **matrix)$/;"	f	typeref:typename:size_t
+ft_duplicate_char_matrix	libft/ft_duplicate_char_matrix.c	/^char	**ft_duplicate_char_matrix(char **matrix)$/;"	f	typeref:typename:char **
+ft_free_matrix	libft/ft_free_matrix.c	/^void	ft_free_matrix(void **matrix)$/;"	f	typeref:typename:void
+ft_isalnum	libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
+ft_isalpha	libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
+ft_isascii	libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
+ft_isdigit	libft/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
+ft_isprint	libft/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
+ft_itoa	libft/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
+ft_lstadd_back	libft/ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstadd_front	libft/ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void
+ft_lstclear	libft/ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void *))$/;"	f	typeref:typename:void
+ft_lstdelone	libft/ft_lstdelone.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void *))$/;"	f	typeref:typename:void
+ft_lstiter	libft/ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void
+ft_lstlast	libft/ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *
+ft_lstmap	libft/ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *
+ft_lstnew	libft/ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *
+ft_lstsize	libft/ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int
+ft_make_split	libft/ft_split.c	/^static char	**ft_make_split(char **array, char const *s, char c)$/;"	f	typeref:typename:char **	file:
+ft_make_string	libft/ft_split.c	/^static char	*ft_make_string(char const *s, size_t start, char c)$/;"	f	typeref:typename:char *	file:
+ft_memchr	libft/ft_memchr.c	/^void	*ft_memchr(const void *str, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_memcmp	libft/ft_memcmp.c	/^int	ft_memcmp(const void *str1, const void *str2, size_t n)$/;"	f	typeref:typename:int
+ft_memcpy	libft/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memmove	libft/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memset	libft/ft_memset.c	/^void	*ft_memset(void *dest, int c, size_t count)$/;"	f	typeref:typename:void *
+ft_print_char_matrix	libft/ft_print_char_matrix.c	/^void	ft_print_char_matrix(char **matrix)$/;"	f	typeref:typename:void
+ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_fd	libft/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
+ft_putstr_fd	libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_read	libft/gnl/get_next_line_bonus.c	/^char	*ft_read(char *temp, int fd)$/;"	f	typeref:typename:char *
+ft_split	libft/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
+ft_strchr	libft/ft_strchr.c	/^char	*ft_strchr(const char *str, int c)$/;"	f	typeref:typename:char *
+ft_strdup	libft/ft_strdup.c	/^char	*ft_strdup(char *src)$/;"	f	typeref:typename:char *
+ft_striteri	libft/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char *))$/;"	f	typeref:typename:void
+ft_strjoin	libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f	typeref:typename:char *
+ft_strjoin_gnl	libft/gnl/get_next_line_utils_bonus.c	/^char	*ft_strjoin_gnl(char *s1, char *s2)$/;"	f	typeref:typename:char *
+ft_strlcat	libft/ft_strlcat.c	/^unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
+ft_strlcpy	libft/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dest, const char *src, size_t size)$/;"	f	typeref:typename:size_t
+ft_strlen	libft/ft_strlen.c	/^size_t	ft_strlen(const char	*str)$/;"	f	typeref:typename:size_t
+ft_strlen_gnl	libft/gnl/get_next_line_utils_bonus.c	/^int	ft_strlen_gnl(char *str)$/;"	f	typeref:typename:int
+ft_strmapi	libft/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
+ft_strncmp	libft/ft_strncmp.c	/^int	ft_strncmp(const char *str1, const char *str2, size_t n)$/;"	f	typeref:typename:int
+ft_strnstr	libft/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *
+ft_strrchr	libft/ft_strrchr.c	/^char	*ft_strrchr(const char *str, int c)$/;"	f	typeref:typename:char *
+ft_strtrim	libft/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
+ft_strtrim_free_s1	libft/ft_strtrim_free_s1.c	/^char	*ft_strtrim_free_s1(char *s1, char const *set)$/;"	f	typeref:typename:char *
+ft_substr	libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
+ft_substr_gnl	libft/gnl/get_next_line_bonus.c	/^char	*ft_substr_gnl(char *str, unsigned int start, size_t size)$/;"	f	typeref:typename:char *
+ft_tolower	libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
+ft_toupper	libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
+game	so_long.h	/^	t_game					*game;$/;"	m	struct:s_vars	typeref:typename:t_game *
+gc	mlx/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list	typeref:typename:GC
+gc	mlx/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img	typeref:typename:GC
+gere_mouse	mlx/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int
+get_img	window_handling.c	/^static void	*get_img(t_vars *vars, char *file)$/;"	f	typeref:typename:void *	file:
+get_map	map_parsing.c	/^t_game	*get_map(char *file_name)$/;"	f	typeref:typename:t_game *
+get_map_size	map_parsing.c	/^static t_bool	get_map_size(char *file_name, t_game *game)$/;"	f	typeref:typename:t_bool	file:
+get_next_line	libft/gnl/get_next_line_bonus.c	/^char	*get_next_line(int fd, t_bool last_call)$/;"	f	typeref:typename:char *
+get_xlib_include_path	mlx/configure	/^get_xlib_include_path(){$/;"	f
+group	.vscode/tasks.json	/^            "group": {$/;"	o	object:tasks.0
+group	libft/.vscode/tasks.json	/^            "group": {$/;"	o	object:tasks.0
+handle_keyboard_input	hooking.c	/^static int	handle_keyboard_input(int keysym, t_vars *vars)$/;"	f	typeref:typename:int	file:
+has_nl	libft/gnl/get_next_line_utils_bonus.c	/^int	has_nl(char const *str)$/;"	f	typeref:typename:int
+height	mlx/mlx_int.h	/^	int				height;$/;"	m	struct:s_img	typeref:typename:int
+hook	hooking.c	/^int	hook(t_vars *vars)$/;"	f	typeref:typename:int
+hook	mlx/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list	typeref:typename:int (*)()
+hooks	mlx/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list	typeref:typename:t_event_list[]
+ignoreFailures	.vscode/launch.json	/^              "ignoreFailures": true$/;"	b	object:configurations.0.setupCommands.0
+ignoreFailures	.vscode/launch.json	/^              "ignoreFailures": true$/;"	b	object:configurations.0.setupCommands.1
+im1	mlx/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
+im2	mlx/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
+im3	mlx/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
+im4	mlx/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
+image	mlx/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img	typeref:typename:XImage *
+includePath	.vscode/c_cpp_properties.json	/^            "includePath": [$/;"	a	object:configurations.0
+initialize_window	window_handling.c	/^void	initialize_window(t_vars *vars)$/;"	f	typeref:typename:void
+intelliSenseMode	.vscode/c_cpp_properties.json	/^            "intelliSenseMode": "linux-gcc-x64",$/;"	s	object:configurations.0
+isDefault	.vscode/tasks.json	/^                "isDefault": true$/;"	b	object:tasks.0.group
+isDefault	libft/.vscode/tasks.json	/^                "isDefault": true$/;"	b	object:tasks.0.group
+is_map_valid	so_long.h	/^	t_bool		is_map_valid;$/;"	m	struct:s_game	typeref:typename:t_bool
+is_surrended_by_walls	map_validation.c	/^static t_bool	is_surrended_by_walls(char *map[])$/;"	f	typeref:typename:t_bool	file:
+key_hook	mlx/mlx_int.h	/^	int					(*key_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+key_param	mlx/mlx_int.h	/^	void				*key_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+key_win1	mlx/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int
+key_win2	mlx/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int
+key_win3	mlx/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int
+kind	.vscode/tasks.json	/^                "kind": "build",$/;"	s	object:tasks.0.group
+kind	libft/.vscode/tasks.json	/^                "kind": "build",$/;"	s	object:tasks.0.group
+label	.vscode/tasks.json	/^            "label": "C\/C++: gcc.exe build active file",$/;"	s	object:tasks.0
+label	libft/.vscode/tasks.json	/^            "label": "C\/C++: gcc build active file",$/;"	s	object:tasks.0
+libft.h	libft/.vscode/settings.json	/^		"libft.h": "c",$/;"	s	object:files.associations
+limits.h	.vscode/settings.json	/^    "limits.h": "c"$/;"	s	object:files.associations
+load_assets	window_handling.c	/^static void	load_assets(t_vars *vars)$/;"	f	typeref:typename:void	file:
+local_endian	mlx/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
+log_error	mlx/configure	/^log_error(){$/;"	f
+log_error	mlx/test/run_tests.sh	/^log_error(){$/;"	f
+log_info	mlx/configure	/^log_info(){$/;"	f
+log_info	mlx/test/run_tests.sh	/^log_info(){$/;"	f
+logging	mlx/configure	/^logging(){$/;"	f
+logging	mlx/test/run_tests.sh	/^logging(){$/;"	f
+loop_hook	mlx/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar	typeref:typename:int (*)()
+loop_param	mlx/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar	typeref:typename:void *
+lose	so_long.h	/^	lose,$/;"	e	enum:e_game_status
+main	main.c	/^int	main(int argc, char *argv[])$/;"	f	typeref:typename:int
+main	mlx/configure	/^main(){$/;"	f
+main	mlx/test/main.c	/^int	main()$/;"	f	typeref:typename:int
+main	mlx/test/new_win.c	/^int main()$/;"	f	typeref:typename:int
+main	mlx/test/run_tests.sh	/^main(){$/;"	f
+map	so_long.h	/^	char		**map;$/;"	m	struct:s_game	typeref:typename:char **
+mask	mlx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list	typeref:typename:int
+mlx	mlx/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
+mlx	mlx/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
+mlx	so_long.h	/^	void					*mlx;$/;"	m	struct:s_vars	typeref:typename:void *
+mlx_X_error	mlx/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
+mlx_clear_window	mlx/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
+mlx_col_name	mlx/mlx_rgb.c	/^struct s_col_name mlx_col_name[] =$/;"	v	typeref:struct:s_col_name[]
+mlx_destroy_display	mlx/mlx_destroy_display.c	/^int	mlx_destroy_display(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_destroy_image	mlx/mlx_destroy_image.c	/^int	mlx_destroy_image(t_xvar *xvar, t_img *img)$/;"	f	typeref:typename:int
+mlx_destroy_window	mlx/mlx_destroy_window.c	/^int	mlx_destroy_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int
+mlx_do_key_autorepeatoff	mlx/mlx_hook.c	/^int	mlx_do_key_autorepeatoff(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_do_key_autorepeaton	mlx/mlx_hook.c	/^int	mlx_do_key_autorepeaton(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_do_sync	mlx/mlx_hook.c	/^int	mlx_do_sync(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_expose_hook	mlx/mlx_expose_hook.c	/^int		mlx_expose_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_ext_fullscreen	mlx/mlx_ext_randr.c	/^int			mlx_ext_fullscreen(t_xvar *xvar, t_win_list *win, int fullscreen)$/;"	f	typeref:typename:int
+mlx_flush_event	mlx/mlx_flush_event.c	/^int	mlx_flush_event(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_get_color_value	mlx/mlx_get_color_value.c	/^int             mlx_get_color_value(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
+mlx_get_data_addr	mlx/mlx_get_data_addr.c	/^char	*mlx_get_data_addr(t_img *img,int *bits_per_pixel,$/;"	f	typeref:typename:char *
+mlx_get_screen_size	mlx/mlx_screen_size.c	/^int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)$/;"	f	typeref:typename:int
+mlx_hook	mlx/mlx_hook.c	/^int	mlx_hook(t_win_list *win, int x_event, int x_mask, $/;"	f	typeref:typename:int
+mlx_init	mlx/mlx_init.c	/^void	*mlx_init()$/;"	f	typeref:typename:void *
+mlx_int_anti_resize_win	mlx/mlx_int_anti_resize_win.c	/^int	mlx_int_anti_resize_win(t_xvar *xvar,Window win,int w,int h)$/;"	f	typeref:typename:int
+mlx_int_deal_shm	mlx/mlx_init.c	/^int		mlx_int_deal_shm(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_do_nothing	mlx/mlx_int_do_nothing.c	/^int	mlx_int_do_nothing(void *param)$/;"	f	typeref:typename:int
+mlx_int_egal_img	mlx/mlx_lib_xpm.c	/^int	mlx_int_egal_img(XImage *img1,XImage *img2)$/;"	f	typeref:typename:int
+mlx_int_file_get_rid_comment	mlx/mlx_xpm.c	/^int	mlx_int_file_get_rid_comment(char *ptr, int size)$/;"	f	typeref:typename:int
+mlx_int_get_col_name	mlx/mlx_xpm.c	/^int	mlx_int_get_col_name(char *str,int size)$/;"	f	typeref:typename:int
+mlx_int_get_good_color	mlx/mlx_get_color_value.c	/^int		mlx_int_get_good_color(t_xvar *xvar,int color)$/;"	f	typeref:typename:int
+mlx_int_get_line	mlx/mlx_xpm.c	/^char	*mlx_int_get_line(char *ptr,int *pos,int size)$/;"	f	typeref:typename:char *
+mlx_int_get_text_rgb	mlx/mlx_xpm.c	/^int	mlx_int_get_text_rgb(char *name, char *end)$/;"	f	typeref:typename:int
+mlx_int_get_visual	mlx/mlx_int_get_visual.c	/^int		mlx_int_get_visual(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_new_image	mlx/mlx_new_image.c	/^void	*mlx_int_new_image(t_xvar *xvar,int width, int height,int format)$/;"	f	typeref:typename:void *
+mlx_int_new_xshm_image	mlx/mlx_new_image.c	/^void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)$/;"	f	typeref:typename:void *
+mlx_int_param_ButtonPress	mlx/mlx_int_param_event.c	/^int	mlx_int_param_ButtonPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_ButtonRelease	mlx/mlx_int_param_event.c	/^int	mlx_int_param_ButtonRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_Expose	mlx/mlx_int_param_event.c	/^int	mlx_int_param_Expose(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_KeyPress	mlx/mlx_int_param_event.c	/^int	mlx_int_param_KeyPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_KeyRelease	mlx/mlx_int_param_event.c	/^int	mlx_int_param_KeyRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_MotionNotify	mlx/mlx_int_param_event.c	/^int	mlx_int_param_MotionNotify(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_event	mlx/mlx_int_param_event.c	/^int	(*(mlx_int_param_event[]))() =$/;"	v	typeref:typename:int (* ([]))()
+mlx_int_param_generic	mlx/mlx_int_param_event.c	/^int	mlx_int_param_generic(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_int_param_undef	mlx/mlx_int_param_event.c	/^int	mlx_int_param_undef()$/;"	f	typeref:typename:int
+mlx_int_parse_xpm	mlx/mlx_xpm.c	/^void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())$/;"	f	typeref:typename:void *
+mlx_int_rgb_conversion	mlx/mlx_init.c	/^int		mlx_int_rgb_conversion(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_set_win_event_mask	mlx/mlx_int_set_win_event_mask.c	/^int	mlx_int_set_win_event_mask(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_int_static_line	mlx/mlx_xpm.c	/^char	*mlx_int_static_line(char **xpm_data,int *pos,int size)$/;"	f	typeref:typename:char *
+mlx_int_str_str	mlx/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str(char *str,char *find,int len)$/;"	f	typeref:typename:int
+mlx_int_str_str_cote	mlx/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str_cote(char *str,char *find,int len)$/;"	f	typeref:typename:int
+mlx_int_str_to_wordtab	mlx/mlx_int_str_to_wordtab.c	/^char	**mlx_int_str_to_wordtab(char *str)$/;"	f	typeref:typename:char **
+mlx_int_wait_first_expose	mlx/mlx_int_wait_first_expose.c	/^int	mlx_int_wait_first_expose(t_xvar *xvar,Window win)$/;"	f	typeref:typename:int
+mlx_int_xpm_f_image	mlx/mlx_lib_xpm.c	/^void		*mlx_int_xpm_f_image(t_xvar *xvar,int *width,int *height,$/;"	f	typeref:typename:void *
+mlx_int_xpm_set_pixel	mlx/mlx_xpm.c	/^int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)$/;"	f	typeref:typename:int
+mlx_key_hook	mlx/mlx_key_hook.c	/^int		mlx_key_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_loop	mlx/mlx_loop.c	/^int			mlx_loop(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_loop_end	mlx/mlx_loop.c	/^int			mlx_loop_end(t_xvar *xvar)$/;"	f	typeref:typename:int
+mlx_loop_hook	mlx/mlx_loop_hook.c	/^int	mlx_loop_hook(t_xvar *xvar,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_mouse_get_pos	mlx/mlx_mouse.c	/^int		mlx_mouse_get_pos(t_xvar *xvar, t_win_list *win, \\$/;"	f	typeref:typename:int
+mlx_mouse_hide	mlx/mlx_mouse.c	/^int		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_mouse_hook	mlx/mlx_mouse_hook.c	/^int		mlx_mouse_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int
+mlx_mouse_move	mlx/mlx_mouse.c	/^int		mlx_mouse_move(t_xvar *xvar, t_win_list *win, int x, int y)$/;"	f	typeref:typename:int
+mlx_mouse_show	mlx/mlx_mouse.c	/^int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int
+mlx_new_image	mlx/mlx_new_image.c	/^void	*mlx_new_image(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
+mlx_new_image2	mlx/mlx_new_image.c	/^void	*mlx_new_image2(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *
+mlx_new_window	mlx/mlx_new_window.c	/^void	*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title)$/;"	f	typeref:typename:void *
+mlx_pixel_put	mlx/mlx_pixel_put.c	/^int		mlx_pixel_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
+mlx_put_image_to_window	mlx/mlx_put_image_to_window.c	/^int	mlx_put_image_to_window(t_xvar *xvar,t_win_list *win,t_img *img,$/;"	f	typeref:typename:int
+mlx_set_font	mlx/mlx_set_font.c	/^void	mlx_set_font(t_xvar *xvar, t_win_list *win, char *name)$/;"	f	typeref:typename:void
+mlx_string_put	mlx/mlx_string_put.c	/^int		mlx_string_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int
+mlx_xpm_file_to_image	mlx/mlx_lib_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *filename,$/;"	f	typeref:typename:void *
+mlx_xpm_file_to_image	mlx/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f	typeref:typename:void *
+mlx_xpm_to_image	mlx/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *
+mlx_xpm_to_image	mlx/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *
+mouse_hook	mlx/mlx_int.h	/^	int					(*mouse_hook)();$/;"	m	struct:s_win_list	typeref:typename:int (*)()
+mouse_param	mlx/mlx_int.h	/^	void				*mouse_param;$/;"	m	struct:s_win_list	typeref:typename:void *
+mouse_win1	mlx/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
+mouse_win2	mlx/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f	typeref:typename:int
+mouse_win3	mlx/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int
+move	movement.c	/^t_game_status	move(t_game *game, int direction)$/;"	f	typeref:typename:t_game_status
+move_enemy	enemy_movement.c	/^static void	move_enemy(t_vars *vars, t_position	*start)$/;"	f	typeref:typename:void	file:
+moved	so_long.h	/^	moved,$/;"	e	enum:e_game_status
+name	.vscode/c_cpp_properties.json	/^            "name": "linux-gcc-x64",$/;"	s	object:configurations.0
+name	.vscode/launch.json	/^      "name": "(gdb) Launch",$/;"	s	object:configurations.0
+name	mlx/mlx_int.h	/^	char	*name;$/;"	m	struct:s_col_name	typeref:typename:char *
+name	mlx/mlx_int.h	/^	int		name;$/;"	m	struct:s_xpm_col	typeref:typename:int
+next	libft/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
+next	mlx/mlx_int.h	/^	struct s_win_list	*next;$/;"	m	struct:s_win_list	typeref:struct:s_win_list *
+null_init	libft/gnl/get_next_line_bonus.c	/^char	*null_init(void)$/;"	f	typeref:typename:char *
+number_of_columns	so_long.h	/^	int			number_of_columns;$/;"	m	struct:s_game	typeref:typename:int
+number_of_moves	so_long.h	/^	int			number_of_moves;$/;"	m	struct:s_game	typeref:typename:int
+number_of_rows	so_long.h	/^	int			number_of_rows;$/;"	m	struct:s_game	typeref:typename:int
+options	.vscode/tasks.json	/^            "options": {$/;"	o	object:tasks.0
+options	libft/.vscode/tasks.json	/^            "options": {$/;"	o	object:tasks.0
+param	mlx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list	typeref:typename:void *
+parse_args	mlx/configure	/^parse_args(){$/;"	f
+pix	mlx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img	typeref:typename:Pixmap
+player_direction	so_long.h	/^	int			player_direction;$/;"	m	struct:s_game	typeref:typename:int
+player_down	so_long.h	/^	void	*player_down[2];$/;"	m	struct:s_assets	typeref:typename:void * [2]
+player_left	so_long.h	/^	void	*player_left[2];$/;"	m	struct:s_assets	typeref:typename:void * [2]
+player_position	so_long.h	/^	t_position	*player_position;$/;"	m	struct:s_game	typeref:typename:t_position *
+player_right	so_long.h	/^	void	*player_right[2];$/;"	m	struct:s_assets	typeref:typename:void * [2]
+player_up	so_long.h	/^	void	*player_up[2];$/;"	m	struct:s_assets	typeref:typename:void * [2]
+playing	so_long.h	/^	playing,$/;"	e	enum:e_game_status
+private_cmap	mlx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar	typeref:typename:int
+problemMatcher	.vscode/tasks.json	/^            "problemMatcher": [$/;"	a	object:tasks.0
+problemMatcher	libft/.vscode/tasks.json	/^            "problemMatcher": [$/;"	a	object:tasks.0
+program	.vscode/launch.json	/^      "program": "${workspaceFolder}\/so_long",$/;"	s	object:configurations.0
+pshm_format	mlx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar	typeref:typename:int
+put_img	utils.c	/^int	put_img(t_vars *vars, void *asset, int x, int y)$/;"	f	typeref:typename:int
+re	libft/Makefile	/^re: fclean all$/;"	t
+re	makefile	/^re: fclean all$/;"	t
+re	mlx/Makefile	/^re	: clean all$/;"	t
+re	mlx/test/Makefile.mk	/^re: clean all$/;"	t
+read_map	map_parsing.c	/^static void	read_map(char *file_name, t_game *game)$/;"	f	typeref:typename:void	file:
+reason	so_long.h	/^	char		*reason;$/;"	m	struct:s_game	typeref:typename:char *
+render_exit	rendering.c	/^static int	render_exit(t_vars *vars, t_position pos)$/;"	f	typeref:typename:int	file:
+render_movement_count	rendering.c	/^static void	render_movement_count(t_vars *vars, int x, int y)$/;"	f	typeref:typename:void	file:
+render_next_frame	rendering.c	/^int	render_next_frame(t_vars *vars)$/;"	f	typeref:typename:int
+render_player	rendering.c	/^static int	render_player(t_vars *vars, t_position pos, int status)$/;"	f	typeref:typename:int	file:
+render_tile	rendering.c	/^static int	render_tile(t_vars *vars, int j, int i, int as)$/;"	f	typeref:typename:int	file:
+request	.vscode/launch.json	/^      "request": "launch",$/;"	s	object:configurations.0
+reverse_string	libft/ft_itoa.c	/^static char	*reverse_string(char *s, int s_length)$/;"	f	typeref:typename:char *	file:
+root	mlx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar	typeref:typename:Window
+s_assets	so_long.h	/^typedef struct s_assets$/;"	s
+s_col_name	mlx/mlx_int.h	/^struct	s_col_name$/;"	s
+s_event_list	mlx/mlx_int.h	/^typedef struct	s_event_list$/;"	s
+s_game	so_long.h	/^typedef struct s_game$/;"	s
+s_img	mlx/mlx_int.h	/^typedef struct	s_img$/;"	s
+s_list	libft/libft.h	/^typedef struct s_list$/;"	s
+s_position	so_long.h	/^typedef struct s_position$/;"	s
+s_vars	so_long.h	/^typedef struct s_vars$/;"	s
+s_win_list	mlx/mlx_int.h	/^typedef struct	s_win_list$/;"	s
+s_xpm_col	mlx/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
+s_xvar	mlx/mlx_int.h	/^typedef struct	s_xvar$/;"	s
+saved_mode	mlx/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v	typeref:typename:RRMode
+screen	mlx/mlx_int.h	/^	int			screen;$/;"	m	struct:s_xvar	typeref:typename:int
+search_components	map_content.c	/^static t_bool	search_components(t_game *game, int *n_exit, int *n_player)$/;"	f	typeref:typename:t_bool	file:
+setupCommands	.vscode/launch.json	/^      "setupCommands": [$/;"	a	object:configurations.0
+shm	mlx/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img	typeref:typename:XShmSegmentInfo
+shm_att_pb	mlx/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int
+show	mlx/Makefile.mk	/^show:$/;"	t
+show	mlx/test/Makefile.mk	/^show:$/;"	t
+show_help	mlx/configure	/^show_help(){$/;"	f
+sigint_handler	mlx/test/run_tests.sh	/^sigint_handler(){$/;"	f
+size_line	mlx/mlx_int.h	/^	int				size_line;$/;"	m	struct:s_img	typeref:typename:int
+sl1	mlx/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
+sl2	mlx/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
+sl3	mlx/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
+sl4	mlx/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
+so_long.h	.vscode/settings.json	/^    "so_long.h": "c",$/;"	s	object:files.associations
+split_by_nl	libft/gnl/get_next_line_bonus.c	/^char	*split_by_nl(char **temp)$/;"	f	typeref:typename:char *
+start_game	window_handling.c	/^void	start_game(t_game *game)$/;"	f	typeref:typename:void
+stdio.h	libft/.vscode/settings.json	/^		"stdio.h": "c",$/;"	s	object:files.associations
+stopAtEntry	.vscode/launch.json	/^      "stopAtEntry": false,$/;"	b	object:configurations.0
+strlcpy_is_not_posix	mlx/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int
+switch_element_type	map_content.c	/^static int	switch_element_type(t_game *game, int i, int j, int *exit_num)$/;"	f	typeref:typename:int	file:
+switch_position	movement.c	/^static t_game_status	switch_position(t_game *game, t_position newposition)$/;"	f	typeref:typename:t_game_status	file:
+t_assets	so_long.h	/^}	t_assets;$/;"	t	typeref:struct:s_assets
+t_bool	libft/libft.h	/^}	t_bool;$/;"	t	typeref:enum:e_bool
+t_event_list	mlx/mlx_int.h	/^}				t_event_list;$/;"	t	typeref:struct:s_event_list
+t_game	so_long.h	/^}	t_game;$/;"	t	typeref:struct:s_game
+t_game_status	so_long.h	/^}	t_game_status;$/;"	t	typeref:enum:e_game_status
+t_img	mlx/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
+t_list	libft/libft.h	/^}	t_list;$/;"	t	typeref:struct:s_list
+t_position	so_long.h	/^}	t_position;$/;"	t	typeref:struct:s_position
+t_vars	so_long.h	/^}	t_vars;$/;"	t	typeref:struct:s_vars
+t_win_list	mlx/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
+t_xpm_col	mlx/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
+t_xvar	mlx/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
+tasks	.vscode/tasks.json	/^    "tasks": [$/;"	a
+tasks	libft/.vscode/tasks.json	/^    "tasks": [$/;"	a
+test	makefile	/^test: all$/;"	t
+test_default_main	mlx/test/run_tests.sh	/^test_default_main(){$/;"	f
+text	.vscode/launch.json	/^              "text": "-enable-pretty-printing",$/;"	s	object:configurations.0.setupCommands.0
+text	.vscode/launch.json	/^              "text": "-gdb-set disassembly-flavor intel",$/;"	s	object:configurations.0.setupCommands.1
+try_move	movement.c	/^static t_game_status	try_move(t_game *game, t_position newposition)$/;"	f	typeref:typename:t_game_status	file:
+try_move_enemy	enemy_movement.c	/^static void	try_move_enemy(t_vars *vars, t_position *start, t_position end)$/;"	f	typeref:typename:void	file:
+try_reach	map_validation.c	/^void	try_reach(char **map, t_position s_pos, int *n_ex, int *n_col)$/;"	f	typeref:typename:void
+type	.vscode/launch.json	/^      "type": "cppdbg",$/;"	s	object:configurations.0
+type	.vscode/tasks.json	/^            "type": "cppbuild",$/;"	s	object:tasks.0
+type	libft/.vscode/tasks.json	/^            "type": "cppbuild",$/;"	s	object:tasks.0
+type	mlx/mlx_int.h	/^	int				type;$/;"	m	struct:s_img	typeref:typename:int
+use_xshm	mlx/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar	typeref:typename:int
+valgrind	makefile	/^valgrind: all$/;"	t
+validate_content	map_content.c	/^t_bool	validate_content(t_game *game)$/;"	f	typeref:typename:t_bool
+validate_file_name	map_parsing.c	/^static t_bool	validate_file_name(char *file_name, t_game *game)$/;"	f	typeref:typename:t_bool	file:
+validate_map	map_validation.c	/^void	validate_map(t_game *game)$/;"	f	typeref:typename:void
+version	.vscode/c_cpp_properties.json	/^    "version": 4$/;"	n
+version	.vscode/launch.json	/^  "version": "0.2.0",$/;"	s
+version	.vscode/tasks.json	/^    "version": "2.0.0"$/;"	s
+version	libft/.vscode/tasks.json	/^    "version": "2.0.0"$/;"	s
+visual	mlx/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar	typeref:typename:Visual *
+wall	so_long.h	/^	void	*wall;$/;"	m	struct:s_assets	typeref:typename:void *
+width	mlx/mlx_int.h	/^	int				width;$/;"	m	struct:s_img	typeref:typename:int
+win	so_long.h	/^	void					*win;$/;"	m	struct:s_vars	typeref:typename:void *
+win	so_long.h	/^	void	*win;$/;"	m	struct:s_assets	typeref:typename:void *
+win	so_long.h	/^	win,$/;"	e	enum:e_game_status
+win1	mlx/test/main.c	/^void	*win1;$/;"	v	typeref:typename:void *
+win1	mlx/test/new_win.c	/^void *win1;$/;"	v	typeref:typename:void *
+win2	mlx/test/main.c	/^void    *win2;$/;"	v	typeref:typename:void *
+win2	mlx/test/new_win.c	/^void *win2;$/;"	v	typeref:typename:void *
+win3	mlx/test/main.c	/^void    *win3;$/;"	v	typeref:typename:void *
+win_animation	finish_game.c	/^static int	win_animation(t_vars *vars)$/;"	f	typeref:typename:int	file:
+win_count	mlx/mlx_loop.c	/^static int	win_count(t_xvar *xvar)$/;"	f	typeref:typename:int	file:
+win_list	mlx/mlx_int.h	/^	t_win_list	*win_list;$/;"	m	struct:s_xvar	typeref:typename:t_win_list *
+window	mlx/mlx_int.h	/^	Window				window;$/;"	m	struct:s_win_list	typeref:typename:Window
+wm_delete_window	mlx/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar	typeref:typename:Atom
+wm_protocols	mlx/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar	typeref:typename:Atom
+x	so_long.h	/^	int	x;$/;"	m	struct:s_position	typeref:typename:int
+xpm1_x	mlx/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
+xpm1_y	mlx/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
+y	so_long.h	/^	int	y;$/;"	m	struct:s_position	typeref:typename:int

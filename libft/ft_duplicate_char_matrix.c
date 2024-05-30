@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_duplicate_char_matrix.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maceccar <maceccar@student.42firenze.it>   +#+  +:+       +#+        */
+/*   By: lebartol <lebartol@student.42firenze.it>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 11:22:43 by maceccar          #+#    #+#             */
-/*   Updated: 2024/05/03 00:47:17 by maceccar         ###   ########.fr       */
+/*   Created: 1970/01/01 01:00:00 by lebartol          #+#    #+#             */
+/*   Updated: 2024/05/20 17:31:40 by lebartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
