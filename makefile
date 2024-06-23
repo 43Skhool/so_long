@@ -20,27 +20,27 @@ FLAGS		= -Wall -Werror -Wextra -g
 OBJS		= $(SRC:%.c=%.o)
 
 $(NAME): $(OBJS)
-	@${MAKE} -sC libft bonus
-	@${MAKE} -sC mlx
-	@cc $(OBJS) -lm -L$(LIBFT_PATH) -lft -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
+	${MAKE} -C libft bonus
+	${MAKE} -C mlx
+	cc $(FLAGS) $(OBJS) -lm -L$(LIBFT_PATH) -lft -Lmlx -lmlx -lXext -lX11 -o $(NAME) -s
 
 all:$(NAME)
 
 %.o: %.c
-	@cc -c $< -o $@ -I$(LIBFT_PATH) -Imlx
+	cc -c $< -o $@ $(FLAGS) -I$(LIBFT_PATH) -Imlx
 
 clean:
-	@rm -fr *.o
-	@rm -fr **/*.o
-	@${MAKE} -sC libft clean
-	@${MAKE} -sC mlx clean
+	rm -fr *.o
+	rm -fr **/*.o
+	${MAKE} -sC libft clean
+	${MAKE} -sC mlx clean
 
 fclean: clean
-	@rm -f *.a
-	@rm -f *.out
-	@rm -f *.gch
-	@rm -f $(NAME)
-	@${MAKE} -C libft fclean -s
+	rm -f *.a
+	rm -f *.out
+	rm -f *.gch
+	rm -f $(NAME)
+	${MAKE} -C libft fclean -s
 
 re: fclean all
 
